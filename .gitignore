@@ -1,0 +1,11 @@
+/docs/_build/
+*.vagrant
+*.retry
+roles*
+config.yml
+
+# Pycharm
+.idea/
+
+# Visual Studio Code
+.vscode/

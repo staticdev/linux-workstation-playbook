@@ -1,0 +1,5 @@
+---
+- name: Install Keypass XC
+  community.general.snap:
+    name: keepassxc
+  become: true

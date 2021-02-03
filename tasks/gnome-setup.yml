@@ -1,0 +1,46 @@
+---
+- name: Install system monitor
+  package:
+    name: gnome-shell-extension-system-monitor
+    state: present
+  become: true
+  notify:
+    - restart gnome
+- name: Install python-psutil package
+  apt:
+    name: python3-psutil
+  become: true
+- name: Setup night-light
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
+  with_items:
+    # values from gsettings list-recursively org.gnome.settings-daemon.plugins.color
+    - key: /org/gnome/settings-daemon/plugins/color/night-light-temperature
+      value: uint32 2700
+    - key: /org/gnome/settings-daemon/plugins/color/night-light-enabled
+      value: "true"
+    - key: /org/gnome/settings-daemon/plugins/color/night-light-schedule-automatic
+      value: "false"
+    - key: /org/gnome/settings-daemon/plugins/color/night-light-schedule-to
+      value: 6.0
+    - key: /org/gnome/settings-daemon/plugins/color/night-light-last-coordinates
+      value: (91.0, 181.0)
+    - key: /org/gnome/settings-daemon/plugins/color/active
+      value: "true"
+    - key: /org/gnome/settings-daemon/plugins/color/priority
+      value: 0
+    - key: /org/gnome/settings-daemon/plugins/color/night-light-schedule-from
+      value: 16.0
+- name: Setup favorite-apps
+  dconf:
+    key: /org/gnome/shell/favorite-apps
+    value:
+      [
+        "google-chrome.desktop",
+        "firefox.desktop",
+        "org.gnome.Nautilus.desktop",
+        "code.desktop",
+        "pycharm-professional_pycharm-professional.desktop",
+      ]

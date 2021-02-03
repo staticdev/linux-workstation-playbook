@@ -1,0 +1,10 @@
+---
+roles:
+  - name: darkwizard242.googlechrome
+  - name: geerlingguy.docker
+  - name: robertdebock.obsproject
+  - name: staticdev.python_developer
+
+collections:
+  - name: community.general
+  - name: community.crypto

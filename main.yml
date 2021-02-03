@@ -1,0 +1,102 @@
+---
+- hosts: all
+
+  vars_files:
+    - default.config.yml
+
+  pre_tasks:
+    - include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.yml"
+
+  handlers:
+    - name: dpkg-reconfigure keyboard-configuration
+      become: yes
+      command: /usr/sbin/dpkg-reconfigure -f noninteractive keyboard-configuration
+    - name: restart gnome
+      command: killall -SIGQUIT gnome-shell
+    - name: delete openrgb repo
+      file:
+        path: "{{ ansible_env.HOME }}/OpenRGB"
+        state: absent
+    - name: delete openrgb generated files
+      file:
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        state: absent
+      with_items:
+        - openrgb_0.51.1_amd64.buildinfo
+        - openrgb_0.51.1_amd64.changes
+        - openrgb_0.51.1_amd64.deb
+        - openrgb-dbgsym_0.51.1_amd64.ddeb
+  roles:
+    - role: darkwizard242.googlechrome
+      when: install_google_chrome
+      become: true
+    - role: geerlingguy.docker
+      when: install_docker
+      vars:
+        docker_compose_version: "1.28.0"
+        docker_users: ["{{ ansible_env.USER }}"]
+      become: true
+    - role: robertdebock.obsproject
+      when: install_obs
+    - role: staticdev.python_developer
+      vars:
+        install_pycharm: "{{ install_pycharm }}"
+        install_vscode: install_vscode
+        vscode_extensions: vscode_extensions
+      when: python_developer
+
+  tasks:
+    - name: Install zsh
+      include_tasks: tasks/zsh.yml
+      when: install_zsh
+
+    - name: Install packages
+      include_tasks: tasks/packages.yml
+      when: install_packages
+
+    - name: Install Keypass XC
+      import_tasks: tasks/keypass-xc.yml
+      when: install_keypass_xc
+
+    - name: Ansible setup
+      include_tasks: tasks/ansible-setup.yml
+
+    - name: International keyboard
+      import_tasks: tasks/international-keyboard.yml
+      when: configure_international_keyboard
+
+    - name: Create SSH key
+      include_tasks: tasks/ssh.yml
+      when: configure_ssh
+
+    - name: Configure sudoers
+      include_tasks: tasks/sudoers.yml
+      when: configure_sudoers
+
+    - name: Configure terminal
+      include_tasks: tasks/terminal.yml
+      when: configure_terminal
+
+    - name: Configure workspace
+      include_tasks: tasks/workspace.yml
+      when: configure_workspace
+
+    - name: Extra packages
+      include_tasks: tasks/extra-packages.yml
+      when: install_extra_packages
+
+    - name: OpenRGB
+      include_tasks: tasks/openrgb.yml
+      when: install_openrgb
+
+    - name: Gnome Setup
+      import_tasks: tasks/gnome-setup.yml
+      when: gnome_setup
+
+    - name: Run configured post-provision ansible task files.
+      include_tasks: "{{ outer_item }}"
+      loop_control:
+        loop_var: outer_item
+      with_fileglob: "{{ post_provision_tasks|default(omit) }}"

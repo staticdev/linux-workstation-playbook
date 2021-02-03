@@ -1,0 +1,44 @@
+---
+- name: Check if openrbg is installed
+  command: openrgb --version
+  register: openrgb_version_cmd
+  changed_when: false
+  ignore_errors: true
+- name: Ensure packages are installed
+  package:
+    name: "{{ item }}"
+    state: present
+  become: true
+  with_items:
+    - build-essential
+    - debhelper
+    - i2c-tools
+    - qtcreator
+    - qt5-default
+    - libusb-1.0-0-dev
+    - libhidapi-dev
+    - pkgconf
+    #- pkg-config
+- name: Load i2c-dev module
+  community.general.modprobe:
+    name: i2c-dev
+    state: present
+# bug check https://github.com/ansible-collections/community.general/issues/1608
+# when: openrgb_version_cmd is failed
+- name: Download repo
+  git:
+    repo: https://gitlab.com/staticdev/OpenRGB.git
+    dest: ~/OpenRGB
+  when: openrgb_version_cmd is failed
+  notify: delete openrgb repo
+- name: Generate package
+  command:
+    cmd: dpkg-buildpackage -us -B
+    chdir: ~/OpenRGB
+  when: openrgb_version_cmd is failed
+  notify: delete openrgb generated files
+- name: Install package
+  apt:
+    deb: "{{ lookup('env', 'HOME') }}/openrgb_0.51.1_amd64.deb"
+  become: true
+  when: openrgb_version_cmd is failed

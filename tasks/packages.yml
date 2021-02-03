@@ -1,0 +1,16 @@
+---
+- name: python - basic install
+  become: true
+  package: name=python state=present
+- name: Only run update cache if the last one is more than 3600 seconds ago
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  become: true
+- name: Ensure packages are installed
+  package:
+    name: "{{ item }}"
+    state: present
+  become: true
+  with_items:
+    - "{{ installed_packages }}"

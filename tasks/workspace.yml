@@ -1,0 +1,13 @@
+---
+- name: Creates a workspace directory
+  file:
+    path: "{{ ansible_env.HOME }}/workspace"
+    state: directory
+- name: Create user file for git config
+  copy:
+    src: workspace/.gitconfig_user
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+- name: Create workspace file for git config
+  template:
+    src: workspace/.gitconfig.t2
+    dest: "{{ ansible_env.HOME }}/workspace/.gitconfig"

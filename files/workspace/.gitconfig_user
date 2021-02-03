@@ -1,0 +1,17 @@
+[includeIf "gitdir:~/workspace/"]
+  path = ~/workspace/.gitconfig
+[credential]
+  helper = cache --timeout=36000
+[core]
+  editor = vi
+  autocrlf = input
+[color]
+  ui = always
+[alias]
+  c = commit
+  ca = commit -a
+  cm = commit -m
+  cam = commit -am
+  d = diff
+  dc = diff --cached
+  l = log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit

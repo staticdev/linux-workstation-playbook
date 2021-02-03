@@ -1,0 +1,41 @@
+---
+name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2.1.4
+        with:
+          python-version: "3.9"
+
+      - name: Upgrade pip
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt pip
+          pip --version
+
+      - name: Upgrade ansible-lint
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt ansible-lint
+
+      - name: Upgrade yamllint
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt yamllint
+
+      - name: Lint code.
+        run: |
+          yamllint .
+          ansible-lint

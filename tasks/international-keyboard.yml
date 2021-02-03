@@ -1,0 +1,22 @@
+---
+- name: Change keyboard to international.
+  replace:
+    path: /etc/default/keyboard
+    after: XKBVARIANT=
+    regexp: ^(.+)$
+    replace: alt-intl
+  notify:
+    - dpkg-reconfigure keyboard-configuration
+  become: true
+- name: Configure c-cedilla
+  lineinfile:
+    path: /etc/environment
+    line: "{{ item.line }}"
+    regexp: "{{ item.regexp }}"
+  with_items:
+    - line: GTK_IM_MODULE=cedilla
+      regexp: ^GTK_IM_MODULE=
+    - line: QT_IM_MODULE=cedilla
+      regexp: ^QT_IM_MODULE=
+  become: true
+  when: configure_c_cedilla
