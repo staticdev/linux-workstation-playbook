@@ -3,6 +3,8 @@
 *.retry
 roles*
 config.yml
+.cache/
+.python-version
 
 # Pycharm
 .idea/

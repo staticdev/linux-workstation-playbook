@@ -4,6 +4,7 @@ roles:
   - name: geerlingguy.docker
   - name: robertdebock.obsproject
   - name: staticdev.python_developer
+    version: 0.3.0
 
 collections:
   - name: community.general
