@@ -36,7 +36,7 @@ autoload -Uz compinit
 compinit
 
 # Git upstream branch syncer.
-# Usage: gsync master (checks out master, pull upstream, push origin).
+# Usage: gsync main (checks out main, pull upstream, push origin).
 function gsync() {
  if [[ ! "$1" ]] ; then
      echo "You must supply a branch."
