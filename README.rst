@@ -13,7 +13,7 @@ Features
 ========
 
 * These are the configuration I use for my personal development machine
-* Running on "production" on Ubuntu 20.10, most probably will updated to 21.04 as soon as it launches
+* Running on "production" on Ubuntu 20.10, currently in development for Debian 11.
 * Features are optional and configurable (see Usage)
 
 Requirements
