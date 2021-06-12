@@ -31,12 +31,14 @@ install_packages: true
 installed_packages:
   # - ansible # Needs to be installed to run this playbook.
   - apache2-utils
+  - cmake
   - git
   - guake
   - htop
   - nmap
   - node
   - openssl
+  - poedit
   - vagrant
   - vim
   - virtualbox
