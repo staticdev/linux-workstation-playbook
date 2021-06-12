@@ -24,10 +24,10 @@
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: absent
       with_items:
-        - openrgb_0.51.1_amd64.buildinfo
-        - openrgb_0.51.1_amd64.changes
-        - openrgb_0.51.1_amd64.deb
-        - openrgb-dbgsym_0.51.1_amd64.ddeb
+        - openrgb_0.6.0_amd64.buildinfo
+        - openrgb_0.6.0_amd64.changes
+        - openrgb_0.6.0_amd64.deb
+        - openrgb-dbgsym_0.6.0_amd64.ddeb
   roles:
     - role: darkwizard242.googlechrome
       when: install_google_chrome

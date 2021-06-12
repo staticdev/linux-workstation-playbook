@@ -18,7 +18,6 @@
     - libusb-1.0-0-dev
     - libhidapi-dev
     - pkgconf
-    #- pkg-config
 - name: Load i2c-dev module
   community.general.modprobe:
     name: i2c-dev
@@ -27,8 +26,9 @@
 # when: openrgb_version_cmd is failed
 - name: Download repo
   git:
-    repo: https://gitlab.com/staticdev/OpenRGB.git
+    repo: https://gitlab.com/CalcProgrammer1/OpenRGB
     dest: ~/OpenRGB
+    version: release_0.6
   when: openrgb_version_cmd is failed
   notify: delete openrgb repo
 - name: Generate package
@@ -39,6 +39,6 @@
   notify: delete openrgb generated files
 - name: Install package
   apt:
-    deb: "{{ lookup('env', 'HOME') }}/openrgb_0.51.1_amd64.deb"
+    deb: "{{ lookup('env', 'HOME') }}/openrgb_0.6.0_amd64.deb"
   become: true
   when: openrgb_version_cmd is failed
