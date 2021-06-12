@@ -13,17 +13,19 @@ Features
 ========
 
 * These are the configuration I use for my personal development machine
-* Running on "production" on Ubuntu 20.10, currently in development for Debian 11.
+* Currently in development for Debian 11. Refer to release 0.1.0 for Ubuntu.
 * Features are optional and configurable (see Usage)
 
 Requirements
 ============
 
-* Ansible_ installed: on Ubuntu you can just run:
+* Ansible_ installed: on Debian you can just run:
 
 .. code:: console
 
-   sudo apt install ansible
+   sudo apt install python3-pip
+   pip install --user ansible
+   export PATH=$PATH:~/.local/bin
 
 Installation
 ============
