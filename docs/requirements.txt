@@ -1,2 +1,2 @@
 sphinx==4.0.2
-sphinx-click==3.0.0
+sphinx-click==3.0.1
