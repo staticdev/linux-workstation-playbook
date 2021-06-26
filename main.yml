@@ -11,7 +11,7 @@
 
   handlers:
     - name: dpkg-reconfigure keyboard-configuration
-      become: yes
+      become: true
       command: /usr/sbin/dpkg-reconfigure -f noninteractive keyboard-configuration
     - name: restart gnome
       command: killall -SIGQUIT gnome-shell

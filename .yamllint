@@ -9,8 +9,8 @@ rules:
     level: error
   comments:
     level: error
-  # truthy:
-  #  level: error
+  truthy:
+    level: error
 
 ignore: |
   .github/stale.yml
