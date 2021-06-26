@@ -34,6 +34,7 @@ installed_packages:
   - git
   - guake
   - htop
+  - locales-all
   - nmap
   - node
   - openssl
