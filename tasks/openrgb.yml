@@ -11,11 +11,13 @@
   become: true
   with_items:
     - build-essential
-    - debhelper
-    - i2c-tools
+    - qt5-qmake
+    - qtbase5-dev-tools
+    - qtchooser
     - qtcreator
     - libusb-1.0-0-dev
     - libhidapi-dev
+    - libmbedtls-dev
     - pkgconf
 - name: Load i2c-dev module
   community.general.modprobe:
