@@ -14,7 +14,6 @@
     - debhelper
     - i2c-tools
     - qtcreator
-    - qt5-default
     - libusb-1.0-0-dev
     - libhidapi-dev
     - pkgconf
