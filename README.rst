@@ -13,7 +13,7 @@ Features
 ========
 
 * These are the configuration I use for my personal development machine
-* Currently in development for Debian 11. Refer to release 0.1.0 for Ubuntu.
+* Currently supports for Debian 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
 * Features are optional and configurable (see Usage)
 
 Requirements
