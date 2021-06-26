@@ -7,7 +7,7 @@ install_obs: false
 
 python_developer: true
 install_pycharm: false
-pycharm_flavor: pycharm-community
+pycharm_flavor: community
 install_vscode: true
 vscode_extensions:
   - shan.code-settings-sync
