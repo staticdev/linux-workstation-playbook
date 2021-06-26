@@ -41,7 +41,6 @@ installed_packages:
   - poedit
   - vagrant
   - vim
-  - virtualbox
   - xclip
   - wget
 
