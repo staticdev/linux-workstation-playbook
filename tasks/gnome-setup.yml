@@ -38,8 +38,8 @@
     key: /org/gnome/shell/favorite-apps
     value:
       [
-        "google-chrome.desktop",
         "firefox.desktop",
+        "google-chrome.desktop",
         "org.gnome.Nautilus.desktop",
         "code.desktop",
         "pycharm-professional_pycharm-professional.desktop",
