@@ -61,9 +61,6 @@
       import_tasks: tasks/keypass-xc.yml
       when: install_keypass_xc
 
-    - name: Ansible setup
-      include_tasks: tasks/ansible-setup.yml
-
     - name: International keyboard
       import_tasks: tasks/international-keyboard.yml
       when: configure_international_keyboard
