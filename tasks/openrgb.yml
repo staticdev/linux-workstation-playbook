@@ -19,12 +19,12 @@
     - libhidapi-dev
     - libmbedtls-dev
     - pkgconf
+  when: openrgb_version_cmd is failed
 - name: Load i2c-dev module
   community.general.modprobe:
     name: i2c-dev
     state: present
-# bug check https://github.com/ansible-collections/community.general/issues/1608
-# when: openrgb_version_cmd is failed
+  when: openrgb_version_cmd is failed
 - name: Download repo
   git:
     repo: https://gitlab.com/CalcProgrammer1/OpenRGB
