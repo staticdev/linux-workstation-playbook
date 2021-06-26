@@ -44,3 +44,7 @@
         "code.desktop",
         "pycharm-professional_pycharm-professional.desktop",
       ]
+- name: Disable activities overview hot corner
+  dconf:
+    key: /org/gnome/desktop/interface/enable-hot-corners
+    value: "false"
