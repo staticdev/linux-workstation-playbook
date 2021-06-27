@@ -7,8 +7,6 @@ rules:
     level: warning
   document-start:
     level: error
-  comments:
-    level: error
   truthy:
     level: error
 
