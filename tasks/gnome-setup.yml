@@ -38,7 +38,7 @@
     key: /org/gnome/shell/favorite-apps
     value:
       [
-        "firefox.desktop",
+        "firefox-esr.desktop",
         "google-chrome.desktop",
         "org.gnome.Nautilus.desktop",
         "code.desktop",
