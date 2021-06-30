@@ -8,6 +8,8 @@ roles:
     version: 2.0.2
   - name: staticdev.python_developer
     version: 0.5.1
+  - name: staticdev.signal
+    version: 1.0.1
 
 collections:
   - name: community.general
