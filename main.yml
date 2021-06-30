@@ -28,6 +28,7 @@
         - openrgb_0.6.0_amd64.changes
         - openrgb_0.6.0_amd64.deb
         - openrgb-dbgsym_0.6.0_amd64.ddeb
+
   roles:
     - role: darkwizard242.googlechrome
       when: install_google_chrome
@@ -47,6 +48,8 @@
         install_vscode: install_vscode
         vscode_extensions: vscode_extensions
       when: python_developer
+    - role: staticdev.signal
+      when: install_signal
 
   tasks:
     - name: Install zsh

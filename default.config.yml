@@ -2,8 +2,10 @@
 downloads: ~/.ansible-downloads/
 
 install_google_chrome: true
+
 install_docker: true
 install_obs: false
+install_signal: false
 
 python_developer: true
 install_pycharm: false

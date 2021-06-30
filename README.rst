@@ -16,6 +16,7 @@ Features
 * Currently supports for Debian 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
 * Features are optional and configurable (see Usage)
 
+
 Requirements
 ============
 
@@ -26,6 +27,7 @@ Requirements
    sudo apt install python3-pip
    pip install --user ansible
    export PATH=$PATH:~/.local/bin
+
 
 Installation
 ============
@@ -42,16 +44,20 @@ Install dependencies:
 
    ansible-galaxy install -r requirements.yml
 
+
 Usage
 =====
 
 1. Make a copy of `default.config.yml` with the name `config.yml` and change the configurations you want to use.
+
+You can select additional installation of browser and assorted FOSS programs such as `OBS`_ or `Signal`_ messenger.
 
 2. Run the command:
 
 .. code:: console
 
    ansible-playbook main.yml -i inventory --ask-become-pass
+
 
 Overriding Defaults
 -------------------
@@ -86,36 +92,26 @@ Edit the `inventory` file in this repository and change the line that starts wit
 
 If you need to supply an SSH password (if you don't use SSH keys), make sure to pass the `--ask-pass` parameter to the `ansible-playbook` command.
 
+
 Included Applications / Configuration (Default)
 -----------------------------------------------
 
 Packages (installed with apt):
 
-  - autoconf
-  - bash-completion
-  - doxygen
-  - gettext
-  - gifsicle
+  - apache2-utils
+  - cmake
   - git
-  - go
-  - gpg
-  - hub
-  - httpie
-  - iperf
-  - libevent
-  - sqlite
-  - mcrypt
+  - guake
+  - htop
+  - locales-all
   - nmap
   - node
-  - nvm
-  - php
-  - ssh-copy-id
-  - cowsay
-  - readline
   - openssl
-  - pv
+  - poedit
+  - vagrant
+  - vim
+  - xclip
   - wget
-  - wrk
 
 Finally, there are a few other preferences and settings added on for various apps and services.
 
@@ -148,7 +144,9 @@ This project was inspired by `@geerlingguy`_'s `Mac Development Ansible Playbook
 
 
 .. _Ansible: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
-.. _MIT: http://opensource.org/licenses/MIT
+.. _MIT: https://opensource.org/licenses/MIT
+.. _OBS: https://obsproject.com/
+.. _Signal: https://signal.org
 .. _file an issue: https://github.com/staticdev/linux-dev-playbook/issues
 .. _@geerlingguy: https://github.com/geerlingguy
 .. _Mac Development Ansible Playbook: https://github.com/geerlingguy/mac-dev-playbook
