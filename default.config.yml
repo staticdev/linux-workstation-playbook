@@ -4,8 +4,6 @@ downloads: ~/.ansible-downloads/
 install_google_chrome: true
 
 install_docker: true
-install_obs: false
-install_signal: false
 
 python_developer: true
 install_pycharm: false
@@ -21,10 +19,12 @@ configure_ssh: true
 configure_sudoers: false
 sudoers_custom_config: ""
 
+configure_terminal: true
+guake_keybinding: "F12"
+
 install_zsh: true
 zsh_default_shell: true
 
-configure_terminal: true
 configure_workspace: true
 git_email: name@mail.com
 git_username: gitusername
@@ -46,18 +46,25 @@ installed_packages:
   - xclip
   - wget
 
-install_keypass_xc: false
+gnome_setup: true
+gnome_favorite_apps: [
+  "firefox-esr.desktop",
+  "google-chrome.desktop",
+  "org.gnome.Nautilus.desktop",
+  "code.desktop",
+#  "pycharm-professional_pycharm-professional.desktop", # Pycharm name depends on the flavor
+#  "signal-desktop.desktop",
+]
 
-gnome_setup: false
+install_keypass_xc: false
+install_obs: false
+install_openrgb: false
+install_signal: false
 
 # Install packages from other package managers.
 install_extra_packages: true
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
-composer_packages: []
-# - name: drush
-#   state: present # present/absent, default: present
-#   version: "^8.1" # default: N/A
 gem_packages: []
 # - name: bundler
 #   state: present # present/absent/latest, default: present
@@ -70,8 +77,6 @@ pip_packages: []
 # - name: mkdocs
 #   state: present # present/absent/latest, default: present
 #   version: "0.16.3" # default: N/A
-
-install_openrgb: false
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
