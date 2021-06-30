@@ -17,33 +17,26 @@
     state: present
   with_items:
     # values from gsettings list-recursively org.gnome.settings-daemon.plugins.color
-    - key: /org/gnome/settings-daemon/plugins/color/night-light-temperature
+    - key: "/org/gnome/settings-daemon/plugins/color/night-light-temperature"
       value: uint32 2700
-    - key: /org/gnome/settings-daemon/plugins/color/night-light-enabled
+    - key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
       value: "true"
-    - key: /org/gnome/settings-daemon/plugins/color/night-light-schedule-automatic
+    - key: "/org/gnome/settings-daemon/plugins/color/night-light-schedule-automatic"
       value: "false"
-    - key: /org/gnome/settings-daemon/plugins/color/night-light-schedule-to
+    - key: "/org/gnome/settings-daemon/plugins/color/night-light-schedule-to"
       value: 6.0
-    - key: /org/gnome/settings-daemon/plugins/color/night-light-last-coordinates
+    - key: "/org/gnome/settings-daemon/plugins/color/night-light-last-coordinates"
       value: (91.0, 181.0)
-    - key: /org/gnome/settings-daemon/plugins/color/active
+    - key: "/org/gnome/settings-daemon/plugins/color/active"
       value: "true"
-    - key: /org/gnome/settings-daemon/plugins/color/priority
+    - key: "/org/gnome/settings-daemon/plugins/color/priority"
       value: 0
-    - key: /org/gnome/settings-daemon/plugins/color/night-light-schedule-from
+    - key: "/org/gnome/settings-daemon/plugins/color/night-light-schedule-from"
       value: 16.0
 - name: Setup favorite-apps
   dconf:
     key: /org/gnome/shell/favorite-apps
-    value:
-      [
-        "firefox-esr.desktop",
-        "google-chrome.desktop",
-        "org.gnome.Nautilus.desktop",
-        "code.desktop",
-        "pycharm-professional_pycharm-professional.desktop",
-      ]
+    value: "{{ gnome_favorite_apps }}"
 - name: Disable activities overview hot corner
   dconf:
     key: /org/gnome/desktop/interface/enable-hot-corners
