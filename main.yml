@@ -27,7 +27,7 @@
         - openrgb_0.6.0_amd64.buildinfo
         - openrgb_0.6.0_amd64.changes
         - openrgb_0.6.0_amd64.deb
-        - openrgb-dbgsym_0.6.0_amd64.ddeb
+        - openrgb-dbgsym_0.6.0_amd64.deb
 
   roles:
     - role: darkwizard242.googlechrome
