@@ -41,3 +41,7 @@
   dconf:
     key: /org/gnome/desktop/interface/enable-hot-corners
     value: "false"
+- name: Disable lock-screen notifications
+  dconf:
+    key: /org/gnome/desktop/notifications/show-in-lock-screen
+    value: "false"
