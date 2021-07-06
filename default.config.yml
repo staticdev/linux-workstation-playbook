@@ -1,10 +1,10 @@
 ---
 downloads: ~/.ansible-downloads/
 
-install_google_chrome: true
-
+# Docker
 install_docker: true
 
+# IDEs
 python_developer: true
 install_pycharm: false
 pycharm_flavor: community
@@ -12,23 +12,48 @@ install_vscode: true
 vscode_extensions:
   - shan.code-settings-sync
 
+# browser configs
+## Firefox config (note: default profile for Debian is default-esr)
+configure_firefox: false
+firefox_profiles:
+  default-esr:
+    extensions:
+      - ublock-origin
+    preferences:
+      network.cookie.cookieBehavior: 1
+      privacy.donottrackheader.enabled: true
+      signon.rememberSignons: false
+## Chrome install
+install_google_chrome: true
+
+# keyboard config
 configure_international_keyboard: true
 configure_c_cedilla: false
 
+# SSH config
 configure_ssh: true
 configure_sudoers: false
 sudoers_custom_config: ""
+# Example:
+# sudoers_custom_config: |
+#   # Allow users in admin group to use sudo with no password.
+#   %admin ALL=(ALL) NOPASSWD: ALL
 
+# terminal config
+## Guake config
 configure_terminal: true
 guake_keybinding: "F12"
 
+## ZSH config
 install_zsh: true
 zsh_default_shell: true
 
+# Git config
 configure_workspace: true
 git_email: name@mail.com
 git_username: gitusername
 
+# install packages
 install_packages: true
 installed_packages:
   - apache2-utils
@@ -46,22 +71,7 @@ installed_packages:
   - xclip
   - wget
 
-gnome_setup: true
-gnome_favorite_apps: [
-  "firefox-esr.desktop",
-  "google-chrome.desktop",
-  "org.gnome.Nautilus.desktop",
-  "code.desktop",
-#  "pycharm-professional_pycharm-professional.desktop", # Pycharm name depends on the flavor
-#  "signal-desktop.desktop",
-]
-
-install_keypass_xc: false
-install_obs: false
-install_openrgb: false
-install_signal: false
-
-# Install packages from other package managers.
+# install packages from other package managers.
 install_extra_packages: true
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
@@ -78,5 +88,22 @@ pip_packages: []
 #   state: present # present/absent/latest, default: present
 #   version: "0.16.3" # default: N/A
 
-# Glob pattern to ansible task files to run after all other tasks are finished.
+# Gnome config
+gnome_setup: true
+gnome_favorite_apps: [
+  "firefox-esr.desktop",
+  "google-chrome.desktop",
+  "org.gnome.Nautilus.desktop",
+  "code.desktop",
+#  "pycharm-professional_pycharm-professional.desktop", # Pycharm name depends on the flavor
+#  "signal-desktop.desktop",
+]
+
+# extra installs
+install_keypass_xc: false
+install_obs: false
+install_openrgb: false
+install_signal: false
+
+# glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
