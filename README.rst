@@ -12,9 +12,14 @@ Linux Dev Playbook
 Features
 ========
 
-* These are the configuration I use for my personal development machine
-* Currently supports for Debian 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
-* Features are optional and configurable (see Usage)
+* Installations:
+  * IDEs.
+  * Chrome Browser.
+  * Packages apt, pip, npm, ruby gems.
+  * Extras such as Keypass, OpenRGB
+* Configurations: shell/terminals, Gnome, Firefox, keyboard, git and more.
+
+Note: this is a setup playbook I use for personal and professional development. It currently supports for Debian 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
 
 
 Requirements
@@ -48,7 +53,7 @@ Install dependencies:
 Usage
 =====
 
-1. Make a copy of `default.config.yml` with the name `config.yml` and change the configurations you want to use.
+1. Make a copy of **default.config.yml** with the name **config.yml** and change the configurations you want to use.
 
 You can select additional installation of browser and assorted FOSS programs such as `OBS`_ or `Signal`_ messenger.
 
@@ -76,7 +81,7 @@ You can override any of the defaults configured in `default.config.yml` by creat
     pip_packages:
       - name: mkdocs
 
-Any variable can be overridden in `config.yml`; see the supporting roles' documentation for a complete list of available variables.
+Any variable can be overridden in **config.yml**; see the supporting roles' documentation for a complete list of available variables.
 
 
 Use with a remote machine

@@ -1,5 +1,7 @@
 ---
 roles:
+  - name: staticdev.firefox
+    version: 1.0.1
   - name: darkwizard242.googlechrome
     version: 1.1.2
   - name: geerlingguy.docker

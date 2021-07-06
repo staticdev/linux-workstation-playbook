@@ -30,6 +30,8 @@
         - openrgb-dbgsym_0.6.0_amd64.deb
 
   roles:
+    - role: staticdev.firefox
+      when: configure_firefox
     - role: darkwizard242.googlechrome
       when: install_google_chrome
       become: true
@@ -52,6 +54,7 @@
       when: install_signal
 
   tasks:
+    - fail:
     - name: Install zsh
       include_tasks: tasks/zsh.yml
       when: install_zsh

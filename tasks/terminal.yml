@@ -14,7 +14,10 @@
   with_items:
     # values from gsettings list-recursively /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings
     - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
-      value: ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/"]
+      value:
+        [
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/",
+        ]
     - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/binding"
       value: "'{{ guake_keybinding }}'"
     - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/command"
