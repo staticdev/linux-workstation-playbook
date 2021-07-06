@@ -15,11 +15,11 @@ Features
 ========
 
 * Installations:
-  * IDEs.
-  * Chrome Browser.
-  * Packages apt, pip, npm, ruby gems.
-  * Extras such as Keypass, OpenRGB
-* Configurations: shell/terminals, Gnome, Firefox, keyboard, git and more.
+    * IDEs.
+    * Chrome Browser.
+    * Packages apt, pip, npm, ruby gems.
+    * Extras such as Keypass, OpenRGB
+* Configurations: shell/terminals, Gnome, Firefox, Git, ssh, keyboard and more.
 
 Note: this is a setup playbook I use for personal and professional development. It currently supports for Debian 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
 
@@ -105,20 +105,20 @@ Included Applications / Configuration (Default)
 
 Packages (installed with apt):
 
-  - apache2-utils
-  - cmake
-  - git
-  - guake
-  - htop
-  - locales-all
-  - nmap
-  - node
-  - openssl
-  - poedit
-  - vagrant
-  - vim
-  - xclip
-  - wget
+    - apache2-utils
+    - cmake
+    - git
+    - guake
+    - htop
+    - locales-all
+    - nmap
+    - node
+    - openssl
+    - poedit
+    - vagrant
+    - vim
+    - xclip
+    - wget
 
 Finally, there are a few other preferences and settings added on for various apps and services.
 
