@@ -2,12 +2,14 @@
 Linux Dev Playbook
 ==================
 
-|pre-commit|
+|pre-commit| |Tests|
 
 .. |pre-commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
    :target: https://github.com/pre-commit/pre-commit
    :alt: pre-commit
-
+.. |Tests| image:: https://github.com/staticdev/linux-developer-playbook/workflows/Tests/badge.svg
+   :target: https://github.com/staticdev/linux-developer-playbook/actions?workflow=Tests
+   :alt: Tests
 
 Features
 ========
@@ -69,7 +71,7 @@ Overriding Defaults
 
 Not everyone's development environment and preferred software configuration is the same.
 
-You can override any of the defaults configured in `default.config.yml` by creating a `config.yml` file and setting the overrides in that file. For example, you can customize the installed packages and apps with something like:
+You can override any of the defaults configured in **default.config.yml** by creating a **config.yml** file and setting the overrides in that file. For example, you can customize the installed packages and apps with something like:
 
     installed_packages:
       - git
