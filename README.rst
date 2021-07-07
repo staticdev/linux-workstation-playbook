@@ -34,7 +34,7 @@ Requirements
    sudo apt install python3-pip
    pip install --user ansible
 
-If ./local/bin is not on $PATH, you can add it to ~/.bashrc and then *source .*:
+If ./local/bin is not on $PATH, you can add it to ~/.bashrc and then *source ~/.bashrc*:
 
 .. code:: console
    
