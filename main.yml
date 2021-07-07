@@ -78,10 +78,6 @@
       include_tasks: tasks/sudoers.yml
       when: configure_sudoers
 
-    - name: Configure terminal
-      include_tasks: tasks/terminal.yml
-      when: configure_terminal
-
     - name: Configure workspace
       include_tasks: tasks/workspace.yml
       when: configure_workspace
@@ -98,8 +94,13 @@
       import_tasks: tasks/gnome-setup.yml
       when: gnome_setup
 
+    - name: Configure terminal
+      include_tasks: tasks/terminal.yml
+      when: configure_terminal
+
     - name: Run configured post-provision ansible task files.
       include_tasks: "{{ outer_item }}"
       loop_control:
         loop_var: outer_item
       with_fileglob: "{{ post_provision_tasks|default(omit) }}"
+  
