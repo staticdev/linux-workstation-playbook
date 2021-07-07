@@ -24,6 +24,7 @@
   community.general.modprobe:
     name: i2c-dev
     state: present
+  become: true
   when: openrgb_version_cmd is failed
 - name: Download repo
   git:
