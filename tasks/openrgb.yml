@@ -11,7 +11,9 @@
   become: true
   with_items:
     - build-essential
+    - debhelper
     - qt5-qmake
+    - qtbase5-dev
     - qtbase5-dev-tools
     - qtchooser
     - qtcreator
