@@ -9,6 +9,9 @@ setopt histignorealldups sharehistory
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
+# Custom $PATH with extra locations.
+export PATH=$PATH:~/.local/bin
+
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000
@@ -63,6 +66,16 @@ function denter() {
 
  docker exec -it $1 bash
  return 0
+}
+
+# Delete a given line number in the known_hosts file.
+knownrm() {
+ re='^[0-9]+$'
+ if ! [[ $1 =~ $re ]] ; then
+   echo "error: line number missing" >&2;
+ else
+   sed -i '' "$1d" ~/.ssh/known_hosts
+ fi
 }
 
 zstyle ':completion:*' auto-description 'specify: %d'
