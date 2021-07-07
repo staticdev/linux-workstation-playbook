@@ -54,7 +54,6 @@
       when: install_signal
 
   tasks:
-    - fail:
     - name: Install zsh
       include_tasks: tasks/zsh.yml
       when: install_zsh
