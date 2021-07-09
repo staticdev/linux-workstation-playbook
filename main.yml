@@ -67,8 +67,8 @@
       when: install_keypass_xc
 
     - name: International keyboard
-      import_tasks: tasks/international-keyboard.yml
-      when: configure_international_keyboard
+      import_tasks: tasks/keyboard.yml
+      when: configure_keyboard
 
     - name: Create SSH key
       include_tasks: tasks/ssh.yml
