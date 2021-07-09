@@ -1,10 +1,8 @@
 ---
-- name: Change keyboard to international.
-  replace:
-    path: /etc/default/keyboard
-    after: XKBVARIANT=
-    regexp: ^(.+)$
-    replace: alt-intl
+- name: Change keyboard settings.
+  template:
+    src: keyboard/config.t2
+    dest: "/etc/default/keyboard"
   notify:
     - dpkg-reconfigure keyboard-configuration
   become: true
@@ -19,4 +17,4 @@
     - line: QT_IM_MODULE=cedilla
       regexp: ^QT_IM_MODULE=
   become: true
-  when: configure_c_cedilla
+  when: keyboard_c_cedilla

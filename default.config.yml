@@ -27,8 +27,12 @@ firefox_profiles:
 install_google_chrome: true
 
 # keyboard config
-configure_international_keyboard: true
-configure_c_cedilla: false
+configure_keyboard: true
+keyboard_model: pc105
+keyboard_layout: us
+keyboard_variant: intl
+keyboard_options: 
+keyboard_c_cedilla: false
 
 # SSH config
 configure_ssh: true
