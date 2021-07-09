@@ -18,7 +18,7 @@ Features
     * IDEs.
     * `Google Chrome`_ Browser.
     * Packages apt, pip, npm, ruby gems.
-    * Extras such as Keypass_, OBS_, OpenRGB_ or Signal_ messenger
+    * Assorted FOSS programs such as Keypass_, OBS_, OpenRGB_ or Signal_ messenger
 * Configurations: shell/terminals, Gnome_, Firefox_, Git_, ssh, keyboard and more.
 
 Note: this is a setup playbook I use for personal and professional development. It currently supports for Debian_ 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
@@ -76,6 +76,8 @@ Not everyone's development environment and preferred software configuration is t
 
 You can override any of the defaults configured in **default.config.yml** by creating a **config.yml** file and setting the overrides in that file. For example, you can customize the installed packages and apps with something like:
 
+.. code:: yaml
+
     installed_packages:
       - git
       - go
@@ -107,6 +109,8 @@ Included Applications / Configuration (Default)
 -----------------------------------------------
 
 Packages (installed with apt):
+
+.. code:: yaml
 
     - apache2-utils
     - cmake
