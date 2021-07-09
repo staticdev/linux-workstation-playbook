@@ -16,12 +16,12 @@ Features
 
 * Installations:
     * IDEs.
-    * Chrome Browser.
+    * `Google Chrome`_ Browser.
     * Packages apt, pip, npm, ruby gems.
-    * Extras such as Keypass, OpenRGB
-* Configurations: shell/terminals, Gnome, Firefox, Git, ssh, keyboard and more.
+    * Extras such as Keypass_, OBS_, OpenRGB_ or Signal_ messenger
+* Configurations: shell/terminals, Gnome_, Firefox_, Git_, ssh, keyboard and more.
 
-Note: this is a setup playbook I use for personal and professional development. It currently supports for Debian 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
+Note: this is a setup playbook I use for personal and professional development. It currently supports for Debian_ 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
 
 
 Requirements
@@ -38,7 +38,7 @@ If ./local/bin is not on $PATH, you can add it to ~/.bashrc and then *source ~/.
 
 .. code:: console
    
-   export PATH=$PATH:~/.local/bin
+    export PATH=$PATH:~/.local/bin
 
 
 Installation
@@ -61,8 +61,6 @@ Usage
 =====
 
 1. Make a copy of **default.config.yml** with the name **config.yml** and change the configurations you want to use.
-
-You can select additional installation of browser and assorted FOSS programs such as `OBS`_ or `Signal`_ messenger.
 
 2. Run the command:
 
@@ -156,8 +154,15 @@ This project was inspired by `@geerlingguy`_'s `Mac Development Ansible Playbook
 
 
 .. _Ansible: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+.. _Debian: https://www.debian.org/
+.. _Firefox: https://www.mozilla.org/firefox/
+.. _Git: https://git-scm.com/
+.. _Gnome: https://www.gnome.org/
+.. _Google Chrome: https://www.google.com/chrome/
+.. _KeyPass: https://keepass.info/
 .. _MIT: https://opensource.org/licenses/MIT
 .. _OBS: https://obsproject.com/
+.. _OpenRGB: https://gitlab.com/CalcProgrammer1/OpenRGB
 .. _Signal: https://signal.org
 .. _file an issue: https://github.com/staticdev/linux-dev-playbook/issues
 .. _@geerlingguy: https://github.com/geerlingguy
