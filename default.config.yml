@@ -31,7 +31,7 @@ configure_keyboard: true
 keyboard_model: pc105
 keyboard_layout: us
 keyboard_variant: intl
-keyboard_options: 
+keyboard_options:
 keyboard_c_cedilla: false
 
 # SSH config
