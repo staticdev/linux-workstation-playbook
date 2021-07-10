@@ -104,6 +104,7 @@ gnome_favorite_apps: [
 ]
 
 # extra installs
+install_cryptomator: false
 install_keypass_xc: false
 install_obs: false
 install_openrgb: false

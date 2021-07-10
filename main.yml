@@ -86,6 +86,10 @@
       include_tasks: tasks/extra-packages.yml
       when: install_extra_packages
 
+    - name: Cryptomator
+      include_tasks: tasks/cryptomator.yml
+      when: install_cryptomator
+
     - name: OpenRGB
       include_tasks: tasks/openrgb.yml
       when: install_openrgb

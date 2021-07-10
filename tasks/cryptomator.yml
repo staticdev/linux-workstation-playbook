@@ -1,0 +1,13 @@
+---
+- name: Check if cryptomator is installed.
+  command: cryptomator
+  register: cryptomator_cmd
+  changed_when: false
+  ignore_errors: true
+- name: Download Cryptomator.
+  get_url:
+    url: https://github.com/cryptomator/cryptomator/releases/download/1.5.15/cryptomator-1.5.15-x86_64.AppImage
+    dest: "{{ ansible_env.HOME }}/.local/bin/cryptomator"
+    mode: "0500"
+    timeout: 20
+  when: cryptomator_cmd is failed
