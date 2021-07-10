@@ -18,7 +18,7 @@ Features
     * IDEs.
     * `Google Chrome`_ Browser.
     * Packages apt, pip, npm, ruby gems.
-    * Assorted FOSS programs such as Keypass_, OBS_, OpenRGB_ or Signal_ messenger
+    * Assorted FOSS programs such as Cryptomator_, Keypass_, OBS_, OpenRGB_ or Signal_ messenger
 * Configurations: shell/terminals, Gnome_, Firefox_, Git_, ssh, keyboard and more.
 
 Note: this is a setup playbook I use for personal and professional development. It currently supports for Debian_ 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
@@ -158,6 +158,7 @@ This project was inspired by `@geerlingguy`_'s `Mac Development Ansible Playbook
 
 
 .. _Ansible: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+.. _Cryptomator: https://cryptomator.org/
 .. _Debian: https://www.debian.org/
 .. _Firefox: https://www.mozilla.org/firefox/
 .. _Git: https://git-scm.com/
