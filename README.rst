@@ -44,13 +44,13 @@ If **~/.local/bin** is not on **echo $PATH**\, you can add it with the command:
 Installation
 ============
 
-Download_ or clone this repository to your local drive.
+1. Download_ and extract this playbook or clone this repository to your local drive.
 
 .. code:: console
 
    git clone git@github.com:staticdev/linux-developer-playbook.git
 
-Install dependencies:
+2. Install dependencies by entering the terminal in the playbook folder and run the command:
 
 .. code:: console
 
