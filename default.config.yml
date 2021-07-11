@@ -99,6 +99,7 @@ gnome_favorite_apps: [
   "google-chrome.desktop",
   "org.gnome.Nautilus.desktop",
   "code.desktop",
+#  "keepassxc_keepassxc.desktop",
 #  "pycharm-professional_pycharm-professional.desktop", # Pycharm name depends on the flavor
 #  "signal-desktop.desktop",
 ]
