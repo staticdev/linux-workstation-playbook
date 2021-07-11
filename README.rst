@@ -34,17 +34,17 @@ Requirements
    sudo apt install python3-pip
    pip install --user ansible
 
-If ./local/bin is not on $PATH, you can add it to ~/.bashrc and then *source ~/.bashrc*:
+If ./local/bin is not on **echo $PATH**\, you can add it with the command:
 
 .. code:: console
    
-    export PATH=$PATH:~/.local/bin
+    sudo echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc && source ~/.bashrc
 
 
 Installation
 ============
 
-Download or clone this repository to your local drive.
+Download_ or clone this repository to your local drive.
 
 .. code:: console
 
@@ -160,6 +160,7 @@ This project was inspired by `@geerlingguy`_'s `Mac Development Ansible Playbook
 .. _Ansible: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 .. _Cryptomator: https://cryptomator.org/
 .. _Debian: https://www.debian.org/
+.. _Download: https://github.com/staticdev/linux-developer-playbook/archive/refs/heads/main.zip
 .. _Firefox: https://www.mozilla.org/firefox/
 .. _Git: https://git-scm.com/
 .. _Gnome: https://www.gnome.org/
