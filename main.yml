@@ -94,6 +94,14 @@
       include_tasks: tasks/openrgb.yml
       when: install_openrgb
 
+    - name: Enable entire screen sharing
+      lineinfile:
+        dest: /etc/gdm3/daemon.conf
+        regexp: '^#\s*WaylandEnable=false.*$'
+        line: 'WaylandEnable=false'
+      become: true
+      when: enable_screen_sharing
+
     - name: Gnome Setup
       import_tasks: tasks/gnome-setup.yml
       when: gnome_setup
