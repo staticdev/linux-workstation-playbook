@@ -104,6 +104,9 @@ gnome_favorite_apps: [
 #  "signal-desktop.desktop",
 ]
 
+# enable entire screen sharing
+enable_screen_sharing: true
+
 # extra installs
 install_cryptomator: false
 install_keypass_xc: false
