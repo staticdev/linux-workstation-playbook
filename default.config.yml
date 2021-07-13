@@ -108,7 +108,10 @@ gnome_favorite_apps: [
 enable_screen_sharing: true
 
 # extra installs
+## cryptomator
 install_cryptomator: false
+cryptomator_version: 1.5.15
+
 install_keypass_xc: false
 install_obs: false
 install_openrgb: false
