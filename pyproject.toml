@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "linux-developer-playbook"
-version = "0.5.0"
+version = "0.6.0"
 description = "Linux machine setup and configuration for developers via Ansible."
 authors = ["staticdev <staticdev-support@protonmail.com>"]
 license = "MIT"
