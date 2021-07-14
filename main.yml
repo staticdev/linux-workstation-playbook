@@ -78,9 +78,9 @@
       include_tasks: tasks/sudoers.yml
       when: configure_sudoers
 
-    - name: Configure workspace
-      include_tasks: tasks/workspace.yml
-      when: configure_workspace
+    - name: Setup Git
+      include_tasks: tasks/git-setup.yml
+      when: setup_git
 
     - name: Extra packages
       include_tasks: tasks/extra-packages.yml
