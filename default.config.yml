@@ -53,9 +53,11 @@ install_zsh: true
 zsh_default_shell: true
 
 # Git config
-configure_workspace: true
+setup_git: true
 git_email: name@mail.com
 git_username: gitusername
+git_init_default_branch: main
+git_pull_rebase: false
 
 # install packages
 install_packages: true

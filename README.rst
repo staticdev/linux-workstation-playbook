@@ -19,7 +19,7 @@ Features
     * `Google Chrome`_ Browser.
     * Packages apt, pip, npm, ruby gems.
     * Assorted FOSS programs such as Cryptomator_, Keypass_, OBS_, OpenRGB_ or Signal_ messenger
-* Configurations: shell/terminals, Gnome_, Firefox_, Git_, ssh, keyboard and more.
+* Configurations: shell/terminals, Firefox_, Gnome_, Git_, ssh, keyboard and more.
 
 Note: this is a setup playbook I use for personal and professional development. It currently supports for Debian_ 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
 
