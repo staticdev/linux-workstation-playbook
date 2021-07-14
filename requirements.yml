@@ -11,7 +11,7 @@ roles:
   - name: staticdev.python_developer
     version: 0.6.1
   - name: staticdev.signal
-    version: 1.0.1
+    version: 1.1.0
 
 collections:
   - name: community.general
