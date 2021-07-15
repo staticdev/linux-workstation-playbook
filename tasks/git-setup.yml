@@ -1,13 +1,18 @@
 ---
-- name: Create user file for git config
+- name: Create user file for Git config
   template:
     src: gitconfig/.gitconfig_user.t2
     dest: "{{ ansible_env.HOME }}/.gitconfig"
-- name: Creates a workspace directory
-  file:
-    path: "{{ ansible_env.HOME }}/workspace"
-    state: directory
-- name: Create workspace file for git config
-  template:
-    src: gitconfig/.gitconfig_workspace.t2
-    dest: "{{ ansible_env.HOME }}/workspace/.gitconfig"
+- name: Configure Git workspaces
+  block:
+    - name: Create workspace directories
+      file:
+        path: "{{ ansible_env.HOME }}/{{ item.folder_name }}"
+        state: directory
+      loop: "{{ git_workspaces|flatten(levels=1) }}"
+    - name: Create workspace files for Git config
+      template:
+        src: gitconfig/.gitconfig_workspace.t2
+        dest: "{{ ansible_env.HOME }}/{{ item.folder_name }}/.gitconfig"
+      loop: "{{ git_workspaces|flatten(levels=1) }}"
+  when: git_create_workspaces
