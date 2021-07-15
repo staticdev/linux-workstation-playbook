@@ -1,5 +1,13 @@
-[includeIf "gitdir:~/workspace/"]
-  path = ~/workspace/.gitconfig
+{% if git_create_workspaces %}
+{% for workspace in git_workspaces -%}
+[includeIf "gitdir:~/{{ workspace.folder_name }}/"]
+  path = ~/{{ workspace.folder_name }}/.gitconfig
+{% endfor %}
+{% else %}
+[user]
+  email = {{ git_email }}
+  name = {{ git_username }}
+{% endif %}
 [credential]
   helper = cache --timeout=36000
 [core]
