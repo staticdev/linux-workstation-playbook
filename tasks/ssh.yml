@@ -1,6 +1,8 @@
 ---
 - name: Generate an OpenSSH keypair
   community.crypto.openssh_keypair:
-    path: "~/.ssh/id_ed25519"
-    type: ed25519
+    path: "~/.ssh/id_{{ ssh_key_type }}"
+    type: "{{ ssh_key_type }}"
+    size: "{{ ssh_key_size }}"
+    passphrase: "{{ ssh_key_passphrase }}"
   become: false
