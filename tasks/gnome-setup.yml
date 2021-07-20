@@ -11,7 +11,7 @@
     name: python3-psutil
   become: true
 - name: Setup night-light
-  dconf:
+  community.general.dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
     state: present
@@ -34,14 +34,14 @@
     - key: "/org/gnome/settings-daemon/plugins/color/night-light-schedule-from"
       value: 16.0
 - name: Setup favorite-apps
-  dconf:
+  community.general.dconf:
     key: /org/gnome/shell/favorite-apps
     value: "{{ gnome_favorite_apps }}"
 - name: Disable activities overview hot corner
-  dconf:
+  community.general.dconf:
     key: /org/gnome/desktop/interface/enable-hot-corners
     value: "false"
 - name: Disable lock-screen notifications
-  dconf:
+  community.general.dconf:
     key: /org/gnome/desktop/notifications/show-in-lock-screen
     value: "false"
