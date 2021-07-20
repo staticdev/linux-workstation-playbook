@@ -28,10 +28,8 @@ install_google_chrome: true
 
 # keyboard config
 configure_keyboard: true
-keyboard_model:
 keyboard_layout: us
 keyboard_variant: intl
-keyboard_options:
 keyboard_c_cedilla: false
 
 # SSH config

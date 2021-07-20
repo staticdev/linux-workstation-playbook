@@ -1,9 +1,0 @@
-{% if keyboard_model %}XKBMODEL={{ keyboard_model }}
-{% endif %}
-{% if keyboard_layout %}XKBLAYOUT={{ keyboard_layout }}
-{% endif %}
-{% if keyboard_variant %}XKBVARIANT={{ keyboard_variant }}
-{% endif %}
-{% if keyboard_options %}XKBOPTIONS={{ keyboard_options }}
-{% endif %}
-BACKSPACE=guess
