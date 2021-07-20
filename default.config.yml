@@ -1,6 +1,4 @@
 ---
-downloads: ~/.ansible-downloads/
-
 # Docker
 install_docker: true
 
