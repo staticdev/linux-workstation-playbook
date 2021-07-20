@@ -1,11 +1,9 @@
-# KEYBOARD CONFIGURATION FILE
-
-# Consult the keyboard(5) manual page.
-
-XKBMODEL="{{ keyboard_model }}"
-XKBLAYOUT="{{ keyboard_layout }}"
-XKBVARIANT="{{ keyboard_variant }}"
-
-XKBOPTIONS="{{ keyboard_options }}"
-
-BACKSPACE="guess"
+{% if keyboard_model %}XKBMODEL={{ keyboard_model }}
+{% endif %}
+{% if keyboard_layout %}XKBLAYOUT={{ keyboard_layout }}
+{% endif %}
+{% if keyboard_variant %}XKBVARIANT={{ keyboard_variant }}
+{% endif %}
+{% if keyboard_options %}XKBOPTIONS={{ keyboard_options }}
+{% endif %}
+BACKSPACE=guess
