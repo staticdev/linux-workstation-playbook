@@ -2,13 +2,23 @@
 # Docker
 install_docker: true
 
-# IDEs
+# IDEs (installed by python_developer role)
 python_developer: true
 install_pycharm: false
 pycharm_flavor: community
 install_vscode: true
 vscode_extensions:
   - shan.code-settings-sync
+## Pyenv settings
+pyenv_python_versions:
+  - 3.9.6
+  - 3.8.11
+  - 3.7.11
+pyenv_global:
+  - 3.9.6
+  - 3.8.11
+  - 3.7.11
+pyenv_virtualenvs: []
 
 # browser configs
 ## Firefox config (note: default profile for Debian is default-esr)
