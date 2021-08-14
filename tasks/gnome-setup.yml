@@ -1,15 +1,19 @@
 ---
-- name: Install system monitor
-  package:
-    name: gnome-shell-extension-system-monitor
-    state: present
-  become: true
-  notify:
-    - restart gnome
 - name: Install python-psutil package
   apt:
     name: python3-psutil
   become: true
+- name: Install System Monitor extension
+  package:
+    name: gnome-shell-extension-system-monitor
+    state: present
+  become: true
+- name: Enable System Monitor extension
+  community.general.dconf:
+    key: /org/gnome/shell/enabled-extensions
+    value: ["system-monitor@paradoxxx.zero.gmail.com"]
+  notify:
+    - restart gnome
 - name: Setup night-light
   community.general.dconf:
     key: "{{ item.key }}"
