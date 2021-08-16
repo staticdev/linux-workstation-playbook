@@ -17,7 +17,7 @@ Features
 * Installations:
     * IDEs.
     * `Google Chrome`_ Browser.
-    * Packages apt, pip, npm, ruby gems.
+    * Packages apt, snap, pip, npm, ruby gems.
     * Assorted FOSS programs such as Cryptomator_, Keypass_, OBS_, OpenRGB_ or `Signal messenger`_
 * Configurations: shell/terminals, Firefox_, Gnome_, Git_, ssh, keyboard and more.
 
