@@ -1,4 +1,14 @@
 ---
+- name: Ensure snapd is installed.
+  ansible.builtin.package:
+    name: snapd
+    state: present
+  become: true
+- name: Install snap packages.
+  community.general.snap:
+    name: "{{ item.name | default(item) }}"
+  loop: "{{ snap_packages | flatten(1) }}"
+  become: true
 - name: Install global NPM packages.
   npm:
     name: "{{ item.name | default(item) }}"

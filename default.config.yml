@@ -107,6 +107,8 @@ installed_packages:
 install_extra_packages: true
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
+snap_packages: []
+# - name: postman
 gem_packages: []
 # - name: bundler
 #   state: present # present/absent/latest, default: present
@@ -116,7 +118,7 @@ npm_packages: []
 #   state: present # present/absent/latest, default: present
 #   version: "^2.6" # default: N/A
 pip_packages: []
-# - name: mkdocs
+# - name: black
 #   state: present # present/absent/latest, default: present
 #   version: "0.16.3" # default: N/A
 

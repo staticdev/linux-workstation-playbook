@@ -1,9 +1,4 @@
 ---
-- name: Ensure snapd is installed
-  ansible.builtin.package:
-    name: snapd
-    state: present
-  become: true
 - name: Install Keypass XC
   community.general.snap:
     name: keepassxc

@@ -18,7 +18,7 @@ Features
     * IDEs.
     * `Google Chrome`_ Browser.
     * Packages apt, pip, npm, ruby gems.
-    * Assorted FOSS programs such as Cryptomator_, Keypass_, OBS_, OpenRGB_ or Signal_ messenger
+    * Assorted FOSS programs such as Cryptomator_, Keypass_, OBS_, OpenRGB_ or `Signal messenger`_
 * Configurations: shell/terminals, Firefox_, Gnome_, Git_, ssh, keyboard and more.
 
 Note: this is a setup playbook I use for personal and professional development. It currently supports for Debian_ 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
@@ -34,7 +34,7 @@ Requirements
    sudo apt install python3-pip
    pip install --user ansible
 
-If **~/.local/bin** is not on **echo $PATH**\, you can add it with the command:
+If **~/.local/bin** is not on **echo $PATH**, you can add it with the command:
 
 .. code:: console
    
@@ -82,6 +82,9 @@ You can override any of the defaults configured in **default.config.yml** by cre
       - git
       - go
 
+    snap_packages:
+      - name: postman
+
     npm_packages:
       - name: webpack
 
@@ -96,13 +99,13 @@ Use with a remote machine
 
 You can use this playbook to manage other machine as well; the playbook doesn't even need to be run from a Linux computer at all! If you want to manage a remote Linux, either another Linux on your network, or a hosted Linux in the cloud, you just need to make sure you can connect to it with SSH.
 
-Edit the `inventory` file in this repository and change the line that starts with `127.0.0.1` to:
+Edit the **inventory** file in this repository and change the line that starts with **127.0.0.1** to:
 
 .. code:: ini
 
    [ip address or hostname of linux]  ansible_user=[linux ssh username]
 
-If you need to supply an SSH password (if you don't use SSH keys), make sure to pass the `--ask-pass` parameter to the `ansible-playbook` command.
+If you need to supply an SSH password (if you don't use SSH keys), make sure to pass the **--ask-pass** parameter to the **ansible-playbook** command.
 
 
 Included Applications / Configuration (Default)
@@ -169,7 +172,7 @@ This project was inspired by `@geerlingguy`_'s `Mac Development Ansible Playbook
 .. _MIT: https://opensource.org/licenses/MIT
 .. _OBS: https://obsproject.com/
 .. _OpenRGB: https://gitlab.com/CalcProgrammer1/OpenRGB
-.. _Signal: https://signal.org
+.. _Signal messenger: https://signal.org
 .. _file an issue: https://github.com/staticdev/linux-dev-playbook/issues
 .. _@geerlingguy: https://github.com/geerlingguy
 .. _Mac Development Ansible Playbook: https://github.com/geerlingguy/mac-dev-playbook
