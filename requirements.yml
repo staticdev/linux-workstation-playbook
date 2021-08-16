@@ -2,6 +2,8 @@
 roles:
   - name: staticdev.firefox
     version: 1.0.1
+  - name: staticdev.brave
+    version: 0.1.0
   - name: darkwizard242.googlechrome
     version: 1.1.2
   - name: geerlingguy.docker
@@ -11,7 +13,7 @@ roles:
   - name: staticdev.python_developer
     version: 0.7.3
   - name: staticdev.signal
-    version: 1.3.0
+    version: 1.3.1
 
 collections:
   - name: community.general

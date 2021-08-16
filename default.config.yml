@@ -31,8 +31,10 @@ firefox_profiles:
       network.cookie.cookieBehavior: 1
       privacy.donottrackheader.enabled: true
       signon.rememberSignons: false
+## Brave install
+install_brave: true
 ## Chrome install
-install_google_chrome: true
+install_google_chrome: false
 
 # keyboard config
 configure_keyboard: true
