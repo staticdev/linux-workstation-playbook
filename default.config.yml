@@ -31,8 +31,10 @@ firefox_profiles:
       network.cookie.cookieBehavior: 1
       privacy.donottrackheader.enabled: true
       signon.rememberSignons: false
+## Brave install
+install_brave: true
 ## Chrome install
-install_google_chrome: true
+install_google_chrome: false
 
 # keyboard config
 configure_keyboard: true
@@ -126,9 +128,10 @@ pip_packages: []
 gnome_setup: true
 gnome_favorite_apps: [
   "firefox-esr.desktop",
-  "google-chrome.desktop",
+  "brave-browser.desktop",
   "org.gnome.Nautilus.desktop",
   "code.desktop",
+#  "google-chrome.desktop",
 #  "keepassxc_keepassxc.desktop",
 #  "pycharm-professional_pycharm-professional.desktop", # Pycharm name depends on the flavor
 #  "signal-desktop.desktop",

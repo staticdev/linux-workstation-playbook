@@ -14,12 +14,11 @@ Linux Dev Playbook
 Features
 ========
 
-* Installations:
-    * IDEs.
-    * `Google Chrome`_ Browser.
-    * Packages apt, snap, pip, npm, ruby gems.
-    * Assorted FOSS programs such as Cryptomator_, Keypass_, OBS_, OpenRGB_ or `Signal messenger`_
-* Configurations: shell/terminals, Firefox_, Gnome_, Git_, ssh, keyboard and more.
+* IDEs: VSCode_ and Pycharm_ installation.
+* Browsers: Firefox_ configuration, Brave_ and `Google Chrome`_ installation.
+* Packages intallation: apt, snap, pip, npm, ruby gems.
+* Assorted FOSS programs: Cryptomator_, Keypass_, OBS_, OpenRGB_ or `Signal messenger`_ installation.
+* Configurations: shell/terminals, Gnome_, Git_, ssh, keyboard and more.
 
 Note: this is a setup playbook I use for personal and professional development. It currently supports for Debian_ 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
 
@@ -72,7 +71,7 @@ Usage
 Overriding Defaults
 -------------------
 
-Not everyone's development environment and preferred software configuration is the same.
+Not everyone's workstation and preferred software configuration is the same.
 
 You can override any of the defaults configured in **default.config.yml** by creating a **config.yml** file and setting the overrides in that file. For example, you can customize the installed packages and apps with something like:
 
@@ -161,6 +160,7 @@ This project was inspired by `@geerlingguy`_'s `Mac Development Ansible Playbook
 
 
 .. _Ansible: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+.. _Brave: https://brave.com/
 .. _Cryptomator: https://cryptomator.org/
 .. _Debian: https://www.debian.org/
 .. _Download: https://github.com/staticdev/linux-developer-playbook/archive/refs/heads/main.zip
@@ -172,7 +172,9 @@ This project was inspired by `@geerlingguy`_'s `Mac Development Ansible Playbook
 .. _MIT: https://opensource.org/licenses/MIT
 .. _OBS: https://obsproject.com/
 .. _OpenRGB: https://gitlab.com/CalcProgrammer1/OpenRGB
+.. _Pycharm: https://www.jetbrains.com/pycharm/
 .. _Signal messenger: https://signal.org
+.. _VSCode: https://code.visualstudio.com/
 .. _file an issue: https://github.com/staticdev/linux-dev-playbook/issues
 .. _@geerlingguy: https://github.com/geerlingguy
 .. _Mac Development Ansible Playbook: https://github.com/geerlingguy/mac-dev-playbook
