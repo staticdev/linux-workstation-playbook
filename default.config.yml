@@ -44,7 +44,7 @@ keyboard_c_cedilla: false
 
 # SSH config
 configure_ssh: true
-ssh_key_type: rsa # you can also choose between: dsa, ecdsa and ed25519
+ssh_key_type: rsa  # you can also choose between: dsa, ecdsa and ed25519
 # For RSA keys, the minimum size is 1024 bits and the default is 4096 bits. Generally, 2048 bits is considered sufficient.
 # DSA keys must be exactly 1024 bits as specified by FIPS 186-2.
 # For ECDSA keys, size determines the key length by selecting from one of three elliptic curve sizes: 256, 384 or 521 bits.
@@ -80,9 +80,9 @@ git_workspaces:
   - folder_name: workspace
     email: name@mail.com
     username: gitusername
-  # - folder_name: workspace2
-  #   email: name2@mail.com
-  #   username: gitusername2
+#  - folder_name: workspace2
+#    email: name2@mail.com
+#    username: gitusername2
 ## used only if git_create_workspaces is false
 git_email: name@mail.com
 git_username: gitusername
