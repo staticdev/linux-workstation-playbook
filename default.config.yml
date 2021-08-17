@@ -1,6 +1,7 @@
 ---
 # Docker
 install_docker: true
+docker_compose_version: 1.29.2
 
 # IDEs (installed by python_developer role)
 python_developer: true
