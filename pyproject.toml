@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "linux-workstation-playbook"
-version = "0.8.0"
+version = "0.9.0"
 description = "Linux workstation machine setup and configuration via Ansible."
 authors = ["staticdev <staticdev-support@protonmail.com>"]
 license = "MIT"
