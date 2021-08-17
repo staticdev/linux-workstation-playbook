@@ -36,8 +36,6 @@
       become: true
     - role: geerlingguy.docker
       when: install_docker
-      vars:
-        docker_users: ["{{ ansible_env.USER }}"]
     - role: robertdebock.obsproject
       when: install_obs
       become: true
