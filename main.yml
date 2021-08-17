@@ -37,7 +37,6 @@
     - role: geerlingguy.docker
       when: install_docker
       vars:
-        docker_compose_version: "{{ docker_compose_version }}"
         docker_users: ["{{ ansible_env.USER }}"]
     - role: robertdebock.obsproject
       when: install_obs
