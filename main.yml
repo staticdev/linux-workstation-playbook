@@ -36,10 +36,6 @@
       become: true
     - role: geerlingguy.docker
       when: install_docker
-      vars:
-        docker_compose_version: "1.28.0"
-        docker_users: ["{{ ansible_env.USER }}"]
-      become: true
     - role: robertdebock.obsproject
       when: install_obs
       become: true

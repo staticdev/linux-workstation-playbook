@@ -1,6 +1,7 @@
 ---
 - name: Converge
   hosts: all
+  become: true
 
   tasks:
     - name: Update apt cache (on Debian).
