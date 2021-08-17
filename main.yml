@@ -92,7 +92,7 @@
       lineinfile:
         dest: /etc/gdm3/daemon.conf
         regexp: '^#\s*WaylandEnable=false.*$'
-        line: 'WaylandEnable=false'
+        line: "WaylandEnable=false"
       become: true
       when: enable_screen_sharing
 

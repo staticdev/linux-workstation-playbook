@@ -36,7 +36,7 @@ Requirements
 If **~/.local/bin** is not on **echo $PATH**, you can add it with the command:
 
 .. code:: console
-   
+
     sudo echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc && source ~/.bashrc
 
 
