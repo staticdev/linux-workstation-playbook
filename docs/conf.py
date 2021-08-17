@@ -2,7 +2,7 @@
 from datetime import datetime
 
 
-project = "Linux Developer Playbook"
+project = "Linux Workstation Playbook"
 author = "staticdev"
 copyright = f"{datetime.now().year}, {author}"
 extensions = ["sphinx.ext.autodoc", "sphinx.ext.napoleon"]

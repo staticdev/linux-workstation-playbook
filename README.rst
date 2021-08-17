@@ -1,14 +1,14 @@
-==================
-Linux Dev Playbook
-==================
+==========================
+Linux Workstation Playbook
+==========================
 
 |pre-commit| |Tests|
 
 .. |pre-commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
    :target: https://github.com/pre-commit/pre-commit
    :alt: pre-commit
-.. |Tests| image:: https://github.com/staticdev/linux-developer-playbook/workflows/Tests/badge.svg
-   :target: https://github.com/staticdev/linux-developer-playbook/actions?workflow=Tests
+.. |Tests| image:: https://github.com/staticdev/linux-workstation-playbook/workflows/Tests/badge.svg
+   :target: https://github.com/staticdev/linux-workstation-playbook/actions?workflow=Tests
    :alt: Tests
 
 Features
@@ -47,7 +47,7 @@ Installation
 
 .. code:: console
 
-   git clone git@github.com:staticdev/linux-developer-playbook.git
+   git clone git@github.com:staticdev/linux-workstation-playbook.git
 
 2. Install dependencies by entering the terminal in the playbook folder and run the command:
 
@@ -143,7 +143,7 @@ License
 =======
 
 Distributed under the terms of the MIT_ license,
-*Linux Dev Playbook* is free and open source software.
+*Linux Workstation Playbook* is free and open source software.
 
 
 Issues
@@ -163,7 +163,7 @@ This project was inspired by `@geerlingguy`_'s `Mac Development Ansible Playbook
 .. _Brave: https://brave.com/
 .. _Cryptomator: https://cryptomator.org/
 .. _Debian: https://www.debian.org/
-.. _Download: https://github.com/staticdev/linux-developer-playbook/archive/refs/heads/main.zip
+.. _Download: https://github.com/staticdev/linux-workstation-playbook/archive/refs/heads/main.zip
 .. _Firefox: https://www.mozilla.org/firefox/
 .. _Git: https://git-scm.com/
 .. _Gnome: https://www.gnome.org/
@@ -175,7 +175,7 @@ This project was inspired by `@geerlingguy`_'s `Mac Development Ansible Playbook
 .. _Pycharm: https://www.jetbrains.com/pycharm/
 .. _Signal messenger: https://signal.org
 .. _VSCode: https://code.visualstudio.com/
-.. _file an issue: https://github.com/staticdev/linux-dev-playbook/issues
+.. _file an issue: https://github.com/staticdev/linux-workstation-playbook/issues
 .. _@geerlingguy: https://github.com/geerlingguy
 .. _Mac Development Ansible Playbook: https://github.com/geerlingguy/mac-dev-playbook
 .. github-only
