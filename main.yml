@@ -35,8 +35,8 @@
       when: install_google_chrome
       become: true
     - role: geerlingguy.docker
-      vars:
-        docker_users: ["{{ ansible_env.USER }}"]
+#      vars:
+#        docker_users: ["{{ ansible_env.USER }}"]
       when: install_docker
       become: true
     - role: robertdebock.obsproject
