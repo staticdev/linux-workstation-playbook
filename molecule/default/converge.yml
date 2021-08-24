@@ -2,6 +2,7 @@
 - name: Converge
   hosts: all
   become: true
+  become_user: user
 
   tasks:
     - name: Update apt cache (on Debian).
