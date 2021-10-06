@@ -19,6 +19,6 @@ provisioner:
   inventory:
     host_vars:
       instance:
-        ansible_user: ansible
+        ansible_user: root
 verifier:
   name: ansible
