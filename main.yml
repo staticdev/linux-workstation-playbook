@@ -36,7 +36,7 @@
       become: true
     - role: geerlingguy.docker
       vars:
-        docker_users: "{{ [ansible_env.USER] | [] }}"
+        docker_users: "{{ [ansible_env.USER] | default([]) }}"
       when: install_docker
       become: true
     - role: robertdebock.obsproject
