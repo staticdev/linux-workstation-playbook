@@ -116,6 +116,10 @@ Packages (installed with apt):
 
     - apache2-utils
     - cmake
+    - dconf-editor # visual gnome configs
+    - gir1.2-clutter-1.0 # dep gnome extension system monitor
+    - gir1.2-clutter-gst-3.0 # dep gnome extension system monitor
+    - gir1.2-gtkclutter-1.0 # dep gnome extension system monitor
     - git
     - guake
     - htop
