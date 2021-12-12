@@ -11,13 +11,15 @@ vscode_extensions:
   - shan.code-settings-sync
 ## Pyenv settings
 pyenv_python_versions:
-  - 3.9.6
-  - 3.8.11
-  - 3.7.11
+  - 3.10.0
+  - 3.9.9
+  - 3.8.12
+  - 3.7.12
 pyenv_global:
-  - 3.9.6
-  - 3.8.11
-  - 3.7.11
+  - 3.10.0
+  - 3.9.9
+  - 3.8.12
+  - 3.7.12
 pyenv_virtualenvs: []
 
 # browser configs
@@ -92,6 +94,10 @@ install_packages: true
 installed_packages:
   - apache2-utils
   - cmake
+  - dconf-editor # visual gnome configs
+  - gir1.2-clutter-1.0 # dep gnome extension system monitor
+  - gir1.2-clutter-gst-3.0 # dep gnome extension system monitor
+  - gir1.2-gtkclutter-1.0 # dep gnome extension system monitor
   - git
   - guake
   - htop
