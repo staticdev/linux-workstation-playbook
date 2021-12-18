@@ -35,8 +35,6 @@ firefox_profiles:
       signon.rememberSignons: false
 ## Brave install
 install_brave: true
-## Chrome install
-install_google_chrome: false
 
 # keyboard config
 configure_keyboard: true
@@ -137,7 +135,6 @@ gnome_favorite_apps: [
   "brave-browser.desktop",
   "org.gnome.Nautilus.desktop",
   "code.desktop",
-#  "google-chrome.desktop",
 #  "keepassxc_keepassxc.desktop",
 #  "pycharm-professional_pycharm-professional.desktop", # Pycharm name depends on the flavor
 #  "signal-desktop.desktop",
