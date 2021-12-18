@@ -11,7 +11,7 @@ roles:
   - name: robertdebock.obsproject
     version: 2.0.2
   - name: staticdev.python_developer
-    version: 0.8.0
+    version: 1.0.0
   - name: staticdev.signal
     version: 1.3.1
 
