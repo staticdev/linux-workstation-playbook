@@ -15,7 +15,7 @@ Features
 ========
 
 * IDEs: VSCode_ and Pycharm_ installation.
-* Browsers: Firefox_ configuration, Brave_ and `Google Chrome`_ installation.
+* Browsers: Firefox_ configuration, Brave_ installation.
 * Packages intallation: apt, snap, pip, npm, ruby gems.
 * Assorted FOSS programs: Cryptomator_, Keypass_, OBS_, OpenRGB_ or `Signal messenger`_ installation.
 * Configurations: shell/terminals, Gnome_, Git_, ssh, keyboard and more.
@@ -171,7 +171,6 @@ This project was inspired by `@geerlingguy`_'s `Mac Development Ansible Playbook
 .. _Firefox: https://www.mozilla.org/firefox/
 .. _Git: https://git-scm.com/
 .. _Gnome: https://www.gnome.org/
-.. _Google Chrome: https://www.google.com/chrome/
 .. _KeyPass: https://keepass.info/
 .. _MIT: https://opensource.org/licenses/MIT
 .. _OBS: https://obsproject.com/

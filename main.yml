@@ -31,9 +31,6 @@
       when: configure_firefox
     - role: staticdev.brave
       when: install_brave
-    - role: darkwizard242.googlechrome
-      when: install_google_chrome
-      become: true
     - role: geerlingguy.docker
       vars:
         docker_users: ["{{ ansible_env.USER }}"]
