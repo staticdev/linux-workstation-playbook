@@ -1,0 +1,9 @@
+---
+- name: Check ssh password first
+  command: echo "ssh password correct"
+  changed_when: false
+
+- name: Check sudo password first
+  command: echo "sudo password correct"
+  become: yes
+  changed_when: false

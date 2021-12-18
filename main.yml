@@ -5,6 +5,8 @@
     - default.config.yml
 
   pre_tasks:
+    - name: SSH and become checks
+      include_tasks: tasks/site.yml
     - include_vars: "{{ item }}"
       with_fileglob:
         - "{{ playbook_dir }}/config.yml"

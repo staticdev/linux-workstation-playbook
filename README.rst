@@ -15,7 +15,7 @@ Features
 ========
 
 * IDEs: VSCode_ and Pycharm_ installation.
-* Browsers: Firefox_ configuration, Brave_ installation.
+* Browsers: Firefox_ configuration and Brave_ installation.
 * Packages intallation: apt, snap, pip, npm, ruby gems.
 * Assorted FOSS programs: Cryptomator_, Keypass_, OBS_, OpenRGB_ or `Signal messenger`_ installation.
 * Configurations: shell/terminals, Gnome_, Git_, ssh, keyboard and more.
