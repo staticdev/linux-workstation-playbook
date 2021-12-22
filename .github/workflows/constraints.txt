@@ -1,4 +1,4 @@
 pip==21.3.1
-ansible==5.0.1
+ansible==5.1.0
 ansible-lint==5.3.1
 yamllint==1.26.3
