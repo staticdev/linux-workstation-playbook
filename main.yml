@@ -23,10 +23,10 @@
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: absent
       with_items:
-        - openrgb_0.6.0_amd64.buildinfo
-        - openrgb_0.6.0_amd64.changes
-        - openrgb_0.6.0_amd64.deb
-        - openrgb-dbgsym_0.6.0_amd64.deb
+        - openrgb_0.7.0_amd64.buildinfo
+        - openrgb_0.7.0_amd64.changes
+        - openrgb_0.7.0_amd64.deb
+        - openrgb-dbgsym_0.7.0_amd64.deb
 
   roles:
     - role: staticdev.firefox
@@ -42,15 +42,22 @@
       when: install_obs
       become: true
     - role: staticdev.python_developer
-      vars:
-        install_pycharm: "{{ install_pycharm }}"
-        install_vscode: install_vscode
-        vscode_extensions: vscode_extensions
       when: python_developer
     - role: staticdev.signal
       when: install_signal
+    - role: green_leader.codium
+      when: install_vscodium
+      become: true
 
   tasks:
+    - name: Install Pycharm
+      include_tasks: tasks/pycharm.yml
+      when: install_pycharm
+
+    - name: Install VSCode
+      include_tasks: tasks/vscode.yml
+      when: install_vscode
+
     - name: Install zsh
       include_tasks: tasks/zsh.yml
       when: install_zsh

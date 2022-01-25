@@ -1,0 +1,12 @@
+---
+- name: Ensure snapd is installed
+  package:
+    name: snapd
+    state: present
+  become: true
+
+- name: Install pycharm
+  community.general.snap:
+    name: "pycharm-{{ pycharm_flavor }}"
+    classic: true
+  become: true
