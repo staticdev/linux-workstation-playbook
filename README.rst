@@ -14,7 +14,8 @@ Linux Workstation Playbook
 Features
 ========
 
-* IDEs: VSCode_ and Pycharm_ installation.
+* Development: `Python tools`_.
+   * IDEs: Pycharm_, VSCode_ and VSCodium_ installation.
 * Browsers: Firefox_ configuration and Brave_ installation.
 * Packages intallation: apt, snap, pip, npm, ruby gems.
 * Assorted FOSS programs: Cryptomator_, Keypass_, OBS_, OpenRGB_ or `Signal messenger`_ installation.
@@ -175,9 +176,11 @@ This project was inspired by `@geerlingguy`_'s `Mac Development Ansible Playbook
 .. _MIT: https://opensource.org/licenses/MIT
 .. _OBS: https://obsproject.com/
 .. _OpenRGB: https://gitlab.com/CalcProgrammer1/OpenRGB
+.. _Python tools: https://github.com/staticdev/ansible-role-python-developer
 .. _Pycharm: https://www.jetbrains.com/pycharm/
 .. _Signal messenger: https://signal.org
 .. _VSCode: https://code.visualstudio.com/
+.. _VSCodium: https://vscodium.com/
 .. _file an issue: https://github.com/staticdev/linux-workstation-playbook/issues
 .. _@geerlingguy: https://github.com/geerlingguy
 .. _Mac Development Ansible Playbook: https://github.com/geerlingguy/mac-dev-playbook

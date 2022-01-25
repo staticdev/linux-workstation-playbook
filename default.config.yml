@@ -2,21 +2,26 @@
 # Docker
 install_docker: true
 
-# IDEs (installed by python_developer role)
-python_developer: true
+# IDEs
+## Pycharm
 install_pycharm: false
-pycharm_flavor: community
-install_vscode: true
+pycharm_flavor: community # you can also choose: professional or edu
+## VSCode
+install_vscode: false
 vscode_extensions:
   - shan.code-settings-sync
-## Pyenv settings
+## VSCodium (community-driven, freely-licensed binary distribution of Microsoft’s editor VSCode)
+install_vscodium: true
+
+# Python settings
+python_developer: true
 pyenv_python_versions:
-  - 3.10.0
+  - 3.10.1
   - 3.9.9
   - 3.8.12
   - 3.7.12
 pyenv_global:
-  - 3.10.0
+  - 3.10.1
   - 3.9.9
   - 3.8.12
   - 3.7.12
@@ -44,7 +49,7 @@ keyboard_c_cedilla: false
 
 # SSH config
 configure_ssh: true
-ssh_key_type: rsa  # you can also choose between: dsa, ecdsa and ed25519
+ssh_key_type: rsa # you can also choose between: dsa, ecdsa and ed25519
 # For RSA keys, the minimum size is 1024 bits and the default is 4096 bits. Generally, 2048 bits is considered sufficient.
 # DSA keys must be exactly 1024 bits as specified by FIPS 186-2.
 # For ECDSA keys, size determines the key length by selecting from one of three elliptic curve sizes: 256, 384 or 521 bits.
@@ -113,8 +118,9 @@ installed_packages:
 install_extra_packages: true
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
-snap_packages: []
-# - name: postman
+snap_packages:
+  - name: onlyoffice-desktopeditors
+  - name: postman
 gem_packages: []
 # - name: bundler
 #   state: present # present/absent/latest, default: present
@@ -130,15 +136,13 @@ pip_packages: []
 
 # Gnome config
 gnome_setup: true
-gnome_favorite_apps: [
-  "firefox-esr.desktop",
-  "brave-browser.desktop",
-  "org.gnome.Nautilus.desktop",
-  "code.desktop",
-#  "keepassxc_keepassxc.desktop",
-#  "pycharm-professional_pycharm-professional.desktop", # Pycharm name depends on the flavor
-#  "signal-desktop.desktop",
-]
+gnome_favorite_apps:
+  [
+    "firefox-esr.desktop",
+    "brave-browser.desktop",
+    "org.gnome.Nautilus.desktop",
+    "code.desktop",
+  ]
 
 # enable entire screen sharing
 enable_screen_sharing: true
@@ -146,7 +150,7 @@ enable_screen_sharing: true
 # extra installs
 ## cryptomator
 install_cryptomator: false
-cryptomator_version: 1.5.15
+cryptomator_version: 1.6.5
 
 install_keypass_xc: false
 install_obs: false
