@@ -23,4 +23,4 @@ collections:
   - name: community.general
     version: 4.4.0
   - name: community.crypto
-    version: 2.2.0
+    version: 2.2.1
