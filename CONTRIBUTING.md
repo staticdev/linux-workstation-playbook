@@ -1,26 +1,19 @@
-Contributor Guide
-=================
+# Contributor Guide
 
 Thank you for your interest in improving this project.
-This project is open-source under the `MIT license`_ and
+This project is open-source under the [MIT license] and
 welcomes contributions in the form of bug reports, feature requests, and pull requests.
 
 Here is a list of important resources for contributors:
 
-- `Source Code`_
-- `Documentation`_
-- `Issue Tracker`_
-- `Code of Conduct`_
+- [Source Code]
+- [Documentation]
+- [Issue Tracker]
+- [Code of Conduct]
 
-.. _MIT license: https://opensource.org/licenses/MIT
-.. _Source Code: https://github.com/staticdev/linux-workstation-playbook
-.. _Documentation: https://linux-workstation-playbook.readthedocs.io/
-.. _Issue Tracker: https://github.com/staticdev/linux-workstation-playbook/issues
+## How to report a bug
 
-How to report a bug
--------------------
-
-Report bugs on the `Issue Tracker`_.
+Report bugs on the [Issue Tracker].
 
 When filing an issue, make sure to answer these questions:
 
@@ -33,16 +26,13 @@ When filing an issue, make sure to answer these questions:
 The best way to get your bug fixed is to provide a test case,
 and/or steps to reproduce the issue.
 
+## How to request a feature
 
-How to request a feature
-------------------------
+Request features on the [Issue Tracker].
 
-Request features on the `Issue Tracker`_.
+## How to submit changes
 
-How to submit changes
----------------------
-
-Open a `pull request`_ to submit changes to this project.
+Open a [pull request] to submit changes to this project.
 
 Your pull request needs to meet the following guidelines for acceptance:
 
@@ -54,13 +44,18 @@ Feel free to submit early, though—we can always iterate on this.
 
 To run linting and code formatting checks before commiting your change, you can install pre-commit as a Git hook by running the following command:
 
-.. code:: console
-
-   $ nox --session=pre-commit -- install
+```console
+$ nox --session=pre-commit -- install
+```
 
 It is recommended to open an issue before starting work on anything.
 This will allow a chance to talk it over with the owners and validate your approach.
 
-.. _pull request: https://github.com/staticdev/linux-workstation-playbook/pulls
-.. github-only
-.. _Code of Conduct: CODE_OF_CONDUCT.rst
+% github-only
+
+[code of conduct]: CODE_OF_CONDUCT.rst
+[documentation]: https://linux-workstation-playbook.readthedocs.io/
+[issue tracker]: https://github.com/staticdev/linux-workstation-playbook/issues
+[mit license]: https://opensource.org/licenses/MIT
+[pull request]: https://github.com/staticdev/linux-workstation-playbook/pulls
+[source code]: https://github.com/staticdev/linux-workstation-playbook
