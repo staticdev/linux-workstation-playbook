@@ -16,13 +16,13 @@ install_vscodium: true
 # Python settings
 python_developer: true
 pyenv_python_versions:
-  - 3.10.1
-  - 3.9.9
+  - 3.10.2
+  - 3.9.10
   - 3.8.12
   - 3.7.12
 pyenv_global:
-  - 3.10.1
-  - 3.9.9
+  - 3.10.2
+  - 3.9.10
   - 3.8.12
   - 3.7.12
 pyenv_virtualenvs: []
