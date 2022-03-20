@@ -1,6 +1,6 @@
 ---
 # Docker
-install_docker: true
+install_docker: false
 
 # IDEs
 ## Pycharm
@@ -97,6 +97,7 @@ install_packages: true
 installed_packages:
   - apache2-utils
   - cmake
+  - containerd # container runtime
   - dconf-editor # visual gnome configs
   - gir1.2-clutter-1.0 # dep gnome extension system monitor
   - gir1.2-clutter-gst-3.0 # dep gnome extension system monitor
