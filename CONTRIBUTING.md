@@ -53,7 +53,7 @@ This will allow a chance to talk it over with the owners and validate your appro
 
 % github-only
 
-[code of conduct]: CODE_OF_CONDUCT.rst
+[code of conduct]: CODE_OF_CONDUCT.md
 [documentation]: https://linux-workstation-playbook.readthedocs.io/
 [issue tracker]: https://github.com/staticdev/linux-workstation-playbook/issues
 [mit license]: https://opensource.org/licenses/MIT

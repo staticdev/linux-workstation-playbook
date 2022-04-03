@@ -141,7 +141,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [@geerlingguy]: https://github.com/geerlingguy
 [ansible]: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 [brave]: https://brave.com/
-[contributor guide]: CONTRIBUTING.rst
+[contributor guide]: CONTRIBUTING.md
 [cryptomator]: https://cryptomator.org/
 [debian]: https://www.debian.org/
 [download]: https://github.com/staticdev/linux-workstation-playbook/archive/refs/heads/main.zip
