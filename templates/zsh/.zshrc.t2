@@ -1,5 +1,4 @@
 # Set up the prompt
-
 autoload -Uz promptinit
 promptinit
 prompt adam1
@@ -33,6 +32,7 @@ alias gpcam='gitp commit -am'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias k='kubectl'
 
 # Use modern completion system
 autoload -Uz compinit
