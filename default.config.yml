@@ -2,6 +2,15 @@
 # Docker
 install_docker: false
 
+# Dotfiles
+configure_dotfiles: true
+dotfiles_repo: "https://github.com/staticdev/dotfiles-eg.git"
+dotfiles_repo_version: main
+dotfiles_files:
+  - .tmux.conf
+  - .vimrc
+  - .zshrc
+
 # IDEs
 ## Pycharm
 install_pycharm: false
@@ -110,6 +119,8 @@ installed_packages:
   - node
   - openssl
   - poedit
+  - thefuck
+  - tmux
   - vagrant
   - vim
   - xclip

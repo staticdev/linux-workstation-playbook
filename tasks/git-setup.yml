@@ -15,4 +15,5 @@
         src: gitconfig/.gitconfig_workspace.t2
         dest: "{{ ansible_env.HOME }}/{{ item.folder_name }}/.gitconfig"
       loop: "{{ git_workspaces|flatten(levels=1) }}"
+      when: configure_dotfiles
   when: git_create_workspaces

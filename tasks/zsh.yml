@@ -3,10 +3,6 @@
   apt:
     name: zsh
   become: true
-- name: Create .zshrc
-  template:
-    src: zsh/.zshrc.t2
-    dest: "{{ ansible_env.HOME }}/.zshrc"
 - name: Set zsh as default
   user:
     name: "{{ ansible_env.USER }}"
