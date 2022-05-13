@@ -48,6 +48,8 @@
     - role: green_leader.codium
       when: install_vscodium
       become: true
+    - role: geerlingguy.dotfiles
+      when: configure_dotfiles
 
   tasks:
     - name: Install Pycharm

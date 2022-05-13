@@ -13,7 +13,7 @@
 - Browsers: [Firefox] configuration and [Brave] installation.
 - Packages intallation: apt, snap, pip, npm, ruby gems.
 - Assorted FOSS programs: [Cryptomator], [Keypass], [OBS], [OpenRGB] or [Signal messenger] installation.
-- Configurations: shell/terminals, [Gnome], [Git], ssh, keyboard and more.
+- Configurations: shell/terminals, [Gnome], [Git], ssh, keyboard and dotfiles in general.
 
 Note: this is a setup playbook I use for personal and professional development. It currently supports for [Debian] 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
 
@@ -109,6 +109,8 @@ Packages (installed with apt):
 - node
 - openssl
 - poedit
+- thefuck
+- tmux
 - vagrant
 - vim
 - xclip
