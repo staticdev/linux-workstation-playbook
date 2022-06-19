@@ -25,15 +25,15 @@ install_vscodium: true
 # Python settings
 python_developer: true
 pyenv_python_versions:
-  - 3.10.2
-  - 3.9.10
-  - 3.8.12
-  - 3.7.12
+  - 3.10.4
+  - 3.9.13
+  - 3.8.13
+  - 3.7.13
 pyenv_global:
-  - 3.10.2
-  - 3.9.10
-  - 3.8.12
-  - 3.7.12
+  - 3.10.4
+  - 3.9.13
+  - 3.8.13
+  - 3.7.13
 pyenv_virtualenvs: []
 
 # browser configs
@@ -58,13 +58,13 @@ keyboard_c_cedilla: false
 
 # SSH config
 configure_ssh: true
-ssh_key_type: rsa # you can also choose between: dsa, ecdsa and ed25519
+ssh_key_type: ed25519 # you can also choose between: dsa, ecdsa and ed25519
 # For RSA keys, the minimum size is 1024 bits and the default is 4096 bits. Generally, 2048 bits is considered sufficient.
 # DSA keys must be exactly 1024 bits as specified by FIPS 186-2.
 # For ECDSA keys, size determines the key length by selecting from one of three elliptic curve sizes: 256, 384 or 521 bits.
 # Attempting to use bit lengths other than these three values for ECDSA keys will cause this module to fail.
 # Ed25519 keys have a fixed length and the size will be ignored.
-ssh_key_size: 4096
+ssh_key_size:
 ssh_key_passphrase: super_secret_password
 
 # sudoers config
@@ -153,7 +153,7 @@ gnome_favorite_apps:
     "firefox-esr.desktop",
     "brave-browser.desktop",
     "org.gnome.Nautilus.desktop",
-    "code.desktop",
+    "codium.desktop",
   ]
 
 # enable entire screen sharing
@@ -162,7 +162,7 @@ enable_screen_sharing: true
 # extra installs
 ## cryptomator
 install_cryptomator: false
-cryptomator_version: 1.6.5
+cryptomator_version: 1.6.10
 
 install_keypass_xc: false
 install_obs: false

@@ -21,14 +21,14 @@ Note: this is a setup playbook I use for personal and professional development. 
 
 - [Ansible] installed: on Debian you can just run:
 
-```console
+```sh
 sudo apt install python3-pip
 pip install --user ansible
 ```
 
 If **~/.local/bin** is not on **echo \$PATH**, you can add it with the command:
 
-```console
+```sh
 sudo echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc && source ~/.bashrc
 ```
 
@@ -36,13 +36,13 @@ sudo echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc && source ~/.bashrc
 
 1. [Download] and extract this playbook or clone this repository to your local drive.
 
-```console
+```sh
 git clone git@github.com:staticdev/linux-workstation-playbook.git
 ```
 
 2. Install dependencies by entering the terminal in the playbook folder and run the command:
 
-```console
+```sh
 ansible-galaxy install -r requirements.yml
 ```
 
@@ -51,7 +51,7 @@ ansible-galaxy install -r requirements.yml
 1. Make a copy of **default.config.yml** with the name **config.yml** and change the configurations you want to use.
 2. Run the command:
 
-```console
+```sh
 ansible-playbook main.yml -i inventory --ask-become-pass
 ```
 
