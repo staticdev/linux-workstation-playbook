@@ -3,17 +3,20 @@
   apt:
     name: python3-psutil
   become: true
+
 - name: Install System Monitor extension
   package:
     name: gnome-shell-extension-system-monitor
     state: present
   become: true
+
 - name: Enable System Monitor extension
   community.general.dconf:
     key: /org/gnome/shell/enabled-extensions
     value: ["system-monitor@paradoxxx.zero.gmail.com"]
   notify:
     - restart gnome
+
 - name: Setup night-light
   community.general.dconf:
     key: "{{ item.key }}"
@@ -37,14 +40,17 @@
       value: 0
     - key: "/org/gnome/settings-daemon/plugins/color/night-light-schedule-from"
       value: 16.0
+
 - name: Setup favorite-apps
   community.general.dconf:
     key: /org/gnome/shell/favorite-apps
     value: "{{ gnome_favorite_apps }}"
+
 - name: Disable activities overview hot corner
   community.general.dconf:
     key: /org/gnome/desktop/interface/enable-hot-corners
     value: "false"
+
 - name: Disable lock-screen notifications
   community.general.dconf:
     key: /org/gnome/desktop/notifications/show-in-lock-screen

@@ -9,13 +9,14 @@
 ## Features
 
 - Development: [Python tools].
-  - IDEs: [Pycharm], [VSCode] and [VSCodium] installation.
+  - IDEs: [VSCodium], [Pycharm] and [VSCode] installation.
 - Browsers: [Firefox] configuration and [Brave] installation.
 - Packages intallation: apt, snap, pip, npm, ruby gems.
-- Assorted FOSS programs: [Cryptomator], [Keypass], [OBS], [OpenRGB] or [Signal messenger] installation.
-- Configurations: shell/terminals, [Gnome], [Git], ssh, keyboard and dotfiles in general.
+- Replaces [LibreOffice] with [OnlyOffice].
+- Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS], [OpenRGB] and [Signal] messenger installation.
+- Configurations: dotfiles, shell/terminals, [Gnome], [Git], ssh, keyboard...
 
-Note: this is a setup playbook I use for personal and professional development. It currently supports for [Debian] 11 (Bullseye). Refer to release 0.1.0 for Ubuntu.
+Note: this is an opinionated setup I personally use for software development. You can customize all the changes following instructions in [Overriding Defaults](#Overriding Defaults).
 
 ## Requirements
 
@@ -75,6 +76,8 @@ npm_packages:
 pip_packages:
   - name: mkdocs
 ```
+
+To have you own dotfiles, just fork the [dotfiles eg. repo] and change the url of `dotfiles_repo` or just change `configure_dotfiles` to false if you do not want it.
 
 Any variable can be overridden in **config.yml**; see the supporting roles' documentation for a complete list of available variables.
 
@@ -138,26 +141,27 @@ please [file an issue] along with a detailed description.
 
 This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook].
 
-% github-only
-
 [@geerlingguy]: https://github.com/geerlingguy
 [ansible]: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 [brave]: https://brave.com/
 [contributor guide]: CONTRIBUTING.md
 [cryptomator]: https://cryptomator.org/
 [debian]: https://www.debian.org/
+[dotfiles eg. repo]: https://github.com/staticdev/dotfiles-eg
 [download]: https://github.com/staticdev/linux-workstation-playbook/archive/refs/heads/main.zip
 [file an issue]: https://github.com/staticdev/linux-workstation-playbook/issues
 [firefox]: https://www.mozilla.org/firefox/
 [git]: https://git-scm.com/
 [gnome]: https://www.gnome.org/
+[libreoffice]: https://www.libreoffice.org/
 [keypass]: https://keepass.info/
 [mac development ansible playbook]: https://github.com/geerlingguy/mac-dev-playbook
 [mit]: https://opensource.org/licenses/MIT
 [obs]: https://obsproject.com/
+[onlyoffice]: https://github.com/ONLYOFFICE/
 [openrgb]: https://gitlab.com/CalcProgrammer1/OpenRGB
 [pycharm]: https://www.jetbrains.com/pycharm/
 [python tools]: https://github.com/staticdev/ansible-role-python-developer
-[signal messenger]: https://signal.org
+[signal]: https://signal.org
 [vscode]: https://code.visualstudio.com/
 [vscodium]: https://vscodium.com/

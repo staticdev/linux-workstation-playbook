@@ -4,6 +4,7 @@
     key: /org/gnome/desktop/input-sources/sources
     value: "[('xkb', '{{ keyboard_layout | string }}{% if keyboard_variant %}+{{ keyboard_variant | string }}{% endif %}')]"
   when: keyboard_layout
+
 - name: Configure c-cedilla
   lineinfile:
     path: /etc/environment

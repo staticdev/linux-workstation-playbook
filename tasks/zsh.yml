@@ -3,6 +3,7 @@
   apt:
     name: zsh
   become: true
+
 - name: Set zsh as default
   user:
     name: "{{ ansible_env.USER }}"

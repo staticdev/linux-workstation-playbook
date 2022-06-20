@@ -3,6 +3,7 @@
   template:
     src: gitconfig/.gitconfig_user.t2
     dest: "{{ ansible_env.HOME }}/.gitconfig"
+
 - name: Configure Git workspaces
   block:
     - name: Create workspace directories
