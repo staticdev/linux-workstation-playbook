@@ -35,7 +35,7 @@
   git:
     repo: https://gitlab.com/CalcProgrammer1/OpenRGB
     dest: ~/OpenRGB
-    version: release_0.6
+    version: "{{ openrgb_git_release }}"
   when: openrgb_version_cmd is failed
   notify: delete openrgb repo
 
@@ -48,6 +48,6 @@
 
 - name: Install package
   apt:
-    deb: "{{ lookup('env', 'HOME') }}/openrgb_0.6.0_amd64.deb"
+    deb: "{{ lookup('env', 'HOME') }}/openrgb_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.deb"
   become: true
   when: openrgb_version_cmd is failed
