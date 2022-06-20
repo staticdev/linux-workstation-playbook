@@ -23,10 +23,10 @@
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: absent
       with_items:
-        - openrgb_0.7.0_amd64.buildinfo
-        - openrgb_0.7.0_amd64.changes
-        - openrgb_0.7.0_amd64.deb
-        - openrgb-dbgsym_0.7.0_amd64.deb
+        - "openrgb_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.buildinfo"
+        - "openrgb_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.changes"
+        - "openrgb_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.deb"
+        - "openrgb-dbgsym_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.deb"
 
   roles:
     - role: staticdev.firefox
