@@ -5,7 +5,7 @@ roles:
   - name: staticdev.brave
     version: 1.0.0
   - name: geerlingguy.docker
-    version: 4.1.3
+    version: 4.2.4
   - name: geerlingguy.dotfiles
     version: 1.2.1
   - name: robertdebock.obsproject
