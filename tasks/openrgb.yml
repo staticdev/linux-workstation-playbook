@@ -4,6 +4,7 @@
   register: openrgb_version_cmd
   changed_when: false
   ignore_errors: true
+
 - name: Ensure packages are installed
   package:
     name: "{{ item }}"
@@ -22,12 +23,14 @@
     - libmbedtls-dev
     - pkgconf
   when: openrgb_version_cmd is failed
+
 - name: Load i2c-dev module
   community.general.modprobe:
     name: i2c-dev
     state: present
   become: true
   when: openrgb_version_cmd is failed
+
 - name: Download repo
   git:
     repo: https://gitlab.com/CalcProgrammer1/OpenRGB
@@ -35,12 +38,14 @@
     version: release_0.6
   when: openrgb_version_cmd is failed
   notify: delete openrgb repo
+
 - name: Generate package
   command:
     cmd: dpkg-buildpackage -us -B
     chdir: ~/OpenRGB
   when: openrgb_version_cmd is failed
   notify: delete openrgb generated files
+
 - name: Install package
   apt:
     deb: "{{ lookup('env', 'HOME') }}/openrgb_0.6.0_amd64.deb"

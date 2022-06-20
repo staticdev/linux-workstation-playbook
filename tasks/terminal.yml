@@ -6,6 +6,7 @@
     mode: 0644
   become: true
   when: "'guake' in installed_packages"
+
 - name: Add keybinding for Guake in Wayland
   community.general.dconf:
     key: "{{ item.key }}"
