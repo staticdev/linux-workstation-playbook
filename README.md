@@ -16,18 +16,31 @@
 - Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS], [OpenRGB] and [Signal] messenger installation.
 - Configurations: dotfiles, shell/terminals, [Gnome], [Git], ssh, keyboard...
 
-Note: this is an opinionated setup I personally use for software development. You can customize all the changes following instructions in [Overriding Defaults](#Overriding Defaults).
+Note: this is an opinionated setup I personally use for software development. You can customize all the changes following instructions in [Overriding Defaults](#overriding-defaults).
 
 ## Requirements
 
-- [Ansible] installed: on Debian you can just run:
+1. [Ansible] installed: on Debian you can just run:
 
 ```sh
 sudo apt install python3-pip
 pip install --user ansible
 ```
 
-If **~/.local/bin** is not on **echo \$PATH**, you can add it with the command:
+If you get an error saying no installation candidate, edit your apt sources files with:
+
+```sh
+sudo gedit /etc/apt/sources.list
+```
+
+Remove DVD repos and make sure you have:
+
+```sh
+deb http://deb.debian.org/debian/ bullseye main non-free contrib
+deb-src http://deb.debian.org/debian/ bullseye main non-free contrib
+```
+
+1. If **~/.local/bin** is not on **echo \$PATH**, you can add it with the command:
 
 ```sh
 sudo echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc && source ~/.bashrc
@@ -56,7 +69,11 @@ ansible-galaxy install -r requirements.yml
 ansible-playbook main.yml -i inventory --ask-become-pass
 ```
 
+<a name="overriding-defaults">
+
 ### Overriding Defaults
+
+</a>
 
 Not everyone's workstation and preferred software configuration is the same.
 
