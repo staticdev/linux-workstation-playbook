@@ -126,7 +126,8 @@ Packages (installed with apt):
 - htop
 - locales-all
 - nmap
-- node
+- nodejs
+- npm
 - openssl
 - poedit
 - thefuck
