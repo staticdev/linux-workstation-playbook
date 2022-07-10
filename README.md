@@ -22,52 +22,52 @@ Note: this is an opinionated setup I personally use for software development. Yo
 
 1. [Ansible] installed: on Debian you can just run:
 
-```sh
-sudo apt install python3-pip
-pip install --user ansible
-```
+   ```sh
+   sudo apt install python3-pip
+   pip install --user ansible
+   ```
 
-If you get an error saying no installation candidate, edit your apt sources files with:
+   If you get an error saying no installation candidate, edit your apt sources files with:
 
-```sh
-sudo gedit /etc/apt/sources.list
-```
+   ```sh
+   sudo gedit /etc/apt/sources.list
+   ```
 
-Remove DVD repos and make sure you have:
+   Remove DVD repos (if you see them) and make sure you have:
 
-```sh
-deb http://deb.debian.org/debian/ bullseye main non-free contrib
-deb-src http://deb.debian.org/debian/ bullseye main non-free contrib
-```
+   ```sh
+   deb http://deb.debian.org/debian/ bullseye main non-free contrib
+   deb-src http://deb.debian.org/debian/ bullseye main non-free contrib
+   ```
 
-1. If **~/.local/bin** is not on **echo \$PATH**, you can add it with the command:
+   1. If **~/.local/bin** is not on **echo \$PATH**, you can add it with the command:
 
-```sh
-sudo echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc && source ~/.bashrc
-```
+   ```sh
+   sudo echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc && source ~/.bashrc
+   ```
 
 ## Installation
 
 1. [Download] and extract this playbook or clone this repository to your local drive.
 
-```sh
-git clone git@github.com:staticdev/linux-workstation-playbook.git
-```
+   ```sh
+   git clone git@github.com:staticdev/linux-workstation-playbook.git
+   ```
 
-2. Install dependencies by entering the terminal in the playbook folder and run the command:
+1. Install dependencies by entering the terminal in the playbook folder and run the command:
 
-```sh
-ansible-galaxy install -r requirements.yml
-```
+   ```sh
+   ansible-galaxy install -r requirements.yml
+   ```
 
 ## Usage
 
 1. Make a copy of **default.config.yml** with the name **config.yml** and change the configurations you want to use.
-2. Run the command:
+1. Run the command:
 
-```sh
-ansible-playbook main.yml -i inventory --ask-become-pass
-```
+   ```sh
+   ansible-playbook main.yml -i inventory --ask-become-pass
+   ```
 
 <a name="overriding-defaults">
 
