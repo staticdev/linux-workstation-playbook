@@ -25,12 +25,12 @@ install_vscodium: true
 # Python settings
 python_developer: true
 pyenv_python_versions:
-  - 3.10.4
+  - 3.10.5
   - 3.9.13
   - 3.8.13
   - 3.7.13
 pyenv_global:
-  - 3.10.4
+  - 3.10.5
   - 3.9.13
   - 3.8.13
   - 3.7.13
@@ -119,7 +119,8 @@ installed_packages:
   - htop
   - locales-all
   - nmap
-  - node
+  - nodejs
+  - npm
   - openssl
   - poedit
   - thefuck
