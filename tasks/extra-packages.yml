@@ -8,6 +8,7 @@
 - name: Install snap packages.
   community.general.snap:
     name: "{{ item.name | default(item) }}"
+    classic: "{{ item.classic | default('false') }}"
   loop: "{{ snap_packages | flatten(1) }}"
   become: true
 

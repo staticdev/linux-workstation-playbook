@@ -135,6 +135,8 @@ install_extra_packages: true
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
 snap_packages:
+  - name: kubectl
+    classic: true
   - name: onlyoffice-desktopeditors
   - name: postman
 gem_packages: []
