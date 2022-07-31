@@ -172,6 +172,7 @@ cryptomator_version: 1.6.10
 
 install_keypass_xc: false
 install_obs: false
+install_rclone: false
 install_signal: false
 
 ## openrgb
