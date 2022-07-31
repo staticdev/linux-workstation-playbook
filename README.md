@@ -13,7 +13,7 @@
 - Browsers: [Firefox] configuration and [Brave] installation.
 - Packages intallation: apt, snap, pip, npm, ruby gems.
 - Replaces [LibreOffice] with [OnlyOffice].
-- Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS], [OpenRGB] and [Signal] messenger installation.
+- Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS], [OpenRGB], [RClone], and [Signal] messenger installation.
 - Configurations: dotfiles, shell/terminals, [Gnome], [Git], ssh, keyboard...
 
 Note: this is an opinionated setup I personally use for software development. You can customize all the changes following instructions in [Overriding Defaults](#overriding-defaults).
@@ -180,6 +180,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [openrgb]: https://gitlab.com/CalcProgrammer1/OpenRGB
 [pycharm]: https://www.jetbrains.com/pycharm/
 [python tools]: https://github.com/staticdev/ansible-role-python-developer
+[rclone]: https://rclone.org/
 [signal]: https://signal.org
 [vscode]: https://code.visualstudio.com/
 [vscodium]: https://vscodium.com/

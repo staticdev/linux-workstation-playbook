@@ -50,6 +50,8 @@
       become: true
     - role: geerlingguy.dotfiles
       when: configure_dotfiles
+    - role: stefangweichinger.ansible_rclone
+      when: install_rclone
 
   tasks:
     - name: Install Pycharm
