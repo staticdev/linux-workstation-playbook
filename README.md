@@ -8,7 +8,7 @@
 
 ## Features
 
-- Development: [Python tools].
+- Development: [Golang] and [Python tools].
   - IDEs: [VSCodium], [Pycharm] and [VSCode] installation.
 - Browsers: [Firefox] configuration and [Brave] installation.
 - Packages intallation: apt, snap, pip, npm, ruby gems.
@@ -171,6 +171,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [firefox]: https://www.mozilla.org/firefox/
 [git]: https://git-scm.com/
 [gnome]: https://www.gnome.org/
+[golang]: https://go.dev/
 [libreoffice]: https://www.libreoffice.org/
 [keypass]: https://keepass.info/
 [mac development ansible playbook]: https://github.com/geerlingguy/mac-dev-playbook

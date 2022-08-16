@@ -1,5 +1,7 @@
 ---
 roles:
+  - name: gantsign.golang
+    version: 3.0.0
   - name: gantsign.visual-studio-code
     version: 6.8.0
   - name: geerlingguy.docker
