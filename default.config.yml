@@ -22,6 +22,10 @@ vscode_extensions:
 ## VSCodium (community-driven, freely-licensed binary distribution of Microsoft’s editor VSCode)
 install_vscodium: true
 
+# Go settings
+golang_developer: true
+golang_version: "1.19"
+
 # Python settings
 python_developer: true
 pyenv_python_versions:
