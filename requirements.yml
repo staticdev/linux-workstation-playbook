@@ -3,7 +3,7 @@ roles:
   - name: gantsign.visual-studio-code
     version: 6.8.0
   - name: geerlingguy.docker
-    version: 4.2.4
+    version: 5.0.0
   - name: geerlingguy.dotfiles
     version: 1.2.1
   - name: green_leader.codium
