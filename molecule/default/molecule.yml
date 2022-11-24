@@ -15,6 +15,10 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     privileged: true
     pre_build_image: true
+    # USER needed to have ansible_env.USER in docker
+    # https://github.com/ansible-community/molecule-docker/discussions/192
+    env:
+      USER: root
 provisioner:
   name: ansible
 verifier:
