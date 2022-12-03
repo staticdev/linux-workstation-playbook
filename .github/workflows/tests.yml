@@ -40,31 +40,34 @@ jobs:
           yamllint .
           ansible-lint
 
-  # molecule:
-  #   name: Molecule
-  #   runs-on: ubuntu-latest
+  molecule:
+    name: Molecule
+    runs-on: ubuntu-latest
 
-  #   strategy:
-  #     matrix:
-  #       distro:
-  #         - debian11
-  #   steps:
-  #     - name: Check out the repository
-  #       uses: actions/checkout@v3
-  #       with:
-  #         fetch-depth: 2
+    strategy:
+      matrix:
+        distro:
+          - debian11
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
 
-  #     - name: Set up Python
-  #       uses: actions/setup-python@v4
-  #       with:
-  #         python-version: "3.11"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
 
-  #     - name: Install test dependencies
-  #       run: pip3 install ansible molecule[docker] docker
+      - name: Upgrade pip
+        run: |
+          python3 -m pip install --constraint=.github/workflows/constraints.txt pip
+          python3 -m pip --version
 
-  #     - name: Run Molecule tests
-  #       run: molecule test
-  #       env:
-  #         PY_COLORS: "1"
-  #         ANSIBLE_FORCE_COLOR: "1"
-  #         MOLECULE_DISTRO: ${{ matrix.distro }}
+      - name: Install test dependencies
+        run: pip3 install --constraint=.github/workflows/constraints.txt ansible molecule[docker] docker
+
+      - name: Run Molecule tests
+        run: molecule test
+        env:
+          PY_COLORS: "1"
+          ANSIBLE_FORCE_COLOR: "1"
+          MOLECULE_DISTRO: ${{ matrix.distro }}

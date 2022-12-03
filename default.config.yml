@@ -30,15 +30,15 @@ golang_version: "1.19"
 # Python settings
 python_developer: true
 pyenv_python_versions:
+  - 3.11.0
   - 3.10.6
-  - 3.9.13
-  - 3.8.13
-  - 3.7.13
+  - 3.9.15
+  - 3.8.15
 pyenv_global:
+  - 3.11.0
   - 3.10.6
-  - 3.9.13
-  - 3.8.13
-  - 3.7.13
+  - 3.9.15
+  - 3.8.15
 pyenv_virtualenvs: []
 
 # browser configs
@@ -56,7 +56,7 @@ firefox_profiles:
 install_brave: true
 
 # keyboard config
-configure_keyboard: true
+configure_keyboard: false
 keyboard_layout: us
 keyboard_variant: intl
 keyboard_c_cedilla: false
@@ -114,13 +114,11 @@ remove_libreoffice: true
 installed_packages:
   - apache2-utils
   - cmake
-  - containerd # container runtime
   - dconf-editor # visual gnome configs
   - gir1.2-clutter-1.0 # dep gnome extension system monitor
   - gir1.2-clutter-gst-3.0 # dep gnome extension system monitor
   - gir1.2-gtkclutter-1.0 # dep gnome extension system monitor
   - git
-  - guake
   - htop
   - locales-all
   - nmap
@@ -140,11 +138,11 @@ installed_packages:
 install_extra_packages: true
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
-snap_packages:
-  - name: kubectl
-    classic: true
-  - name: onlyoffice-desktopeditors
-  - name: postman
+snap_packages: []
+  # - name: kubectl
+  #   classic: true
+  # - name: onlyoffice-desktopeditors
+  # - name: postman
 gem_packages: []
 # - name: bundler
 #   state: present # present/absent/latest, default: present
@@ -159,7 +157,7 @@ pip_packages: []
 #   version: "0.16.3" # default: N/A
 
 # Gnome config
-gnome_setup: true
+gnome_setup: false
 gnome_favorite_apps:
   [
     "firefox-esr.desktop",
@@ -169,12 +167,12 @@ gnome_favorite_apps:
   ]
 
 # enable entire screen sharing
-enable_screen_sharing: true
+enable_screen_sharing: false
 
 # extra installs
 ## cryptomator
 install_cryptomator: false
-cryptomator_version: 1.6.13
+cryptomator_version: 1.6.15
 
 install_keypass_xc: false
 install_obs: false
@@ -184,8 +182,8 @@ install_signal: false
 ## openrgb
 install_openrgb: false
 # get from https://gitlab.com/CalcProgrammer1/OpenRGB/-/tags
-openrgb_git_release: release_0.7
-openrgb_deb_version: 0.7.0
+openrgb_git_release: release_0.8
+openrgb_deb_version: 0.8.0
 openrgb_deb_architecture: amd64
 
 # glob pattern to ansible task files to run after all other tasks are finished.

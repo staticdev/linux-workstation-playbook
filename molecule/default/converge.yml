@@ -9,4 +9,12 @@
         update_cache: true
         cache_valid_time: 3600
 
+    - name: Install required packages
+      ansible.builtin.apt:
+        name:
+          - firefox-esr
+          - gpg
+          - python3-bcrypt
+          - python3-requests
+
 - import_playbook: ../../main.yml
