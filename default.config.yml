@@ -1,5 +1,6 @@
 ---
 # Docker
+# Default is false in favor to podman installation in installed_packages
 install_docker: false
 
 # Dotfiles
@@ -126,6 +127,7 @@ installed_packages:
   - nodejs
   - npm
   - openssl
+  - podman
   - poedit
   - thefuck
   - tmux
