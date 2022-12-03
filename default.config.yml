@@ -157,7 +157,7 @@ pip_packages: []
 #   version: "0.16.3" # default: N/A
 
 # Gnome config
-gnome_setup: true
+gnome_setup: false
 gnome_favorite_apps:
   [
     "firefox-esr.desktop",
