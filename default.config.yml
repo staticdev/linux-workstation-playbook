@@ -56,7 +56,7 @@ firefox_profiles:
 install_brave: true
 
 # keyboard config
-configure_keyboard: true
+configure_keyboard: false
 keyboard_layout: us
 keyboard_variant: intl
 keyboard_c_cedilla: false
