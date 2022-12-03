@@ -13,6 +13,7 @@
       ansible.builtin.apt:
         name:
           - firefox-esr
+          - gpg
           - python3-requests
 
 - import_playbook: ../../main.yml
