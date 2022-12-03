@@ -169,7 +169,7 @@ gnome_favorite_apps:
   ]
 
 # enable entire screen sharing
-enable_screen_sharing: true
+enable_screen_sharing: false
 
 # extra installs
 ## cryptomator
