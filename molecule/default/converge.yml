@@ -14,6 +14,7 @@
         name:
           - firefox-esr
           - gpg
+          - python3-bcrypt
           - python3-requests
 
 - import_playbook: ../../main.yml
