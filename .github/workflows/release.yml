@@ -17,9 +17,9 @@ jobs:
           fetch-depth: 2
 
       - name: Set up Python
-        uses: actions/setup-python@v4.3.0
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
+          python-version: "3.11"
 
       - name: Upgrade pip
         run: |
@@ -39,14 +39,14 @@ jobs:
       - name: Detect and tag new version
         id: check-version
         if: steps.check-parent-commit.outputs.sha
-        uses: salsify/action-detect-and-tag-new-version@v2.0.2
+        uses: salsify/action-detect-and-tag-new-version@v2
         with:
           tag-template: "{VERSION}"
           version-command: |
             bash -o pipefail -c "poetry version | awk '{ print \$2 }'"
 
       - name: Publish the release notes
-        uses: release-drafter/release-drafter@v5.21.1
+        uses: release-drafter/release-drafter@v5
         with:
           publish: ${{ steps.check-version.outputs.tag != '' }}
           tag: ${{ steps.check-version.outputs.tag }}
