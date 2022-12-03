@@ -30,15 +30,15 @@ golang_version: "1.19"
 # Python settings
 python_developer: true
 pyenv_python_versions:
+  - 3.11.0
   - 3.10.6
-  - 3.9.13
-  - 3.8.13
-  - 3.7.13
+  - 3.9.15
+  - 3.8.15
 pyenv_global:
+  - 3.11.0
   - 3.10.6
-  - 3.9.13
-  - 3.8.13
-  - 3.7.13
+  - 3.9.15
+  - 3.8.15
 pyenv_virtualenvs: []
 
 # browser configs
@@ -174,7 +174,7 @@ enable_screen_sharing: false
 # extra installs
 ## cryptomator
 install_cryptomator: false
-cryptomator_version: 1.6.13
+cryptomator_version: 1.6.15
 
 install_keypass_xc: false
 install_obs: false
@@ -184,8 +184,8 @@ install_signal: false
 ## openrgb
 install_openrgb: false
 # get from https://gitlab.com/CalcProgrammer1/OpenRGB/-/tags
-openrgb_git_release: release_0.7
-openrgb_deb_version: 0.7.0
+openrgb_git_release: release_0.8
+openrgb_deb_version: 0.8.0
 openrgb_deb_architecture: amd64
 
 # glob pattern to ansible task files to run after all other tasks are finished.
