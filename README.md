@@ -122,13 +122,13 @@ Packages (installed with apt):
 - gir1.2-clutter-gst-3.0 # dep gnome extension system monitor
 - gir1.2-gtkclutter-1.0 # dep gnome extension system monitor
 - git
-- guake
 - htop
 - locales-all
 - nmap
 - nodejs
 - npm
 - openssl
+- podman
 - poedit
 - thefuck
 - tmux

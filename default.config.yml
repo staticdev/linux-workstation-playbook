@@ -110,7 +110,7 @@ git_username: gitusername
 install_packages: true
 # remove libreoffice in favor to onlyoffice
 # onlyoffice is installed on snap_packages
-remove_libreoffice: true
+remove_libreoffice: false
 installed_packages:
   - apache2-utils
   - cmake
