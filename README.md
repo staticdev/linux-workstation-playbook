@@ -140,11 +140,6 @@ Packages (installed with apt):
 
 Finally, there are a few other preferences and settings added on for various apps and services.
 
-## Contributing
-
-Contributions are very welcome.
-To learn more, see the [Contributor Guide].
-
 ## License
 
 Distributed under the terms of the [MIT] license,
@@ -162,7 +157,6 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [@geerlingguy]: https://github.com/geerlingguy
 [ansible]: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 [brave]: https://brave.com/
-[contributor guide]: CONTRIBUTING.md
 [cryptomator]: https://cryptomator.org/
 [debian]: https://www.debian.org/
 [dotfiles eg. repo]: https://github.com/staticdev/dotfiles-eg
