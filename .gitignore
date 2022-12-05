@@ -2,9 +2,10 @@
 *.vagrant
 *.retry
 roles*
-config.yml
+config*.yml
 .cache/
 .python-version
+*.txt
 
 # Pycharm
 .idea/
