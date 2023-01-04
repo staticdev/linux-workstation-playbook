@@ -1,25 +1,27 @@
 ---
-- hosts: all
+- name: Define hosts
+  hosts: all
 
   vars_files:
     - default.config.yml
 
   pre_tasks:
     - name: SSH and become checks
-      include_tasks: tasks/site.yml
-    - include_vars: "{{ item }}"
+      ansible.builtin.include_tasks: tasks/site.yml
+    - name: Load config
+      ansible.builtin.include_vars: "{{ item }}"
       with_fileglob:
         - "{{ playbook_dir }}/config.yml"
 
   handlers:
-    - name: restart gnome
-      command: killall -SIGQUIT gnome-shell
-    - name: delete openrgb repo
-      file:
+    - name: Restart gnome
+      ansible.builtin.command: killall -SIGQUIT gnome-shell
+    - name: Delete openrgb repo
+      ansible.builtin.file:
         path: "{{ ansible_env.HOME }}/OpenRGB"
         state: absent
-    - name: delete openrgb generated files
-      file:
+    - name: Delete openrgb generated files
+      ansible.builtin.file:
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: absent
       with_items:
@@ -57,51 +59,51 @@
 
   tasks:
     - name: Install Pycharm
-      include_tasks: tasks/pycharm.yml
+      ansible.builtin.include_tasks: tasks/pycharm.yml
       when: install_pycharm
 
     - name: Install VSCode
-      include_tasks: tasks/vscode.yml
+      ansible.builtin.include_tasks: tasks/vscode.yml
       when: install_vscode
 
     - name: Install zsh
-      include_tasks: tasks/zsh.yml
+      ansible.builtin.include_tasks: tasks/zsh.yml
       when: install_zsh
 
     - name: Install packages
-      include_tasks: tasks/packages.yml
+      ansible.builtin.include_tasks: tasks/packages.yml
       when: install_packages
 
     - name: Create SSH key
-      include_tasks: tasks/ssh.yml
+      ansible.builtin.include_tasks: tasks/ssh.yml
       when: configure_ssh
 
     - name: Configure sudoers
-      include_tasks: tasks/sudoers.yml
+      ansible.builtin.include_tasks: tasks/sudoers.yml
       when: configure_sudoers
 
     - name: Setup Git
-      include_tasks: tasks/git-setup.yml
+      ansible.builtin.include_tasks: tasks/git-setup.yml
       when: setup_git
 
     - name: Extra packages
-      include_tasks: tasks/extra-packages.yml
+      ansible.builtin.include_tasks: tasks/extra-packages.yml
       when: install_extra_packages
 
     - name: Cryptomator
-      include_tasks: tasks/cryptomator.yml
+      ansible.builtin.include_tasks: tasks/cryptomator.yml
       when: install_cryptomator
 
     - name: Install Keypass XC
-      import_tasks: tasks/keypass-xc.yml
+      ansible.builtin.import_tasks: tasks/keypass-xc.yml
       when: install_keypass_xc
 
     - name: OpenRGB
-      include_tasks: tasks/openrgb.yml
+      ansible.builtin.include_tasks: tasks/openrgb.yml
       when: install_openrgb
 
     - name: Enable entire screen sharing
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: /etc/gdm3/daemon.conf
         regexp: '^#\s*WaylandEnable=false.*$'
         line: "WaylandEnable=false"
@@ -109,19 +111,19 @@
       when: enable_screen_sharing
 
     - name: Gnome Setup
-      import_tasks: tasks/gnome-setup.yml
+      ansible.builtin.import_tasks: tasks/gnome-setup.yml
       when: gnome_setup
 
     - name: Configure keyboard
-      import_tasks: tasks/keyboard.yml
+      ansible.builtin.import_tasks: tasks/keyboard.yml
       when: configure_keyboard
 
     - name: Configure terminal
-      include_tasks: tasks/terminal.yml
+      ansible.builtin.include_tasks: tasks/terminal.yml
       when: configure_terminal
 
     - name: Run configured post-provision ansible task files.
-      include_tasks: "{{ outer_item }}"
+      ansible.builtin.include_tasks: "{{ outer_item }}"
       loop_control:
         loop_var: outer_item
-      with_fileglob: "{{ post_provision_tasks|default(omit) }}"
+      with_fileglob: "{{ post_provision_tasks | default(omit) }}"

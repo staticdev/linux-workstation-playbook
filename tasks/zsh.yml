@@ -1,11 +1,11 @@
 ---
 - name: Install python-psutil package
-  apt:
+  ansible.builtin.apt:
     name: zsh
   become: true
 
 - name: Set zsh as default
-  user:
+  ansible.builtin.user:
     name: "{{ ansible_env.USER }}"
     shell: /usr/bin/zsh
   become: true

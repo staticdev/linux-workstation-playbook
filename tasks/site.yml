@@ -1,9 +1,9 @@
 ---
 - name: Check ssh password first
-  command: echo "ssh password correct"
+  ansible.builtin.command: echo "ssh password correct"
   changed_when: false
 
 - name: Check sudo password first
-  command: echo "sudo password correct"
+  ansible.builtin.command: echo "sudo password correct"
   become: true
   changed_when: false

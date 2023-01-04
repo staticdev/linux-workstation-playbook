@@ -1,21 +1,21 @@
 ---
 - name: Create user file for Git config
-  template:
+  ansible.builtin.template:
     src: gitconfig/.gitconfig_user.t2
     dest: "{{ ansible_env.HOME }}/.gitconfig"
   when: configure_dotfiles
 
 - name: Configure Git workspaces
+  when: git_create_workspaces
   block:
     - name: Create workspace directories
-      file:
+      ansible.builtin.file:
         path: "{{ ansible_env.HOME }}/{{ item.folder_name }}"
         state: directory
-      loop: "{{ git_workspaces|flatten(levels=1) }}"
+      loop: "{{ git_workspaces | flatten(levels=1) }}"
     - name: Create workspace files for Git config
-      template:
+      ansible.builtin.template:
         src: gitconfig/.gitconfig_workspace.t2
         dest: "{{ ansible_env.HOME }}/{{ item.folder_name }}/.gitconfig"
-      loop: "{{ git_workspaces|flatten(levels=1) }}"
+      loop: "{{ git_workspaces | flatten(levels=1) }}"
       when: configure_dotfiles
-  when: git_create_workspaces

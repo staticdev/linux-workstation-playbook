@@ -1,16 +1,18 @@
 ---
-- name: python - basic install
+- name: Python - basic install
   become: true
-  package: name=python state=present
+  ansible.builtin.package:
+    name: python
+    state: present
 
 - name: Only run update cache if the last one is more than 3600 seconds ago
-  apt:
+  ansible.builtin.apt:
     update_cache: true
     cache_valid_time: 3600
   become: true
 
 - name: Ensure packages are installed
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   become: true
@@ -18,7 +20,7 @@
     - "{{ installed_packages }}"
 
 - name: Remove LibreOffice
-  package:
+  ansible.builtin.package:
     name: "libreoffice*"
     state: absent
   become: true

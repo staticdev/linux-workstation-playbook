@@ -1,6 +1,6 @@
 ---
 - name: Ensure snapd is installed
-  package:
+  ansible.builtin.package:
     name: snapd
     state: present
   become: true

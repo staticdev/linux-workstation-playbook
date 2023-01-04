@@ -1,6 +1,6 @@
 ---
 - name: Install vscode
-  include_role:
+  ansible.builtin.include_role:
     name: gantsign.visual-studio-code
   vars:
     users:

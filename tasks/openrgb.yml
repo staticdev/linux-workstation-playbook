@@ -1,12 +1,12 @@
 ---
 - name: Check if openrbg is installed
-  command: openrgb --version
+  ansible.builtin.command: openrgb --version
   register: openrgb_version_cmd
   changed_when: false
   ignore_errors: true
 
 - name: Ensure packages are installed
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   become: true
@@ -32,22 +32,22 @@
   when: openrgb_version_cmd is failed
 
 - name: Download repo
-  git:
+  ansible.builtin.git:
     repo: https://gitlab.com/CalcProgrammer1/OpenRGB
     dest: ~/OpenRGB
     version: "{{ openrgb_git_release }}"
   when: openrgb_version_cmd is failed
-  notify: delete openrgb repo
+  notify: Delete openrgb repo
 
 - name: Generate package
-  command:
+  ansible.builtin.command:
     cmd: dpkg-buildpackage -us -B
     chdir: ~/OpenRGB
   when: openrgb_version_cmd is failed
-  notify: delete openrgb generated files
+  notify: Delete openrgb generated files
 
 - name: Install package
-  apt:
+  ansible.builtin.apt:
     deb: "{{ lookup('env', 'HOME') }}/openrgb_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.deb"
   become: true
   when: openrgb_version_cmd is failed
