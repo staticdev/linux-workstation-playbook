@@ -26,4 +26,4 @@ collections:
   - name: community.general
     version: 6.1.0
   - name: community.crypto
-    version: 2.9.0
+    version: 2.10.0
