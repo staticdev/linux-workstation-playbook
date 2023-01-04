@@ -6,7 +6,7 @@
   when: keyboard_layout
 
 - name: Configure c-cedilla
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/environment
     line: "{{ item.line }}"
     regexp: "{{ item.regexp }}"

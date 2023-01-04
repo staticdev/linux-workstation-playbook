@@ -1,6 +1,6 @@
 ---
 - name: Download Cryptomator.
-  get_url:
+  ansible.builtin.get_url:
     url: "https://github.com/cryptomator/cryptomator/releases/download/{{ cryptomator_version }}/cryptomator-{{ cryptomator_version }}-x86_64.AppImage"
     dest: "{{ ansible_env.HOME }}/.local/bin/cryptomator"
     mode: "0700"

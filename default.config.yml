@@ -15,7 +15,7 @@ dotfiles_files:
 # IDEs
 ## Pycharm
 install_pycharm: false
-pycharm_flavor: community # you can also choose: professional or edu
+pycharm_flavor: community  # you can also choose: professional or edu
 ## VSCode
 install_vscode: false
 vscode_extensions:
@@ -63,7 +63,7 @@ keyboard_c_cedilla: false
 
 # SSH config
 configure_ssh: true
-ssh_key_type: ed25519 # you can also choose between: dsa, ecdsa and ed25519
+ssh_key_type: ed25519  # you can also choose between: dsa, ecdsa and ed25519
 # For RSA keys, the minimum size is 1024 bits and the default is 4096 bits. Generally, 2048 bits is considered sufficient.
 # DSA keys must be exactly 1024 bits as specified by FIPS 186-2.
 # For ECDSA keys, size determines the key length by selecting from one of three elliptic curve sizes: 256, 384 or 521 bits.
@@ -114,10 +114,10 @@ remove_libreoffice: false
 installed_packages:
   - apache2-utils
   - cmake
-  - dconf-editor # visual gnome configs
-  - gir1.2-clutter-1.0 # dep gnome extension system monitor
-  - gir1.2-clutter-gst-3.0 # dep gnome extension system monitor
-  - gir1.2-gtkclutter-1.0 # dep gnome extension system monitor
+  - dconf-editor  # visual gnome configs
+  - gir1.2-clutter-1.0  # dep gnome extension system monitor
+  - gir1.2-clutter-gst-3.0  # dep gnome extension system monitor
+  - gir1.2-gtkclutter-1.0  # dep gnome extension system monitor
   - git
   - htop
   - locales-all
@@ -138,7 +138,8 @@ installed_packages:
 install_extra_packages: true
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
-snap_packages: []
+snap_packages:
+  []
   # - name: kubectl
   #   classic: true
   # - name: onlyoffice-desktopeditors

@@ -1,11 +1,11 @@
 ---
 - name: Install python-psutil package
-  apt:
+  ansible.builtin.apt:
     name: python3-psutil
   become: true
 
 - name: Install System Monitor extension
-  package:
+  ansible.builtin.package:
     name: gnome-shell-extension-system-monitor
     state: present
   become: true
@@ -15,7 +15,7 @@
     key: /org/gnome/shell/enabled-extensions
     value: ["system-monitor@paradoxxx.zero.gmail.com"]
   notify:
-    - restart gnome
+    - Restart gnome
 
 - name: Setup night-light
   community.general.dconf:
