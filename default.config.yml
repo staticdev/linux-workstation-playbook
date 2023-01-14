@@ -12,22 +12,16 @@ dotfiles_files:
   - .vimrc
   - .zshrc
 
-# IDEs
-## Pycharm
-install_pycharm: false
-pycharm_flavor: community  # you can also choose: professional or edu
-## VSCode
-install_vscode: false
-vscode_extensions:
-  - shan.code-settings-sync
-## VSCodium (community-driven, freely-licensed binary distribution of Microsoft’s editor VSCode)
-install_vscodium: true
-
-# Go settings
+# Development
+## Go settings
 golang_developer: true
 golang_version: "1.19"
 
-# Python settings
+## NodeJs settings
+nodejs_developer: true
+nodejs_version: "18.x"
+
+## Python settings
 python_developer: true
 pyenv_python_versions:
   - 3.11.0
@@ -40,6 +34,17 @@ pyenv_global:
   - 3.9.15
   - 3.8.15
 pyenv_virtualenvs: []
+
+# IDEs
+## Pycharm
+install_pycharm: false
+pycharm_flavor: community  # you can also choose: professional or edu
+## VSCode
+install_vscode: false
+vscode_extensions:
+  - shan.code-settings-sync
+## VSCodium (community-driven, freely-licensed binary distribution of Microsoft’s editor VSCode)
+install_vscodium: true
 
 # browser configs
 ## Firefox config (note: default profile for Debian is default-esr)
@@ -122,8 +127,6 @@ installed_packages:
   - htop
   - locales-all
   - nmap
-  - nodejs
-  - npm
   - openssl
   - podman
   - poedit

@@ -45,6 +45,8 @@
       become: true
     - role: gantsign.golang
       when: golang_developer
+    - role: geerlingguy.nodejs
+      when: nodejs_developer
     - role: staticdev.python_developer
       when: python_developer
     - role: staticdev.signal
