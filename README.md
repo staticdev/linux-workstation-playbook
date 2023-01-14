@@ -125,8 +125,6 @@ Packages (installed with apt):
 - htop
 - locales-all
 - nmap
-- nodejs
-- npm
 - openssl
 - podman
 - poedit
