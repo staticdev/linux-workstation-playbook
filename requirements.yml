@@ -8,6 +8,8 @@ roles:
     version: 6.0.4
   - name: geerlingguy.dotfiles
     version: 1.2.1
+  - name: geerlingguy.nodejs
+    version: 6.1.1
   - name: green_leader.codium
     version: 1.0.4
   - name: robertdebock.obsproject
