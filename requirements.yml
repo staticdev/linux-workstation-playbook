@@ -5,7 +5,7 @@ roles:
   - name: gantsign.visual-studio-code
     version: 6.10.0
   - name: geerlingguy.docker
-    version: 6.0.4
+    version: 6.1.0
   - name: geerlingguy.dotfiles
     version: 1.2.1
   - name: geerlingguy.nodejs
@@ -13,13 +13,13 @@ roles:
   - name: green_leader.codium
     version: 1.0.4
   - name: robertdebock.obsproject
-    version: 2.0.5
+    version: 2.0.6
   - name: staticdev.brave
     version: 1.1.2
   - name: staticdev.firefox
-    version: 1.2.2
+    version: 1.2.3
   - name: staticdev.python_developer
-    version: 2.2.0
+    version: 2.2.1
   - name: staticdev.signal
     version: 1.4.2
   - name: stefangweichinger.ansible_rclone
