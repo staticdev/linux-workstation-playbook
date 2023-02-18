@@ -3,9 +3,10 @@
   hosts: all
   become: true
 
-  vars:
-    # needed to test nodejs
-    nodejs_install_npm_user: root
+  pre_tasks:
+    - name: Override nodejs_install_npm_user
+      set_fact:
+        nodejs_install_npm_user: root
 
   tasks:
     - name: Update apt cache
