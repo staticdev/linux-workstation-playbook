@@ -8,7 +8,7 @@
 
 ## Features
 
-- Development: [Golang] and [Python tools].
+- Development: [Golang], [NodeJs] and [Python tools].
   - IDEs: [VSCodium], [Pycharm] and [VSCode] installation.
 - Browsers: [Firefox] configuration and [Brave] installation.
 - Packages intallation: apt, snap, pip, npm, ruby gems.
@@ -125,8 +125,6 @@ Packages (installed with apt):
 - htop
 - locales-all
 - nmap
-- nodejs
-- npm
 - openssl
 - podman
 - poedit
@@ -167,6 +165,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [gnome]: https://www.gnome.org/
 [golang]: https://go.dev/
 [libreoffice]: https://www.libreoffice.org/
+[nodejs]: https://nodejs.org/
 [keypass]: https://keepass.info/
 [mac development ansible playbook]: https://github.com/geerlingguy/mac-dev-playbook
 [mit]: https://opensource.org/licenses/MIT
