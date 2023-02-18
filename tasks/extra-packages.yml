@@ -13,7 +13,7 @@
   become: true
 
 - name: Install global NPM packages.
-  community.general.packaging.language.npm:
+  community.general.npm:
     name: "{{ item.name | default(item) }}"
     state: "{{ item.state | default('present') }}"
     version: "{{ item.version | default(omit) }}"
@@ -30,7 +30,7 @@
   with_items: "{{ pip_packages }}"
 
 - name: Install global Ruby gems.
-  community.general.packaging.language.gem:
+  community.general.gem:
     name: "{{ item.name | default(item) }}"
     state: "{{ item.state | default('present') }}"
     version: "{{ item.version | default(omit) }}"

@@ -44,9 +44,11 @@
     cmd: dpkg-buildpackage -us -B
     chdir: ~/OpenRGB
   when: openrgb_version_cmd is failed
+  register: package_result
+  changed_when: "package_result.rc == 0"
   notify: Delete openrgb generated files
 
-- name: Install package
+- name: Install OpenRGB
   ansible.builtin.apt:
     deb: "{{ lookup('env', 'HOME') }}/openrgb_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.deb"
   become: true
