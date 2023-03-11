@@ -27,6 +27,6 @@ roles:
 
 collections:
   - name: community.general
-    version: 6.2.0
+    version: 6.4.0
   - name: community.crypto
     version: 2.10.0
