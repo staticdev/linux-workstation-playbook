@@ -1,0 +1,33 @@
+---
+name: Pre-commit auto-update
+
+"on":
+  # every day at midnight
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  pre-commit-auto-update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+
+      - name: Update pre-commit hooks
+        uses: browniebroke/pre-commit-autoupdate-action@main
+
+      - name: Create pull request with update
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: update/pre-commit-hooks
+          title: Update pre-commit hooks
+          commit-message: "chore: update pre-commit hooks"
+          committer: "dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>"
+          author: "dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>"
+          signoff: true
+          labels: |
+            dependencies
+            pre-commit
+          body: Update versions of pre-commit hooks to latest version.
