@@ -1,9 +1,9 @@
 ---
 roles:
   - name: gantsign.golang
-    version: 3.1.1
+    version: 3.1.2
   - name: gantsign.visual-studio-code
-    version: 6.10.0
+    version: 6.11.0
   - name: geerlingguy.docker
     version: 6.1.0
   - name: geerlingguy.dotfiles
@@ -23,10 +23,10 @@ roles:
   - name: staticdev.signal
     version: 1.4.2
   - name: stefangweichinger.ansible_rclone
-    version: 0.1.1
+    version: 0.1.2
 
 collections:
   - name: community.general
-    version: 6.4.0
+    version: 6.5.0
   - name: community.crypto
-    version: 2.11.0
+    version: 2.11.1
