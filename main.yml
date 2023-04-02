@@ -16,6 +16,8 @@
   handlers:
     - name: Restart gnome
       ansible.builtin.command: killall -SIGQUIT gnome-shell
+      # TODO: watch https://github.com/ansible/ansible-lint/issues/3235
+      changed_when: true
     - name: Delete openrgb repo
       ansible.builtin.file:
         path: "{{ ansible_env.HOME }}/OpenRGB"
