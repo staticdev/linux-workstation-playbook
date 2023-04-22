@@ -63,7 +63,7 @@ jobs:
           python3 -m pip --version
 
       - name: Install test dependencies
-        run: pip3 install --constraint=.github/workflows/constraints.txt ansible 'molecule-plugins[podman]' podman 
+        run: pip3 install --constraint=.github/workflows/constraints.txt ansible 'molecule-plugins[podman]' podman
 
       - name: Run Molecule tests
         run: molecule test
