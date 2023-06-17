@@ -2,7 +2,7 @@
 - name: Python - basic install
   become: true
   ansible.builtin.package:
-    name: python
+    name: python3
     state: present
 
 - name: Only run update cache if the last one is more than 3600 seconds ago
