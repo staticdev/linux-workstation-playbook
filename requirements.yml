@@ -1,5 +1,7 @@
 ---
 roles:
+  - name: ableton.nix
+    version: 0.0.7
   - name: gantsign.golang
     version: 3.1.5
   - name: geerlingguy.docker

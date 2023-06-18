@@ -10,8 +10,9 @@
 
 - Development: [Golang], [NodeJs] and [Python tools].
   - IDEs: [VSCodium] and [Pycharm] installation.
-- Browsers: [Firefox] configuration and [Brave] installation.
-- Packages intallation: apt, snap, pip, npm, ruby gems.
+- Browsers: [Firefox] ESR replacement with official PPA and configuration; and [Brave] installation.
+- Package manager installation: [Nix].
+- Packages intallation: apt, nix, snap, pip, npm, ruby gems.
 - Replaces [LibreOffice] with [OnlyOffice].
 - Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS], [OpenRGB], [RClone], and [Signal] messenger installation.
 - Configurations: dotfiles, shell/terminals, [Gnome], [Git], ssh, keyboard...
@@ -169,6 +170,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [keypass]: https://keepass.info/
 [mac development ansible playbook]: https://github.com/geerlingguy/mac-dev-playbook
 [mit]: https://opensource.org/licenses/MIT
+[nix]: https://nixos.org/
 [obs]: https://obsproject.com/
 [onlyoffice]: https://github.com/ONLYOFFICE/
 [openrgb]: https://gitlab.com/CalcProgrammer1/OpenRGB
