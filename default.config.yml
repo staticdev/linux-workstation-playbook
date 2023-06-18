@@ -12,6 +12,9 @@ dotfiles_files:
   - .vimrc
   - .zshrc
 
+# Package manager
+install_nix_package_manager: true
+
 # Development
 ## Go settings
 golang_developer: true
@@ -40,7 +43,7 @@ pycharm_flavor: community  # you can also choose: professional or edu
 ## VSCodium (community-driven, freely-licensed binary distribution of Microsoft’s editor VSCode)
 install_vscodium: true
 
-# browser configs
+# Browser configs
 ## Firefox config (note: default profile for Debian is default-esr)
 configure_firefox: false
 firefox_profiles:
@@ -71,7 +74,7 @@ ssh_key_type: ed25519  # you can also choose between: dsa, ecdsa and ed25519
 ssh_key_size:
 ssh_key_passphrase: super_secret_password
 
-# sudoers config
+# Sudoers config
 configure_sudoers: false
 sudoers_custom_config: ""
 # Example:
@@ -79,7 +82,7 @@ sudoers_custom_config: ""
 #   # Allow users in admin group to use sudo with no password.
 #   %admin ALL=(ALL) NOPASSWD: ALL
 
-# terminal config
+# Terminal config
 ## Guake config
 configure_terminal: true
 guake_keybinding: "F12"
@@ -105,7 +108,7 @@ git_workspaces:
 git_email: name@mail.com
 git_username: gitusername
 
-# install packages
+# Install packages
 install_packages: true
 # remove libreoffice in favor to onlyoffice
 # onlyoffice is installed on snap_packages
