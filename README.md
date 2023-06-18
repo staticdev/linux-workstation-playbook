@@ -9,7 +9,7 @@
 ## Features
 
 - Development: [Golang], [NodeJs] and [Python tools].
-  - IDEs: [VSCodium], [Pycharm] and [VSCode] installation.
+  - IDEs: [VSCodium] and [Pycharm] installation.
 - Browsers: [Firefox] configuration and [Brave] installation.
 - Packages intallation: apt, snap, pip, npm, ruby gems.
 - Replaces [LibreOffice] with [OnlyOffice].
@@ -176,5 +176,4 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [python tools]: https://github.com/staticdev/ansible-role-python-developer
 [rclone]: https://rclone.org/
 [signal]: https://signal.org
-[vscode]: https://code.visualstudio.com/
 [vscodium]: https://vscodium.com/
