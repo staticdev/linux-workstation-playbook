@@ -67,10 +67,6 @@
       ansible.builtin.include_tasks: tasks/pycharm.yml
       when: install_pycharm
 
-    - name: Install VSCode
-      ansible.builtin.include_tasks: tasks/vscode.yml
-      when: install_vscode
-
     - name: Install zsh
       ansible.builtin.include_tasks: tasks/zsh.yml
       when: install_zsh
