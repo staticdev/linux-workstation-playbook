@@ -12,6 +12,8 @@
       ansible.builtin.include_vars: "{{ item }}"
       with_fileglob:
         - "{{ playbook_dir }}/config.yml"
+    - name: Validate config
+      ansible.builtin.include_tasks: tasks/validate-config.yml
 
   handlers:
     - name: Restart gnome
@@ -64,6 +66,10 @@
       when: install_rclone
 
   tasks:
+    - name: Add Nix to PATH
+      ansible.builtin.set_fact:
+        ansible_env: "{{ ansible_env | combine({'PATH': ansible_env.HOME + '/.nix-profile/bin:' + ansible_env.PATH}) }}"
+
     - name: Install Pycharm
       ansible.builtin.include_tasks: tasks/pycharm.yml
       when: install_pycharm

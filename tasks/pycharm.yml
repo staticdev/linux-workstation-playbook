@@ -1,12 +1,28 @@
 ---
-- name: Ensure snapd is installed
-  ansible.builtin.package:
-    name: snapd
-    state: present
-  become: true
+- name: Pycharm professional
+  when: pycharm_flavor == 'professional'
+  block:
+  - name: Check if Pycharm professional is installed
+    ansible.builtin.command: pycharm-professional --version
+    register: pycharm_version_cmd
+    changed_when: false
+    ignore_errors: true
+  - name: Install Pycharm professional
+    when: pycharm_version_cmd is failed
+    ansible.builtin.command:
+      cmd: nix-env -iA nixpkgs.jetbrains.pycharm-professional --impure
+    environment:
+      NIXPKGS_ALLOW_UNFREE: 1
 
-- name: Install pycharm
-  community.general.snap:
-    name: "pycharm-{{ pycharm_flavor }}"
-    classic: true
-  become: true
+- name: Pycharm community
+  when: pycharm_flavor == 'community'
+  block:
+  - name: Check if Pycharm community is installed
+    ansible.builtin.command: pycharm-community --version
+    register: pycharm_version_cmd
+    changed_when: false
+    ignore_errors: true
+  - name: Install Pycharm community
+    when: pycharm_version_cmd is failed
+    ansible.builtin.command:
+      cmd: nix-env -iA nixpkgs.jetbrains.pycharm-community
