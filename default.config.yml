@@ -12,9 +12,6 @@ dotfiles_files:
   - .vimrc
   - .zshrc
 
-# Package manager
-install_nix_package_manager: true
-
 # Development
 ## Go settings
 golang_developer: true
@@ -47,7 +44,7 @@ install_vscodium: true
 ## Firefox config (note: default profile for Debian is default-esr)
 configure_firefox: false
 firefox_profiles:
-  default-esr:
+  default:
     extensions:
       - ublock-origin
     preferences:
@@ -161,7 +158,7 @@ pip_packages: []
 gnome_setup: false
 gnome_favorite_apps:
   [
-    "firefox-esr.desktop",
+    "firefox.desktop",
     "brave-browser.desktop",
     "org.gnome.Nautilus.desktop",
     "codium.desktop",

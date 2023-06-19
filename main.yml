@@ -34,7 +34,6 @@
 
   roles:
     - role: ableton.nix
-      when: install_nix_package_manager
     - role: staticdev.firefox
       when: configure_firefox
     - role: staticdev.brave
