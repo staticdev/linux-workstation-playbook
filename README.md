@@ -85,7 +85,13 @@ installed_packages:
   - git
   - go
 
+nix_packages:
+  - name: kubectl
+    check_cmd: kubectl version --client
+
 snap_packages:
+  - name: code
+    classic: true
   - name: postman
 
 npm_packages:

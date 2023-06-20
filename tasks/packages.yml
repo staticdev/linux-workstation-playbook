@@ -18,10 +18,3 @@
   become: true
   with_items:
     - "{{ installed_packages }}"
-
-- name: Remove LibreOffice
-  ansible.builtin.package:
-    name: "libreoffice*"
-    state: absent
-  become: true
-  when: remove_libreoffice

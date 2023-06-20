@@ -1,10 +1,19 @@
 ---
-- name: Ensure snapd is installed.
-  ansible.builtin.package:
-    name: snapd
-    state: present
-  become: true
-  when: snap_packages is defined and snap_packages | length > 0
+- name: "Check if nix package {{ item.name }} is installed"
+  ansible.builtin.command: "{{ item.check_cmd }}"
+  register: package_check_cmd
+  changed_when: false
+  ignore_errors: true
+  loop: "{{ nix_packages }}"
+  loop_control:
+    index_var: package_index
+
+- name: "Install {{ item.name }} with nix"
+  ansible.builtin.command: "nix-env -iA nixpkgs.{{ item.name }}"
+  when: package_check_cmd.results[package_index].failed
+  loop: "{{ nix_packages }}"
+  loop_control:
+    index_var: package_index
 
 - name: Install snap packages.
   community.general.snap:

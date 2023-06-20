@@ -105,11 +105,13 @@ git_workspaces:
 git_email: name@mail.com
 git_username: gitusername
 
+# Office setup
+install_onlyoffice: true
+## remove libreoffice in favor to onlyoffice
+remove_libreoffice: false
+
 # Install packages
 install_packages: true
-# remove libreoffice in favor to onlyoffice
-# onlyoffice is installed on snap_packages
-remove_libreoffice: false
 installed_packages:
   - apache2-utils
   - cmake
@@ -133,14 +135,10 @@ installed_packages:
 
 # install packages from other package managers.
 install_extra_packages: true
-# Note: You are responsible for making sure the required package managers are
-# installed, eg. through homebrew.
-snap_packages:
-  []
-  # - name: kubectl
-  #   classic: true
-  # - name: onlyoffice-desktopeditors
-  # - name: postman
+# Note: You are responsible for adding the required package managers
+# installation, eg. through nix
+snap_packages: []
+# - name: postman
 gem_packages: []
 # - name: bundler
 #   state: present # present/absent/latest, default: present

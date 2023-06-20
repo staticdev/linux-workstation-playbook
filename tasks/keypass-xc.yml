@@ -1,5 +1,10 @@
 ---
-- name: Install Keypass XC
-  community.general.snap:
-    name: keepassxc
-  become: true
+- name: Check if Keepass XC is installed
+  ansible.builtin.command: keepassxc --version
+  register: keepass_xc_cmd
+  changed_when: false
+  ignore_errors: true
+- name: Install Keepass XC
+  when: keepass_xc_cmd is failed
+  ansible.builtin.command:
+    cmd: nix-env -iA nixpkgs.keepassxc
