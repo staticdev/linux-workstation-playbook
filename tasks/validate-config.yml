@@ -1,5 +1,5 @@
 ---
 - name: Validate PyCharm flavor
-  fail:
+  ansible.builtin.fail:
     msg: "Unsupported PyCharm flavor '{{ pycharm_flavor }}'. Allowed values are 'community' and 'professional'."
   when: install_pycharm and pycharm_flavor not in ['community', 'professional']

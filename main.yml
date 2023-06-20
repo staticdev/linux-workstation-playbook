@@ -78,7 +78,7 @@
       when: install_zsh
 
     - name: Office setup
-      ansible.builtin.include_tasks: tasks/office.yml    
+      ansible.builtin.include_tasks: tasks/office.yml
       when: install_onlyoffice or remove_libreoffice
 
     - name: Install packages

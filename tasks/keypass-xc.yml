@@ -1,5 +1,5 @@
 ---
-- name: Check if Keepass XC is installed
+- name: Check installation of Keepass XC
   ansible.builtin.command: keepassxc --version
   register: keepass_xc_cmd
   changed_when: false
@@ -8,3 +8,4 @@
   when: keepass_xc_cmd is failed
   ansible.builtin.command:
     cmd: nix-env -iA nixpkgs.keepassxc
+  changed_when: true

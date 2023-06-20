@@ -72,23 +72,69 @@ Note: this is an opinionated setup I personally use for software development. Yo
 
 <a name="overriding-defaults">
 
-### Overriding Defaults
+### Included Applications / Configuration (Default)
 
-</a>
+Packages (installed with apt):
+
+```yaml
+- apache2-utils
+- cmake
+- dconf-editor # visual gnome configs
+- gir1.2-clutter-1.0 # dep gnome extension system monitor
+- gir1.2-clutter-gst-3.0 # dep gnome extension system monitor
+- gir1.2-gtkclutter-1.0 # dep gnome extension system monitor
+- locales-all
+- openssl
+- poedit
+```
+
+It also installs with [Nix] package manager:
+
+```yaml
+- git
+- kubectl
+- helm
+- k9s
+- htop
+- libvirt
+- nmap
+- podman
+- qemu
+- thefuck
+- tmux
+- vagrant
+- virtualbox
+- vim
+- wget
+- xclip
+```
+
+Finally, there are a few other preferences and settings added on for various apps and services.
+
+### Overriding Defaults
 
 Not everyone's workstation and preferred software configuration is the same.
 
-You can override any of the defaults configured in **default.config.yml** by creating a **config.yml** file and setting the overrides in that file. For example, you can customize the installed packages and apps with something like:
+You can override any of the defaults configured in **default.config.yml** by creating a **config.yml** file and setting the overrides in that file. For example, you can customize the installed packages (apt) with:
 
 ```yaml
 installed_packages:
-  - git
   - go
+```
 
+For [Nix] packages, it is necessary to specify a command that will verify if it is already installed, most binaries support `--version` or just `version`, eg:
+
+```yaml
 nix_packages:
+  - name: git
+    check_cmd: git --version
   - name: kubectl
     check_cmd: kubectl version --client
+```
 
+Other package managers:
+
+```yaml
 snap_packages:
   - name: code
     classic: true
@@ -116,34 +162,6 @@ Edit the **inventory** file in this repository and change the line that starts w
 ```
 
 If you need to supply an SSH password (if you don't use SSH keys), make sure to pass the **--ask-pass** parameter to the **ansible-playbook** command.
-
-### Included Applications / Configuration (Default)
-
-Packages (installed with apt):
-
-```yaml
-- apache2-utils
-- cmake
-- dconf-editor # visual gnome configs
-- gir1.2-clutter-1.0 # dep gnome extension system monitor
-- gir1.2-clutter-gst-3.0 # dep gnome extension system monitor
-- gir1.2-gtkclutter-1.0 # dep gnome extension system monitor
-- git
-- htop
-- locales-all
-- nmap
-- openssl
-- podman
-- poedit
-- thefuck
-- tmux
-- vagrant
-- vim
-- xclip
-- wget
-```
-
-Finally, there are a few other preferences and settings added on for various apps and services.
 
 ## Contributing
 

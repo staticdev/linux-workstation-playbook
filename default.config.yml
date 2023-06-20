@@ -36,7 +36,7 @@ pyenv_virtualenvs: []
 # IDEs
 ## Pycharm
 install_pycharm: false
-pycharm_flavor: community  # you can also choose: professional or edu
+pycharm_flavor: community  # you can also choose: professional
 ## VSCodium (community-driven, freely-licensed binary distribution of Microsoft’s editor VSCode)
 install_vscodium: true
 
@@ -119,24 +119,43 @@ installed_packages:
   - gir1.2-clutter-1.0  # dep gnome extension system monitor
   - gir1.2-clutter-gst-3.0  # dep gnome extension system monitor
   - gir1.2-gtkclutter-1.0  # dep gnome extension system monitor
-  - git
-  - htop
   - locales-all
-  - nmap
   - openssl
-  - podman
   - poedit
-  - thefuck
-  - tmux
-  - vagrant
-  - vim
-  - xclip
-  - wget
 
 # install packages from other package managers.
 install_extra_packages: true
 # Note: You are responsible for adding the required package managers
 # installation, eg. through nix
+nix_packages:
+  - name: git
+    check_cmd: git --version
+  - name: kubectl
+    check_cmd: kubectl version --client
+  - name: helm
+    check_cmd: helm --version
+  - name: k9s
+    check_cmd: k9s --version
+  - name: htop
+    check_cmd: htop --version
+  - name: nmap
+    check_cmd: nmap --version
+  - name: podman
+    check_cmd: podman --version
+  - name: thefuck
+    check_cmd: thefuck --version
+  - name: tmux
+    check_cmd: tmux -V
+  - name: vagrant
+    check_cmd: vagrant --version
+  - name: vim
+    check_cmd: vim --version
+  - name: virtualbox
+    check_cmd: which virtualbox
+  - name: wget
+    check_cmd: wget --version
+  - name: xclip
+    check_cmd: xclip -version
 snap_packages: []
 # - name: postman
 gem_packages: []

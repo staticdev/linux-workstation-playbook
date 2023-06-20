@@ -1,5 +1,5 @@
 ---
-- name: "Check if nix package {{ item.name }} is installed"
+- name: "Check installation of nix package {{ item.name }}"
   ansible.builtin.command: "{{ item.check_cmd }}"
   register: package_check_cmd
   changed_when: false
@@ -8,9 +8,10 @@
   loop_control:
     index_var: package_index
 
-- name: "Install {{ item.name }} with nix"
+- name: "Install nix package {{ item.name }}"
   ansible.builtin.command: "nix-env -iA nixpkgs.{{ item.name }}"
   when: package_check_cmd.results[package_index].failed
+  changed_when: true
   loop: "{{ nix_packages }}"
   loop_control:
     index_var: package_index
