@@ -3,11 +3,6 @@
   hosts: all
   become: true
 
-  pre_tasks:
-    - name: Override nodejs_install_npm_user
-      ansible.builtin.set_fact:
-        nodejs_install_npm_user: root
-
   tasks:
     - name: Update apt cache
       ansible.builtin.apt:

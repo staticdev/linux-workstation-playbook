@@ -11,8 +11,11 @@
       when: pycharm_version_cmd is failed
       ansible.builtin.command:
         cmd: nix-env -iA nixpkgs.jetbrains.pycharm-professional --impure
+      become: true
+      become_user: "{{ workspace_user }}"
       environment:
         NIXPKGS_ALLOW_UNFREE: "1"
+        PATH: "{{ workspace_user_details.home + '/.nix-profile/bin:$PATH' }}"
       changed_when: true
 
 - name: Pycharm community
@@ -27,4 +30,8 @@
       when: pycharm_version_cmd is failed
       ansible.builtin.command:
         cmd: nix-env -iA nixpkgs.jetbrains.pycharm-community
+      become: true
+      become_user: "{{ workspace_user }}"
+      environment:
+        PATH: "{{ workspace_user_details.home + '/.nix-profile/bin:$PATH' }}"
       changed_when: true

@@ -8,4 +8,8 @@
   when: keepass_xc_cmd is failed
   ansible.builtin.command:
     cmd: nix-env -iA nixpkgs.keepassxc
+  become: true
+  become_user: "{{ workspace_user }}"
+  environment:
+    PATH: "{{ workspace_user_details.home + '/.nix-profile/bin:$PATH' }}"
   changed_when: true

@@ -70,8 +70,6 @@ Note: this is an opinionated setup I personally use for software development. Yo
    ansible-playbook main.yml -i inventory --ask-become-pass
    ```
 
-<a name="overriding-defaults">
-
 ### Included Applications / Configuration (Default)
 
 Packages (installed with apt):
@@ -115,7 +113,11 @@ Finally, there are a few other preferences and settings added on for various app
 
 Not everyone's workstation and preferred software configuration is the same.
 
-You can override any of the defaults configured in **default.config.yml** by creating a **config.yml** file and setting the overrides in that file. For example, you can customize the installed packages (apt) with:
+You can override any of the defaults configured in **default.config.yml** by creating a **config.yml** file and setting the overrides in that file.
+
+The first thing one can customize is the user that will be the owner of the workspace installations `workspace_user`.
+
+Another example are the list of installed packages with apt (Debian's package manager):
 
 ```yaml
 installed_packages:
