@@ -121,6 +121,7 @@ installed_packages:
   - gir1.2-gtkclutter-1.0  # dep gnome extension system monitor
   - locales-all
   - openssl
+  - podman  # see https://github.com/NixOS/nixpkgs/issues/138423
   - poedit
 
 # install packages from other package managers.
@@ -140,8 +141,6 @@ nix_packages:
     check_cmd: htop --version
   - name: nmap
     check_cmd: nmap --version
-  - name: podman
-    check_cmd: podman --version
   - name: thefuck
     check_cmd: thefuck --version
   - name: tmux

@@ -58,7 +58,7 @@ Note: this is an opinionated setup I personally use for software development. Yo
 1. Install dependencies by entering the terminal in the playbook folder and run the command:
 
    ```sh
-   ansible-galaxy install -r requirements.yml
+   ansible-galaxy install -fr requirements.yml
    ```
 
 ## Usage
@@ -85,6 +85,7 @@ Packages (installed with apt):
 - gir1.2-gtkclutter-1.0 # dep gnome extension system monitor
 - locales-all
 - openssl
+- podman
 - poedit
 ```
 
@@ -98,7 +99,6 @@ It also installs with [Nix] package manager:
 - htop
 - libvirt
 - nmap
-- podman
 - qemu
 - thefuck
 - tmux
