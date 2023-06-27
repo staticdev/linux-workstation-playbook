@@ -1,5 +1,5 @@
 ---
-- name: Install python-psutil package
+- name: Install zsh package
   ansible.builtin.apt:
     name: zsh
   become: true
