@@ -68,7 +68,7 @@ Tests are located in the `Molecule` directory and are executed in `Podman` conta
 
 ### Using Vagrant
 
-To provision this playbook in a VM use our `Vagrantfile` using VirtualBox (also possible to modify to use Libvirt).
+To provision this playbook in a VM use our `Vagrantfile` using VirtualBox or modify the file to use Libvirt.
 
 The VM is created and provisioned with:
 

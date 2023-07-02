@@ -10,11 +10,3 @@
     shell: /usr/bin/zsh
   become: true
   when: zsh_default_shell
-
-- name: Add line to .zshrc for Nix profile
-  ansible.builtin.lineinfile:
-    dest: "{{ ansible_env.HOME }}/.zshrc"
-    line: 'if [ -e "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then . "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh"; fi # added by ansible playbook'
-    create: true
-    mode: 0644
-    insertafter: EOF

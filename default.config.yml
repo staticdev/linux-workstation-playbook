@@ -33,8 +33,6 @@ nix_packages:
     check_cmd: vagrant --version
   - name: vim
     check_cmd: vim --version
-  - name: virtualbox
-    check_cmd: which virtualbox
   - name: wget
     check_cmd: wget --version
   - name: xclip

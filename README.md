@@ -101,7 +101,6 @@ It also installs with [Nix] package manager:
 - thefuck
 - tmux
 - vagrant
-- virtualbox
 - vim
 - wget
 - xclip
