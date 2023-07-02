@@ -4,6 +4,8 @@
   block:
     - name: Check installation of Pycharm professional
       ansible.builtin.command: pycharm-professional --version
+      environment:
+        PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
       register: pycharm_version_cmd
       changed_when: false
       ignore_errors: true
@@ -11,11 +13,9 @@
       when: pycharm_version_cmd is failed
       ansible.builtin.command:
         cmd: nix-env -iA nixpkgs.jetbrains.pycharm-professional --impure
-      become: true
-      become_user: "{{ workspace_user }}"
       environment:
         NIXPKGS_ALLOW_UNFREE: "1"
-        PATH: "{{ workspace_user_details.home + '/.nix-profile/bin:$PATH' }}"
+        PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
       changed_when: true
 
 - name: Pycharm community
@@ -23,6 +23,8 @@
   block:
     - name: Check installation of Pycharm community
       ansible.builtin.command: pycharm-community --version
+      environment:
+        PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
       register: pycharm_version_cmd
       changed_when: false
       ignore_errors: true
@@ -30,8 +32,6 @@
       when: pycharm_version_cmd is failed
       ansible.builtin.command:
         cmd: nix-env -iA nixpkgs.jetbrains.pycharm-community
-      become: true
-      become_user: "{{ workspace_user }}"
       environment:
-        PATH: "{{ workspace_user_details.home + '/.nix-profile/bin:$PATH' }}"
+        PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
       changed_when: true

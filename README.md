@@ -81,6 +81,7 @@ Packages (installed with apt):
 - gir1.2-clutter-1.0 # dep gnome extension system monitor
 - gir1.2-clutter-gst-3.0 # dep gnome extension system monitor
 - gir1.2-gtkclutter-1.0 # dep gnome extension system monitor
+- git
 - locales-all
 - openssl
 - podman
@@ -90,7 +91,6 @@ Packages (installed with apt):
 It also installs with [Nix] package manager:
 
 ```yaml
-- git
 - kubectl
 - helm
 - k9s
@@ -115,9 +115,7 @@ Not everyone's workstation and preferred software configuration is the same.
 
 You can override any of the defaults configured in **default.config.yml** by creating a **config.yml** file and setting the overrides in that file.
 
-The first thing one can customize is the user that will be the owner of the workspace installations `workspace_user`.
-
-Another example are the list of installed packages with apt (Debian's package manager):
+The first thing one can customize is the list of installed packages with apt (Debian's package manager):
 
 ```yaml
 installed_packages:

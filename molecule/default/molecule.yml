@@ -8,14 +8,16 @@ lint: |
   yamllint .
 platforms:
   - name: instance
-    image: "docker.io/geerlingguy/docker-${MOLECULE_DISTRO:-debian12}-ansible:latest"
+    image: "docker.io/staticdev/docker-${MOLECULE_DISTRO:-debian12}-ansible:latest"
     cgroupns_mode: host
     command: ""
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    privileged: true
     pre_build_image: true
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      remote_user: molecule
 verifier:
   name: ansible

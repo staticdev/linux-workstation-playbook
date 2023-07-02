@@ -1,8 +1,4 @@
 ---
-# User used owner of the installed applications and configurations
-# Default is the user running the ansible playbook, this user will be created if does not exist
-workspace_user: "{{ ansible_user | default(lookup('env', 'USER')) }}"
-
 # Install packages
 install_packages: true
 installed_packages:
@@ -12,14 +8,13 @@ installed_packages:
   - gir1.2-clutter-1.0  # dep gnome extension system monitor
   - gir1.2-clutter-gst-3.0  # dep gnome extension system monitor
   - gir1.2-gtkclutter-1.0  # dep gnome extension system monitor
+  - git
   - locales-all
   - openssl
   - podman  # see https://github.com/NixOS/nixpkgs/issues/138423
   - poedit
 
 nix_packages:
-  - name: git
-    check_cmd: git --version
   - name: kubectl
     check_cmd: kubectl version --client
   - name: helm
