@@ -8,20 +8,33 @@
   pre_tasks:
     - name: SSH and become checks
       ansible.builtin.include_tasks: tasks/site.yml
+
     - name: Load config
       ansible.builtin.include_vars: "{{ item }}"
       with_fileglob:
         - "{{ playbook_dir }}/config.yml"
 
+    - name: Validate config
+      ansible.builtin.include_tasks: tasks/validate-config.yml
+
+    - name: Install packages
+      ansible.builtin.include_tasks: tasks/packages.yml
+      when: install_packages
+
+    - name: Install zsh
+      ansible.builtin.include_tasks: tasks/zsh.yml
+      when: install_zsh
+
   handlers:
     - name: Restart gnome
       ansible.builtin.command: killall -SIGQUIT gnome-shell
-      # TODO: watch https://github.com/ansible/ansible-lint/issues/3235
       changed_when: true
+
     - name: Delete openrgb repo
       ansible.builtin.file:
         path: "{{ ansible_env.HOME }}/OpenRGB"
         state: absent
+
     - name: Delete openrgb generated files
       ansible.builtin.file:
         path: "{{ ansible_env.HOME }}/{{ item }}"
@@ -33,14 +46,11 @@
         - "openrgb-dbgsym_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.deb"
 
   roles:
-    - role: ableton.nix
     - role: staticdev.firefox
       when: configure_firefox
     - role: staticdev.brave
       when: install_brave
     - role: geerlingguy.docker
-      vars:
-        docker_users: ["{{ ansible_env.USER }}"]
       when: install_docker
       become: true
     - role: robertdebock.obsproject
@@ -68,14 +78,13 @@
       ansible.builtin.include_tasks: tasks/pycharm.yml
       when: install_pycharm
 
-    - name: Install zsh
-      ansible.builtin.include_tasks: tasks/zsh.yml
-      when: install_zsh
+    - name: Office setup
+      ansible.builtin.include_tasks: tasks/office.yml
+      when: install_onlyoffice or remove_libreoffice
 
-    - name: Install packages
-      ansible.builtin.include_tasks: tasks/packages.yml
-      when: install_packages
-
+    - name: Extra packages
+      ansible.builtin.include_tasks: tasks/extra-packages.yml
+      when: install_extra_packages
     - name: Create SSH key
       ansible.builtin.include_tasks: tasks/ssh.yml
       when: configure_ssh
@@ -87,10 +96,6 @@
     - name: Setup Git
       ansible.builtin.include_tasks: tasks/git-setup.yml
       when: setup_git
-
-    - name: Extra packages
-      ansible.builtin.include_tasks: tasks/extra-packages.yml
-      when: install_extra_packages
 
     - name: Cryptomator
       ansible.builtin.include_tasks: tasks/cryptomator.yml

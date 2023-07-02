@@ -1,12 +1,37 @@
 ---
-- name: Ensure snapd is installed
-  ansible.builtin.package:
-    name: snapd
-    state: present
-  become: true
+- name: Pycharm professional
+  when: pycharm_flavor == 'professional'
+  block:
+    - name: Check installation of Pycharm professional
+      ansible.builtin.command: pycharm-professional --version
+      environment:
+        PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+      register: pycharm_version_cmd
+      changed_when: false
+      ignore_errors: true
+    - name: Install Pycharm professional
+      when: pycharm_version_cmd is failed
+      ansible.builtin.command:
+        cmd: nix-env -iA nixpkgs.jetbrains.pycharm-professional --impure
+      environment:
+        NIXPKGS_ALLOW_UNFREE: "1"
+        PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+      changed_when: true
 
-- name: Install pycharm
-  community.general.snap:
-    name: "pycharm-{{ pycharm_flavor }}"
-    classic: true
-  become: true
+- name: Pycharm community
+  when: pycharm_flavor == 'community'
+  block:
+    - name: Check installation of Pycharm community
+      ansible.builtin.command: pycharm-community --version
+      environment:
+        PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+      register: pycharm_version_cmd
+      changed_when: false
+      ignore_errors: true
+    - name: Install Pycharm community
+      when: pycharm_version_cmd is failed
+      ansible.builtin.command:
+        cmd: nix-env -iA nixpkgs.jetbrains.pycharm-community
+      environment:
+        PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+      changed_when: true

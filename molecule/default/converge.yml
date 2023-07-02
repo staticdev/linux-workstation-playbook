@@ -1,26 +1,21 @@
 ---
 - name: Converge
   hosts: all
-  become: true
-
-  pre_tasks:
-    - name: Override nodejs_install_npm_user
-      ansible.builtin.set_fact:
-        nodejs_install_npm_user: root
 
   tasks:
     - name: Update apt cache
       ansible.builtin.apt:
         update_cache: true
         cache_valid_time: 3600
+      become: true
 
     - name: Install required packages
       ansible.builtin.apt:
         name:
-          - firefox-esr
           - gpg
           - python3-bcrypt
           - python3-requests
+      become: true
 
 - name: Import playbook
   import_playbook: ../../main.yml

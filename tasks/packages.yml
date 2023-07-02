@@ -19,9 +19,34 @@
   with_items:
     - "{{ installed_packages }}"
 
-- name: Remove LibreOffice
-  ansible.builtin.package:
-    name: "libreoffice*"
-    state: absent
-  become: true
-  when: remove_libreoffice
+- name: Install Nix package manager
+  ansible.builtin.import_role:
+    name: ableton.nix
+
+- name: Add Nix to bash PATH
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    line: 'export PATH="{{ ansible_env.HOME }}/.nix-profile/bin:$PATH"'
+    insertafter: EOF
+    state: present
+
+- name: "Check installation of Nix package {{ item.name }}"
+  ansible.builtin.command: "{{ item.check_cmd }}"
+  environment:
+    PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+  register: package_check_cmd
+  changed_when: false
+  ignore_errors: true
+  loop: "{{ nix_packages }}"
+  loop_control:
+    index_var: package_index
+
+- name: "Install Nix package {{ item.name }}"
+  ansible.builtin.command: "nix-env -iA nixpkgs.{{ item.name }}"
+  environment:
+    PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+  when: package_check_cmd.results[package_index].failed
+  changed_when: true
+  loop: "{{ nix_packages }}"
+  loop_control:
+    index_var: package_index

@@ -1,11 +1,4 @@
 ---
-- name: Ensure snapd is installed.
-  ansible.builtin.package:
-    name: snapd
-    state: present
-  become: true
-  when: snap_packages is defined and snap_packages | length > 0
-
 - name: Install snap packages.
   community.general.snap:
     name: "{{ item.name | default(item) }}"

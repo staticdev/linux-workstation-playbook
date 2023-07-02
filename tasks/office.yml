@@ -1,0 +1,25 @@
+---
+- name: OnlyOffice
+  when: install_onlyoffice
+  block:
+    - name: Check installation of OnlyOffice
+      ansible.builtin.command: onlyoffice-desktopeditors --version
+      environment:
+        PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+      register: onlyoffice_version_cmd
+      changed_when: false
+      ignore_errors: true
+    - name: Install OnlyOffice
+      when: onlyoffice_version_cmd is failed
+      ansible.builtin.command:
+        cmd: nix-env -iA nixpkgs.onlyoffice-bin
+      environment:
+        PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+      changed_when: true
+
+- name: Remove LibreOffice
+  ansible.builtin.package:
+    name: "libreoffice*"
+    state: absent
+  become: true
+  when: remove_libreoffice
