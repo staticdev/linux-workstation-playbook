@@ -16,4 +16,5 @@
     dest: "{{ ansible_env.HOME }}/.zshrc"
     line: 'if [ -e "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then . "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh"; fi # added by ansible playbook'
     create: true
+    mode: 0644
     insertafter: EOF
