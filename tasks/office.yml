@@ -12,7 +12,7 @@
     - name: Install OnlyOffice
       when: onlyoffice_version_cmd is failed
       ansible.builtin.command:
-        cmd: nix-env -iA nixpkgs.onlyoffice-bin
+        cmd: nix profile install nixpkgs#onlyoffice-bin
       environment:
         PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
       changed_when: true

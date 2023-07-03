@@ -22,6 +22,8 @@
 - name: Install Nix package manager
   ansible.builtin.import_role:
     name: ableton.nix
+  vars:
+    nix_flakes: true
 
 - name: Add Nix to bash PATH
   ansible.builtin.lineinfile:
@@ -30,7 +32,7 @@
     insertafter: EOF
     state: present
 
-- name: "Check installation of Nix package {{ item.name }}"
+- name: "Check installation of Nix packages"
   ansible.builtin.command: "{{ item.check_cmd }}"
   environment:
     PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
@@ -41,8 +43,8 @@
   loop_control:
     index_var: package_index
 
-- name: "Install Nix package {{ item.name }}"
-  ansible.builtin.command: "nix-env -iA nixpkgs.{{ item.name }}"
+- name: "Install Nix packages"
+  ansible.builtin.command: "nix profile install nixpkgs#{{ item.name }}"
   environment:
     PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
   when: package_check_cmd.results[package_index].failed

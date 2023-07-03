@@ -78,6 +78,35 @@ vagrant up
 
 The default password for root in the VM is `vagrant`.
 
+#### Enabling contrib / non-free / non-free-firmware
+
+Keep in mind one maybe need extra steps to enable extra apt packages eg. to install `torbrowser-launcher` (from contrib) or `firmware-amd-graphics` (from non-free-firmware):
+
+1. comment out provision part of `Vagrant`:
+
+   ```
+       # Run playbook
+       #config.vm.provision "ansible" do |ansible|
+       #  ansible.playbook = "main.yml"
+       #  ansible.verbose = "vv"
+       #end
+   ```
+
+1. run `vagrant up` and then `vagrant login`
+1. edit `/etc/apt/sources.list` to add the desired streams eg.:
+
+   ```
+   deb https://deb.debian.org/debian bookworm main contrib non-free-firmware
+   deb-src https://deb.debian.org/debian bookworm main contrib non-free-firmware
+   deb https://deb.debian.org/debian bookworm-updates main contrib non-free-firmware
+   deb-src https://deb.debian.org/debian bookworm-updates main contrib non-free-firmware
+   deb https://deb.debian.org/debian-security bookworm-security main contrib non-free-firmware
+   deb-src https://deb.debian.org/debian-security bookworm-security main contrib non-free-firmware
+   deb https://deb.debian.org/debian bookworm-backports main contrib non-free-firmware
+   deb-src https://deb.debian.org/debian bookworm-backports main contrib non-free-firmware
+   ```
+1. run `vagrant provision`
+
 ## How to submit changes
 
 Open a [pull request] to submit changes to this project.

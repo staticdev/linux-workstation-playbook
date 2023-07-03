@@ -9,7 +9,7 @@
 - name: Install Keepass XC
   when: keepass_xc_cmd is failed
   ansible.builtin.command:
-    cmd: nix-env -iA nixpkgs.keepassxc
+    cmd: nix profile install nixpkgs#keepassxc
   environment:
     PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
   changed_when: true
