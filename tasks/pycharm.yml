@@ -12,7 +12,7 @@
     - name: Install Pycharm professional
       when: pycharm_version_cmd is failed
       ansible.builtin.command:
-        cmd: nix-env -iA nixpkgs.jetbrains.pycharm-professional --impure
+        cmd: nix profile install nixpkgs#jetbrains.pycharm-professional --impure
       environment:
         NIXPKGS_ALLOW_UNFREE: "1"
         PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
@@ -31,7 +31,7 @@
     - name: Install Pycharm community
       when: pycharm_version_cmd is failed
       ansible.builtin.command:
-        cmd: nix-env -iA nixpkgs.jetbrains.pycharm-community
+        cmd: nix profile install nixpkgs#jetbrains.pycharm-community
       environment:
         PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
       changed_when: true
