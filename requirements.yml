@@ -1,7 +1,7 @@
 ---
 roles:
   - name: ableton.nix
-    version: 0.0.7
+    version: 0.0.8
   - name: gantsign.golang
     version: 3.1.5
   - name: geerlingguy.docker
@@ -27,6 +27,6 @@ roles:
 
 collections:
   - name: community.general
-    version: 7.1.0
+    version: 7.2.0
   - name: community.crypto
     version: 2.14.1
