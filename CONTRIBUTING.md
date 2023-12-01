@@ -76,13 +76,13 @@ The VM is created and provisioned with:
 vagrant up
 ```
 
-The default password for root in the VM is `vagrant`.
+The default password for `root` in the VM is `vagrant`.
 
 #### Enabling contrib / non-free / non-free-firmware
 
 Keep in mind one maybe need extra steps to enable extra apt packages eg. to install `torbrowser-launcher` (from contrib) or `firmware-amd-graphics` (from non-free-firmware):
 
-1. comment out provision part of `Vagrant`:
+1. comment out provision part of `Vagrantfile`:
 
    ```
        # Run playbook
@@ -105,6 +105,8 @@ Keep in mind one maybe need extra steps to enable extra apt packages eg. to inst
    deb https://deb.debian.org/debian bookworm-backports main contrib non-free-firmware
    deb-src https://deb.debian.org/debian bookworm-backports main contrib non-free-firmware
    ```
+
+1. uncomment the provisioning part again on `Vagrantfile`
 1. run `vagrant provision`
 
 ## How to submit changes
