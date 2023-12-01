@@ -61,6 +61,8 @@
     - role: geerlingguy.nodejs
       when: nodejs_developer
       become: true
+    - role: staticdev.pyenv
+      when: python_developer
     - role: staticdev.python_developer
       when: python_developer
     - role: staticdev.signal
