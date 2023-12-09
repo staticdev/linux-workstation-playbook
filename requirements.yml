@@ -31,4 +31,4 @@ collections:
   - name: community.general
     version: 8.0.2
   - name: community.crypto
-    version: 2.16.0
+    version: 2.16.2
