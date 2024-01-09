@@ -20,7 +20,7 @@ nix_packages:
   - name: helm
     check_cmd: helm --version
   - name: k9s
-    check_cmd: k9s --version
+    check_cmd: k9s version
   - name: htop
     check_cmd: htop --version
   - name: nmap
