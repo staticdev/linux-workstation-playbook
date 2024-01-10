@@ -21,7 +21,7 @@ roles:
   - name: staticdev.pyenv
     version: 2.11.0
   - name: staticdev.python_developer
-    version: 3.0.0
+    version: 3.1.0
   - name: staticdev.signal
     version: 1.6.2
   - name: stefangweichinger.ansible_rclone
