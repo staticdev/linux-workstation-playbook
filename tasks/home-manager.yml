@@ -1,17 +1,28 @@
 ---
-- name: "Add home-manager channel"
+- name: Check installation of Home Manager
+  ansible.builtin.command: home-manager --version
+  environment:
+    PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+  register: home_manager_cmd
+  changed_when: false
+  ignore_errors: true
+
+- name: Add Home Manager channel
+  when: home_manager_cmd is failed
   ansible.builtin.command: "nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager"
   environment:
     PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
   changed_when: false
 
-- name: "Get channel updates"
+- name: Get channel updates
+  when: home_manager_cmd is failed
   ansible.builtin.command: "nix-channel --update"
   environment:
     PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
   changed_when: false
 
-- name: "Add Home Manager"
+- name: Add Home Manager
+  when: home_manager_cmd is failed
   ansible.builtin.command: "nix-shell '<home-manager>' -A install"
   environment:
     PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
