@@ -11,7 +11,7 @@
 - Development: [Golang], [NodeJs] and [Python tools].
   - IDEs: [VSCodium] and [Pycharm] installation.
 - Browsers: [Firefox] ESR replacement with official PPA and configuration; and [Brave] installation.
-- Package manager installation: [Nix].
+- Package manager installation: [Nix] and [Home Manager].
 - Packages intallation: apt, nix, snap, pip, npm, ruby gems.
 - Replaces [LibreOffice] with [OnlyOffice].
 - Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS], [OpenRGB], [RClone], and [Signal] messenger installation.
@@ -194,6 +194,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [git]: https://git-scm.com/
 [gnome]: https://www.gnome.org/
 [golang]: https://go.dev/
+[home manager]: https://github.com/nix-community/home-manager
 [libreoffice]: https://www.libreoffice.org/
 [nodejs]: https://nodejs.org/
 [keypass]: https://keepass.info/
