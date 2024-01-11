@@ -15,4 +15,6 @@
   ansible.builtin.command: "nix-shell '<home-manager>' -A install"
   environment:
     PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+    # workaround of https://github.com/nix-community/home-manager/issues/3944
+    USER: $(id -un)
   changed_when: true
