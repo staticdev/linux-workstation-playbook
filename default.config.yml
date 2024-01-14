@@ -190,7 +190,7 @@ install_signal: false
 install_openrgb: false
 # get from https://gitlab.com/CalcProgrammer1/OpenRGB/-/tags
 openrgb_git_release: release_0.9
-openrgb_deb_version: 0.9
+openrgb_deb_version: 0.9.0
 openrgb_deb_architecture: amd64
 
 # glob pattern to ansible task files to run after all other tasks are finished.

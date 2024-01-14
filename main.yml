@@ -48,6 +48,7 @@
         - "openrgb_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.changes"
         - "openrgb_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.deb"
         - "openrgb-dbgsym_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.deb"
+        - "OpenRGB/debian/changelog"
 
   roles:
     - role: staticdev.firefox

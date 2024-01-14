@@ -10,14 +10,15 @@
     name: "{{ item }}"
     state: present
   become: true
+  # ref: https://gitlab.com/OpenRGBDevelopers/openrgb-linux-ci-deb-builder/-/blob/bookworm/Dockerfile.bookworm-64?ref_type=heads
   with_items:
     - build-essential
     - debhelper
     - qt5-qmake
     - qtbase5-dev
-    - qtbase5-dev-tools
     - qtchooser
     - qtcreator
+    - qttools5-dev-tools
     - libusb-1.0-0-dev
     - libhidapi-dev
     - libmbedtls-dev
@@ -38,6 +39,15 @@
     version: "{{ openrgb_git_release }}"
   when: openrgb_version_cmd is failed
   notify: Delete openrgb repo
+
+- name: Generate changelog
+  ansible.builtin.command:
+    cmd: ./scripts/build-package-files.sh debian/changelog
+    chdir: ~/OpenRGB
+  when: openrgb_version_cmd is failed
+  register: package_result
+  changed_when: "package_result.rc == 0"
+  notify: Delete openrgb generated files
 
 - name: Generate package
   ansible.builtin.command:

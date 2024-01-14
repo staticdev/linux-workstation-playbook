@@ -142,6 +142,7 @@ nix_packages:
 Other package managers:
 
 ```yaml
+# requires snapd
 snap_packages:
   - name: code
     classic: true
