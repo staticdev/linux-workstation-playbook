@@ -44,12 +44,7 @@ You need Python 3.12+ and the following tools:
 
 The good thing is to install them you just need [Ansible] and this playbook.
 
-[Pre-commit] is installed with `python_developer` tools, [Podman] and [Vagrant] with [Nix] packages by default. For [Molecule] just add it to your `pip_packages`:
-
-```sh
-pip_packages:
-  - name: molecule
-```
+[Pre-commit] is installed with `python_developer` tools, [Podman] and [Vagrant] with [Nix] packages by default. For [Molecule] read their docs.
 
 [molecule]: https://ansible.readthedocs.io/projects/molecule/en/latest/
 [podman]: https://podman.io/

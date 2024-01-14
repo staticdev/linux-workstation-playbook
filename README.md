@@ -12,7 +12,8 @@
   - IDEs: [VSCodium] and [Pycharm] installation.
 - Browsers: [Firefox] ESR replacement with official PPA and configuration; and [Brave] installation.
 - Package manager installation: [Nix] and [Home Manager].
-- Packages intallation: apt, nix, snap, pip, npm, ruby gems.
+- Packages intallation: apt, nix, snap, npm and ruby gems.
+  - Note: pip packages are enforced to not be installed globally on Debian 12 by [PEP-668].
 - Replaces [LibreOffice] with [OnlyOffice].
 - Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS], [OpenRGB], [RClone], and [Signal] messenger installation.
 - Configurations: dotfiles, shell/terminals, [Gnome], [Git], ssh, keyboard...
@@ -148,9 +149,6 @@ snap_packages:
 
 npm_packages:
   - name: webpack
-
-pip_packages:
-  - name: mkdocs
 ```
 
 To have you own dotfiles, just fork the [dotfiles eg. repo] and change the url of `dotfiles_repo` or just change `configure_dotfiles` to false if you do not want it.
@@ -211,6 +209,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [obs]: https://obsproject.com/
 [onlyoffice]: https://github.com/ONLYOFFICE/
 [openrgb]: https://gitlab.com/CalcProgrammer1/OpenRGB
+[pep-668]: https://peps.python.org/pep-0668/
 [pycharm]: https://www.jetbrains.com/pycharm/
 [python tools]: https://github.com/staticdev/ansible-role-python-developer
 [rclone]: https://rclone.org/
