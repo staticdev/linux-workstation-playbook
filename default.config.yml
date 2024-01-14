@@ -13,6 +13,7 @@ installed_packages:
   - openssl
   - podman  # see https://github.com/NixOS/nixpkgs/issues/138423
   - poedit
+  - snapd  # adds snap package manager
 
 install_home_manager: true
 nix_packages:
@@ -43,8 +44,8 @@ nix_packages:
 install_extra_packages: true
 # Note: You are responsible for adding the required package managers
 # installation, eg. through nix
-snap_packages: []
-# - name: postman
+snap_packages:
+  - name: postman
 gem_packages: []
 # - name: bundler
 #   state: present # present/absent/latest, default: present
