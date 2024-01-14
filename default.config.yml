@@ -70,7 +70,7 @@ dotfiles_files:
 # Development
 ## Go settings
 golang_developer: true
-golang_version: "1.21.4"
+golang_version: "1.21.5"
 
 ## NodeJs settings
 nodejs_developer: true
@@ -179,7 +179,7 @@ enable_screen_sharing: false
 # extra installs
 ## cryptomator
 install_cryptomator: false
-cryptomator_version: 1.11.0
+cryptomator_version: 1.11.1
 
 install_keypass_xc: false
 install_obs: false
