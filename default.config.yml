@@ -53,10 +53,6 @@ npm_packages: []
 # - name: webpack
 #   state: present # present/absent/latest, default: present
 #   version: "^2.6" # default: N/A
-pip_packages: []
-# - name: black
-#   state: present # present/absent/latest, default: present
-#   version: "0.16.3" # default: N/A
 
 # Docker
 # Default is false in favor to podman installation in installed_packages
