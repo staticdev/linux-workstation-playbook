@@ -17,15 +17,14 @@
 - Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS], [OpenRGB], [RClone], and [Signal] messenger installation.
 - Configurations: dotfiles, shell/terminals, [Gnome], [Git], ssh, keyboard...
 
-Note: this is an opinionated setup I personally use for software development. You can customize all the changes following instructions in [Overriding Defaults](#overriding-defaults).
+Note: this is an opinionated setup I personally use for software development on [Debian] 12. You can customize all the changes following instructions in [Overriding Defaults](#overriding-defaults).
 
 ## Requirements
 
-1. [Ansible] installed: on Debian you can just run:
+1. [Ansible] installed:
 
    ```sh
-   sudo apt install python3-pip
-   pip install --user ansible
+   sudo apt install ansible-core
    ```
 
    If you get an error saying no installation candidate, edit your apt sources files with:
@@ -37,8 +36,16 @@ Note: this is an opinionated setup I personally use for software development. Yo
    Remove DVD repos (if you see them) and make sure you have:
 
    ```sh
-   deb http://deb.debian.org/debian/ bullseye main non-free contrib
-   deb-src http://deb.debian.org/debian/ bullseye main non-free contrib
+   deb http://deb.debian.org/debian/ bookworm main contrib non-free-firmware
+   deb-src http://deb.debian.org/debian/ bookworm main contrib non-free-firmware
+
+   deb http://security.debian.org/debian-security bookworm-security main contrib non-free-firmware
+   deb-src http://security.debian.org/debian-security bookworm-security main contrib non-free-firmware
+
+   # bookworm-updates, to get updates before a point release is made;
+   # see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports
+   deb http://deb.debian.org/debian/ bookworm-updates main contrib non-free-firmware
+   deb-src http://deb.debian.org/debian/ bookworm-updates main contrib non-free-firmware
    ```
 
    1. If **~/.local/bin** is not on **echo \$PATH**, you can add it with the command:
