@@ -14,30 +14,16 @@ installed_packages:
   - podman  # see https://github.com/NixOS/nixpkgs/issues/138423
   - poedit
 
+# Dotfiles (requires git on installed_packages or extra_packages)
+configure_dotfiles: true
+dotfiles_repo: "https://github.com/staticdev/dotfiles-eg.git"
+dotfiles_repo_version: main
+dotfiles_files:
+  - .tmux.conf
+  - .vimrc
+  - .zshrc
+
 install_home_manager: true
-nix_packages:
-  - name: kubectl
-    check_cmd: kubectl version --client
-  - name: helm
-    check_cmd: helm --version
-  - name: k9s
-    check_cmd: k9s version
-  - name: htop
-    check_cmd: htop --version
-  - name: nmap
-    check_cmd: nmap --version
-  - name: thefuck
-    check_cmd: thefuck --version
-  - name: tmux
-    check_cmd: tmux -V
-  - name: vagrant
-    check_cmd: vagrant --version
-  - name: vim
-    check_cmd: vim --version
-  - name: wget
-    check_cmd: wget --version
-  - name: xclip
-    check_cmd: xclip -version
 
 # Install packages from other package managers
 install_extra_packages: true
@@ -57,15 +43,6 @@ npm_packages: []
 # Docker
 # Default is false in favor to podman installation in installed_packages
 install_docker: false
-
-# Dotfiles (requires git on installed_packages or extra_packages)
-configure_dotfiles: true
-dotfiles_repo: "https://github.com/staticdev/dotfiles-eg.git"
-dotfiles_repo_version: main
-dotfiles_files:
-  - .tmux.conf
-  - .vimrc
-  - .zshrc
 
 # Development
 ## Go settings
