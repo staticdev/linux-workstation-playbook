@@ -27,5 +27,5 @@
   environment:
     PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
     # workaround of https://github.com/nix-community/home-manager/issues/3944
-    USER: $(id -un)
+    USER: "{{ lookup('ansible.builtin.pipe', 'id -un') }}"
   changed_when: true
