@@ -21,10 +21,6 @@
       ansible.builtin.include_tasks: tasks/packages.yml
       when: install_packages
 
-    - name: Install Home Manager
-      ansible.builtin.include_tasks: tasks/home-manager.yml
-      when: install_home_manager
-
     - name: Install zsh
       ansible.builtin.include_tasks: tasks/zsh.yml
       when: install_zsh
@@ -81,6 +77,10 @@
       when: install_rclone
 
   tasks:
+    - name: Install Home Manager
+      ansible.builtin.include_tasks: tasks/home-manager.yml
+      when: install_home_manager
+
     - name: Install Pycharm
       ansible.builtin.include_tasks: tasks/pycharm.yml
       when: install_pycharm

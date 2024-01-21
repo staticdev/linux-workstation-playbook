@@ -129,15 +129,9 @@ installed_packages:
   - go
 ```
 
-For [Nix] packages, it is necessary to specify a command that will verify if it is already installed, most binaries support `--version` or just `version`, eg:
+To have you own dotfiles, just fork the [dotfiles eg. repo] and change the url of `dotfiles_repo` or just change `configure_dotfiles` to false if you do not want it.
 
-```yaml
-nix_packages:
-  - name: git
-    check_cmd: git --version
-  - name: kubectl
-    check_cmd: kubectl version --client
-```
+For [Nix] packages, update your [Home Manager] config on your dotfiles repo.
 
 Other package managers:
 
@@ -151,8 +145,6 @@ snap_packages:
 npm_packages:
   - name: webpack
 ```
-
-To have you own dotfiles, just fork the [dotfiles eg. repo] and change the url of `dotfiles_repo` or just change `configure_dotfiles` to false if you do not want it.
 
 Any variable can be overridden in **config.yml**; see the supporting roles' documentation for a complete list of available variables.
 

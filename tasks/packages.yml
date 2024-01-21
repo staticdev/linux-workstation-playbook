@@ -31,24 +31,3 @@
     line: 'export PATH="{{ ansible_env.HOME }}/.nix-profile/bin:$PATH"'
     insertafter: EOF
     state: present
-
-- name: "Check installation of Nix packages"
-  ansible.builtin.command: "{{ item.check_cmd }}"
-  environment:
-    PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
-  register: package_check_cmd
-  changed_when: false
-  ignore_errors: true
-  loop: "{{ nix_packages }}"
-  loop_control:
-    index_var: package_index
-
-- name: "Install Nix packages"
-  ansible.builtin.command: "nix profile install nixpkgs#{{ item.name }}"
-  environment:
-    PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
-  when: package_check_cmd.results[package_index].failed
-  changed_when: true
-  loop: "{{ nix_packages }}"
-  loop_control:
-    index_var: package_index

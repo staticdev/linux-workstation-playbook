@@ -7,6 +7,11 @@
   changed_when: false
   ignore_errors: true
 
+- name: Copy Home Manager config from dotifles
+  ansible.builtin.command:
+    cmd: "mv ~/Documents/dotfiles/home-manager ~/.config/"
+    creates: "~/.config/home-manager"
+
 - name: Add Home Manager channel
   when: home_manager_cmd is failed
   ansible.builtin.command: "nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager"
@@ -24,6 +29,29 @@
 - name: Add Home Manager
   when: home_manager_cmd is failed
   ansible.builtin.command: "nix-shell '<home-manager>' -A install"
+  environment:
+    PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+    # workaround of https://github.com/nix-community/home-manager/issues/3944
+    USER: "{{ lookup('ansible.builtin.pipe', 'id -un') }}"
+  changed_when: true
+
+# REMOVE DEBUGS
+- name: Display home.nix contents
+  command: cat home.nix chdir=~/.config/home-manager/
+  register: command_output
+
+- name: Print to console
+  debug:
+    msg: "{{command_output.stdout}}"
+
+- name: Print the value of USER
+  ansible.builtin.debug:
+    var: "{{ lookup('ansible.builtin.pipe', 'id -un') }}"
+
+- name: Activate config
+  when: home_manager_cmd is failed
+  ansible.builtin.command:
+    cmd: "home-manager switch"
   environment:
     PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
     # workaround of https://github.com/nix-community/home-manager/issues/3944
