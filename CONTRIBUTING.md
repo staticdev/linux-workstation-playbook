@@ -37,14 +37,13 @@ Request features on the [Issue Tracker].
 
 You need Python 3.12+ and the following tools:
 
-- [Molecule]
 - [Podman]
 - [Pre-commit]
 - [Vagrant] (optional)
 
 The good thing is to install them you just need [Ansible] and this playbook.
 
-[Pre-commit] is installed with `python_developer` tools, [Podman] and [Vagrant] with [Nix] packages by default. For [Molecule] read their docs.
+[Pre-commit] is installed with `python_developer` tools, [Podman] and [Vagrant] with [Nix] packages by default.
 
 [molecule]: https://ansible.readthedocs.io/projects/molecule/en/latest/
 [podman]: https://podman.io/
@@ -53,13 +52,7 @@ The good thing is to install them you just need [Ansible] and this playbook.
 
 ## How to test the project
 
-Run the tests locally:
-
-```sh
-molecule test
-```
-
-Tests are located in the `Molecule` directory and are executed in `Podman` containers.
+Run the tests locally or using Vagrant.
 
 ### Using Vagrant
 
@@ -72,37 +65,6 @@ vagrant up
 ```
 
 The default password for `root` in the VM is `vagrant`.
-
-#### Enabling contrib / non-free / non-free-firmware
-
-Keep in mind one maybe need extra steps to enable extra apt packages eg. to install `torbrowser-launcher` (from contrib) or `firmware-amd-graphics` (from non-free-firmware):
-
-1. comment out provision part of `Vagrantfile`:
-
-   ```
-       # Run playbook
-       #config.vm.provision "ansible" do |ansible|
-       #  ansible.playbook = "main.yml"
-       #  ansible.verbose = "vv"
-       #end
-   ```
-
-1. run `vagrant up` and then `vagrant login`
-1. edit `/etc/apt/sources.list` to add the desired streams eg.:
-
-   ```
-   deb https://deb.debian.org/debian bookworm main contrib non-free-firmware
-   deb-src https://deb.debian.org/debian bookworm main contrib non-free-firmware
-   deb https://deb.debian.org/debian bookworm-updates main contrib non-free-firmware
-   deb-src https://deb.debian.org/debian bookworm-updates main contrib non-free-firmware
-   deb https://deb.debian.org/debian-security bookworm-security main contrib non-free-firmware
-   deb-src https://deb.debian.org/debian-security bookworm-security main contrib non-free-firmware
-   deb https://deb.debian.org/debian bookworm-backports main contrib non-free-firmware
-   deb-src https://deb.debian.org/debian bookworm-backports main contrib non-free-firmware
-   ```
-
-1. uncomment the provisioning part again on `Vagrantfile`
-1. run `vagrant provision`
 
 ## How to submit changes
 

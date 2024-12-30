@@ -1,7 +1,6 @@
 /docs/_build/
 *.vagrant
 *.retry
-roles*
 config*.yml
 .cache/
 .python-version

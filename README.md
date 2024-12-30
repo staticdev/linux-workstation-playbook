@@ -8,6 +8,7 @@
 
 ## Features
 
+- Support processor architectures: x86_64 (only one for now, may be extended in the future).
 - Development: [Golang], [NodeJs] and [Python tools].
   - IDEs: [VSCodium] and [Pycharm] installation.
 - Browsers: [Firefox] ESR replacement with official PPA and configuration; and [Brave] installation.
@@ -22,38 +23,14 @@ Note: this is an opinionated setup I personally use for software development on 
 
 ## Requirements
 
-1. [Ansible] installed:
-
-   ```sh
-   sudo apt install ansible-core
-   ```
-
-   If you get an error saying no installation candidate, edit your apt sources files with:
-
-   ```sh
-   sudo gedit /etc/apt/sources.list
-   ```
-
-   Remove DVD repos (if you see them) and make sure you have:
-
-   ```sh
-   deb http://deb.debian.org/debian/ bookworm main contrib non-free-firmware
-   deb-src http://deb.debian.org/debian/ bookworm main contrib non-free-firmware
-
-   deb http://security.debian.org/debian-security bookworm-security main contrib non-free-firmware
-   deb-src http://security.debian.org/debian-security bookworm-security main contrib non-free-firmware
-
-   # bookworm-updates, to get updates before a point release is made;
-   # see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports
-   deb http://deb.debian.org/debian/ bookworm-updates main contrib non-free-firmware
-   deb-src http://deb.debian.org/debian/ bookworm-updates main contrib non-free-firmware
-   ```
-
-   1. If **~/.local/bin** is not on **echo \$PATH**, you can add it with the command:
-
-   ```sh
-   sudo echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc && source ~/.bashrc
-   ```
+1. Install latest stable, recommended Minimal ISO image from [NixOS download ISO page](https://nixos.org/download/#nixos-iso).
+1. Create a `local.nix` file from [eg folder](eg/local.nix) and change:
+  - main Linux username.
+  - timezone.
+  - git variables.
+1. Create at /etc/nixos a `flake.nix` file [eg folder](eg/flake.nix).
+1. Rebuild hardware config with `sudo nixos-generate-config`.
+1. Rebuild your system with `sudo nixos-rebuild boot --upgrade-all`.
 
 ## Installation
 
@@ -180,7 +157,6 @@ please [file an issue] along with a detailed description.
 This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook].
 
 [@geerlingguy]: https://github.com/geerlingguy
-[ansible]: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 [brave]: https://brave.com/
 [contributor guide]: https://github.com/staticdev/linux-workstation-playbook/blob/main/CONTRIBUTING.md
 [cryptomator]: https://cryptomator.org/
@@ -199,6 +175,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [mac development ansible playbook]: https://github.com/geerlingguy/mac-dev-playbook
 [mit]: https://opensource.org/licenses/MIT
 [nix]: https://nixos.org/
+[nixos download iso page]: https://nixos.org/download/#nixos-iso
 [obs]: https://obsproject.com/
 [onlyoffice]: https://github.com/ONLYOFFICE/
 [openrgb]: https://gitlab.com/CalcProgrammer1/OpenRGB
