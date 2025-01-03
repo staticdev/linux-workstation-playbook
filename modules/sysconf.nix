@@ -1,32 +1,26 @@
 { lib, pkgs, ... }:
 {
   options.environment.sysConf = {
-    gitUserName = lib.mkOption {
-      type = lib.types.str;
-      default = "Rick Sanchez";
-      description = "The name to use for git commits";
-    };
-
-    gitEmail = lib.mkOption {
-      type = lib.types.str;
-      default = "Rick.Sanchez@Wabalaba.dubdub";
-      description = "The email to use for git commits";
+    git = lib.mkOption {
+      type = with lib.types; attrsOf str;
+      default = {
+        userName = "Rick Sanchez";
+        email = "Rick.Sanchez@Wabalaba.dubdub";
+      };
+      description = "The git configs for commits: userName and email";
     };
 
     mainUser = lib.mkOption {
-      type = lib.types.str;
-      default = "rick";
-      description = "The main user of the system";
-    };
-
-    mainUserPkgs = lib.mkOption {
-        type = lib.types.listOf lib.types.package;
-        default = with pkgs; [
+      type = with lib.types; attrsOf (oneOf [str (listOf package)]);
+      default = {
+        name = "rick";
+        pkgs = with pkgs; [
           git
           tmux
           vscodium
         ];
-        description = "The main user packages";
+      };
+      description = "The main user of the system: name and pkgs";
     };
 
     systemWidePkgs = lib.mkOption {

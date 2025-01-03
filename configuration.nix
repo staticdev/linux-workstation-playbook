@@ -49,7 +49,16 @@ in
   environment.gnome.excludePackages = with pkgs; [
     epiphany    # web browser
   ];
-
+  # enable screen sharing
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
+    };
+  };
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
@@ -71,62 +80,14 @@ in
   # Enable zsh in case you want to use it
   programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."${mainUser}" = {
+  users.users."${mainUser.name}" = {
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = config.environment.sysConf.mainUserPkgs;
+    packages = config.environment.sysConf.mainUser.pkgs;
   };
-  home-manager.users."${mainUser}" = {
+  home-manager.users."${mainUser.name}" = {
     home.stateVersion = "24.11";
-  };
-
-  programs.firefox = {
-    enable = true;
-    policies = {
-      OfferToSaveLogins = false;
-      PasswordManagerEnabled = false;
-      DisableTelemetry = true;
-      DisableFirefoxStudies = true;
-      EnableTrackingProtection = {
-        Value = true;
-        Locked = true;
-        Cryptomining = true;
-        Fingerprinting = true;
-      };
-      DisablePocket = true;
-      DisableFirefoxAccounts = true;
-      DisableAccounts = true;
-      DisableFirefoxScreenshots = true;
-      OverrideFirstRunPage = "";
-      OverridePostUpdatePage = "";
-      DontCheckDefaultBrowser = true;
-      DisplayBookmarksToolbar = "newtab";
-      DisplayMenuBar = "default-off";
-      SearchBar = "unified";
-      ExtensionSettings = {
-        # Blocks installing new extensions
-        "*".installation_mode = "blocked";
-        # Bitwarden Password Manager
-        # https://addons.mozilla.org/api/v5/addons/addon/bitwarden-password-manager/
-        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-        install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-        installation_mode = "force_installed";
-        };
-        # uBlock Origin
-        # https://addons.mozilla.org/api/v5/addons/addon/ublock-origin/
-        "uBlock0@raymondhill.net" = {
-        install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-        installation_mode = "force_installed";
-        };
-        # Brave Search
-        # https://addons.mozilla.org/api/v5/addons/addon/brave-search/
-        "BraveSearchExtension@io.Uvera" = {
-        install_url = "https://addons.mozilla.org/firefox/downloads/file/4278495/brave_search-1.3.0.xpi";
-        installation_mode = "force_installed";
-        };
-      };
-    };
   };
 
   # List packages installed in system profile. To search, run:

@@ -11,40 +11,34 @@
 - Support processor architectures: x86_64 (only one for now, may be extended in the future).
 - Development: [Golang], [NodeJs] and [Python tools].
   - IDEs: [VSCodium] and [Pycharm] installation.
-- Browsers: [Firefox] ESR replacement with official PPA and configuration; and [Brave] installation.
-- Package manager installation: [Nix] and [Home Manager].
-- Packages intallation: apt, nix, snap, npm and ruby gems.
-  - Note: pip packages are enforced to not be installed globally on Debian 12 by [PEP-668].
+- Browsers: [Brave], [Firefox] and [Mullvad Browser].
 - Replaces [LibreOffice] with [OnlyOffice].
 - Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS], [OpenRGB], [RClone], and [Signal] messenger installation.
 - Configurations: dotfiles, shell/terminals, [Gnome], [Git], ssh, keyboard...
 
-Note: this is an opinionated setup I personally use for software development on [Debian] 12. You can customize all the changes following instructions in [Overriding Defaults](#overriding-defaults).
+Note: this is an opinionated setup I personally use for software development on [NixOS](https://nixos.org). You can customize all the changes following instructions in [Overriding Defaults](#overriding-defaults).
 
 ## Requirements
 
 1. Install latest stable, recommended Minimal ISO image from [NixOS download ISO page](https://nixos.org/download/#nixos-iso).
-1. Create a `local.nix` file from [eg folder](eg/local.nix) and change:
-  - main Linux username.
-  - timezone.
-  - git variables.
-1. Create at /etc/nixos a `flake.nix` file [eg folder](eg/flake.nix).
-1. Rebuild hardware config with `sudo nixos-generate-config`.
-1. Rebuild your system with `sudo nixos-rebuild boot --upgrade-all`.
 
 ## Installation
 
-1. [Download] and extract this playbook or clone this repository to your local drive.
+1. Create a `local.nix` file from [eg folder](eg/local.nix) and change:
+  - git variables.
+  - main Linux username.
+  - timezone.
+  - browser configurations.
+1. Create at /etc/nixos a `flake.nix` file [eg folder](eg/flake.nix).
 
    ```sh
-   git clone git@github.com:staticdev/linux-workstation-playbook.git
+   curl -s "https://raw.githubusercontent.com/staticdev/linux-workstation-playbook/main/eg/flake.nix?token=$(date +%s)" -o /etc/nixos/flake.nix
+   nixos-generate-config
+   nixos-rebuild boot --upgrade-all
    ```
 
-1. Install dependencies by entering the terminal in the playbook folder and run the command:
-
-   ```sh
-   ansible-galaxy install -fr requirements.yml
-   ```
+1. Rebuild hardware config with `sudo nixos-generate-config`.
+1. Rebuild your system with `sudo nixos-rebuild boot --upgrade-all`.
 
 ## Usage
 
@@ -174,6 +168,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [keypass]: https://keepass.info/
 [mac development ansible playbook]: https://github.com/geerlingguy/mac-dev-playbook
 [mit]: https://opensource.org/licenses/MIT
+[mullvad browser]: https://mullvad.net/en/browser
 [nix]: https://nixos.org/
 [nixos download iso page]: https://nixos.org/download/#nixos-iso
 [obs]: https://obsproject.com/
