@@ -1,7 +1,7 @@
 {
   inputs = {
     cfg = {
-      url = "github:staticdev/linux-workstation-playbook/install-packages-with-home-manager";
+      url = "github:staticdev/linux-workstation-playbook/feature/install-packages-with-home-manager";
     };
   };
 
@@ -9,7 +9,7 @@
     { cfg, ... }:
     {
       nixosConfigurations = {
-        nix = cfg.inputs.nixpkgs.lib.nixosSystem (
+        nixos = cfg.inputs.nixpkgs.lib.nixosSystem (
           cfg.systemTypes.x86_64 {
             # replace the hostname here
             hostName = "nixos";

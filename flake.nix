@@ -7,12 +7,10 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-    mainModules = [
-      (import "${self}/modules")
-      configuration.nix
-      inputs.home-manager.nixosModules.default
-    ]
+  outputs =
+  { self, ... }@inputs:
+  {
+    stateVersion = "24.11";
     optionalLocalModules =
       nix_paths:
       builtins.concatLists (
@@ -20,19 +18,20 @@
           path: inputs.nixpkgs.lib.optional (builtins.pathExists path) (import path)
         )
       );
-      systemTypes = {
-        x86_64 = prop: {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-            stateVersion = self.stateVersion;
-            hostName = prop.hostName;
-          };
+    systemTypes = {
+      x86_64 = prop: {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+          hostName = prop.hostName;
         };
-
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = mainModules ++ optionalLocalModules;
+        modules = [
+          ./configuration.nix
+          ./modules/sysconf.nix
+          inputs.home-manager.nixosModules.default
+        ]
+        ++ prop.modules;
+      };
     };
   };
 }

@@ -8,11 +8,6 @@ let
   mainUser = config.environment.sysConf.mainUser;
 in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
@@ -85,9 +80,6 @@ in
     shell = pkgs.zsh;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = config.environment.sysConf.mainUser.pkgs;
-  };
-  home-manager.users."${mainUser.name}" = {
-    home.stateVersion = "24.11";
   };
 
   # List packages installed in system profile. To search, run:
