@@ -1,7 +1,7 @@
 {
   inputs = {
     cfg = {
-      url = "github:staticdev/linux-workstation-playbook/feature/install-packages-with-home-manager";
+      url = "github:staticdev/linux-workstation-playbook";
     };
   };
 

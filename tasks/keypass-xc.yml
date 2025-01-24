@@ -1,0 +1,15 @@
+---
+- name: Check installation of Keepass XC
+  ansible.builtin.command: keepassxc --version
+  environment:
+    PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+  register: keepass_xc_cmd
+  changed_when: false
+  ignore_errors: true
+- name: Install Keepass XC
+  when: keepass_xc_cmd is failed
+  ansible.builtin.command:
+    cmd: nix profile install nixpkgs#keepassxc
+  environment:
+    PATH: "{{ ansible_env.HOME + '/.nix-profile/bin:$PATH' }}"
+  changed_when: true

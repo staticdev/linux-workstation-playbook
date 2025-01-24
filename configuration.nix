@@ -4,9 +4,6 @@
 
 { config, lib, pkgs, ... }:
 
-let
-  mainUser = config.environment.sysConf.mainUser;
-in
 {
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -70,16 +67,6 @@ in
       support32Bit = true;
     };
     pulse.enable = true;
-  };
-
-  # Enable zsh in case you want to use it
-  programs.zsh.enable = true;
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."${mainUser.name}" = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = config.environment.sysConf.mainUser.pkgs;
   };
 
   # List packages installed in system profile. To search, run:

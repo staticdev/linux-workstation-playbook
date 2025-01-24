@@ -1,0 +1,19 @@
+---
+- name: Change keyboard settings
+  community.general.dconf:
+    key: /org/gnome/desktop/input-sources/sources
+    value: "[('xkb', '{{ keyboard_layout | string }}{% if keyboard_variant %}+{{ keyboard_variant | string }}{% endif %}')]"
+  when: keyboard_layout
+
+- name: Configure c-cedilla
+  ansible.builtin.lineinfile:
+    path: /etc/environment
+    line: "{{ item.line }}"
+    regexp: "{{ item.regexp }}"
+  with_items:
+    - line: GTK_IM_MODULE=cedilla
+      regexp: ^GTK_IM_MODULE=
+    - line: QT_IM_MODULE=cedilla
+      regexp: ^QT_IM_MODULE=
+  become: true
+  when: keyboard_c_cedilla

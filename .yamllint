@@ -1,0 +1,17 @@
+---
+extends: default
+
+rules:
+  line-length:
+    max: 180
+    level: warning
+  document-start:
+    level: error
+  truthy:
+    level: error
+
+ignore: |
+  .github/stale.yml
+  .cache
+  .venv
+  roles

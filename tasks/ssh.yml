@@ -1,0 +1,14 @@
+---
+- name: Create .ssh directory if it does not exist
+  ansible.builtin.file:
+    path: ~/.ssh
+    state: directory
+    mode: 0700
+
+- name: Generate an OpenSSH keypair
+  community.crypto.openssh_keypair:
+    path: "~/.ssh/id_{{ ssh_key_type }}"
+    type: "{{ ssh_key_type }}"
+    size: "{{ ssh_key_size }}"
+    passphrase: "{{ ssh_key_passphrase }}"
+  become: false

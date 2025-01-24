@@ -35,15 +35,16 @@ Request features on the [Issue Tracker].
 
 ## How to set up your development environment
 
-You need Python 3.12+ and the following tools:
+You need Python 3.13+ and the following tools:
 
+- [Molecule]
 - [Podman]
 - [Pre-commit]
 - [Vagrant] (optional)
 
 The good thing is to install them you just need [Ansible] and this playbook.
 
-[Pre-commit] is installed with `python_developer` tools, [Podman] and [Vagrant] with [Nix] packages by default.
+[Pre-commit] is installed with `python_developer` tools, [Podman] and [Vagrant] with [Nix] packages by default. For [Molecule] read their docs.
 
 [molecule]: https://ansible.readthedocs.io/projects/molecule/en/latest/
 [podman]: https://podman.io/
@@ -52,7 +53,14 @@ The good thing is to install them you just need [Ansible] and this playbook.
 
 ## How to test the project
 
-Run the tests locally or using Vagrant.
+
+Run the tests locally:
+
+```sh
+molecule test
+```
+
+Tests are located in the `Molecule` directory and are executed in `Podman` containers.
 
 ### Using Vagrant
 

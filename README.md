@@ -10,17 +10,19 @@
 
 - Support processor architectures: x86_64 (only one for now, may be extended in the future).
 - Development: [Golang], [NodeJs] and [Python tools].
-  - IDEs: [VSCodium] and [Pycharm] installation.
-- Browsers: [Brave], [Firefox] and [Mullvad Browser].
-- Replaces [LibreOffice] with [OnlyOffice].
-- Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS], [OpenRGB], [RClone], and [Signal] messenger installation.
-- Configurations: dotfiles, shell/terminals, [Gnome], [Git], ssh, keyboard...
+  - IDEs: [VSCodium] installation (via Nixpkgs).
+- Browsers: [Brave], [Firefox] and [Mullvad Browser] (via Nix).
+- Containers and virtualization: [Docker], [Podman] and [libvirtd].
+- Office: installs [OnlyOffice] (via Nixpkgs).
+- Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS] (via Nixpkgs), [OpenRGB], [RClone], and [Signal] (via Nixpkgs) messenger installation.
+- Configurations: dotfiles, zsh (via Nix), terminals, [Gnome], [Git], ssh, keyboard...
 
 Note: this is an opinionated setup I personally use for software development on [NixOS](https://nixos.org). You can customize all the changes following instructions in [Overriding Defaults](#overriding-defaults).
 
 ## Requirements
 
 1. Install latest stable, recommended Minimal ISO image from [NixOS download ISO page](https://nixos.org/download/#nixos-iso).
+1. [Ansible] installed. Make sure you have it in you `local.nix` either in `systemWidePkgs` or `mainUser.pkgs`.
 
 ## Installation
 
@@ -155,6 +157,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [contributor guide]: https://github.com/staticdev/linux-workstation-playbook/blob/main/CONTRIBUTING.md
 [cryptomator]: https://cryptomator.org/
 [debian]: https://www.debian.org/
+[docker]: https://www.docker.com/
 [dotfiles eg. repo]: https://github.com/staticdev/dotfiles-eg
 [download]: https://github.com/staticdev/linux-workstation-playbook/archive/refs/heads/main.zip
 [file an issue]: https://github.com/staticdev/linux-workstation-playbook/issues
@@ -163,7 +166,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [gnome]: https://www.gnome.org/
 [golang]: https://go.dev/
 [home manager]: https://github.com/nix-community/home-manager
-[libreoffice]: https://www.libreoffice.org/
+[libvirtd]: https://libvirt.org/manpages/libvirtd.html
 [nodejs]: https://nodejs.org/
 [keypass]: https://keepass.info/
 [mac development ansible playbook]: https://github.com/geerlingguy/mac-dev-playbook
@@ -175,7 +178,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [onlyoffice]: https://github.com/ONLYOFFICE/
 [openrgb]: https://gitlab.com/CalcProgrammer1/OpenRGB
 [pep-668]: https://peps.python.org/pep-0668/
-[pycharm]: https://www.jetbrains.com/pycharm/
+[podman]: https://podman.io/
 [python tools]: https://github.com/staticdev/ansible-role-python-developer
 [rclone]: https://rclone.org/
 [signal]: https://signal.org
