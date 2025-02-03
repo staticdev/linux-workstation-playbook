@@ -8,66 +8,39 @@
 
 ## Features
 
+- Support processor architectures: x86_64 (only one for now, may be extended in the future).
 - Development: [Golang], [NodeJs] and [Python tools].
-  - IDEs: [VSCodium] and [Pycharm] installation.
-- Browsers: [Firefox] ESR replacement with official PPA and configuration; and [Brave] installation.
-- Package manager installation: [Nix] and [Home Manager].
-- Packages intallation: apt, nix, snap, npm and ruby gems.
-  - Note: pip packages are enforced to not be installed globally on Debian 12 by [PEP-668].
-- Replaces [LibreOffice] with [OnlyOffice].
-- Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS], [OpenRGB], [RClone], and [Signal] messenger installation.
-- Configurations: dotfiles, shell/terminals, [Gnome], [Git], ssh, keyboard...
+  - IDEs: [VSCodium] installation (via Nixpkgs).
+- Browsers: [Brave], [Firefox] and [Mullvad Browser] (via Nix).
+- Containers and virtualization: [Docker], [Podman] and [libvirtd].
+- Office: installs [OnlyOffice] (via Nixpkgs).
+- Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS] (via Nixpkgs), [OpenRGB], [RClone], and [Signal] (via Nixpkgs) messenger installation.
+- Configurations: dotfiles, zsh (via Nix), terminals, [Gnome], [Git], ssh, keyboard...
 
-Note: this is an opinionated setup I personally use for software development on [Debian] 12. You can customize all the changes following instructions in [Overriding Defaults](#overriding-defaults).
+Note: this is an opinionated setup I personally use for software development on [NixOS](https://nixos.org). You can customize all the changes following instructions in [Overriding Defaults](#overriding-defaults).
 
 ## Requirements
 
-1. [Ansible] installed:
-
-   ```sh
-   sudo apt install ansible-core
-   ```
-
-   If you get an error saying no installation candidate, edit your apt sources files with:
-
-   ```sh
-   sudo gedit /etc/apt/sources.list
-   ```
-
-   Remove DVD repos (if you see them) and make sure you have:
-
-   ```sh
-   deb http://deb.debian.org/debian/ bookworm main contrib non-free-firmware
-   deb-src http://deb.debian.org/debian/ bookworm main contrib non-free-firmware
-
-   deb http://security.debian.org/debian-security bookworm-security main contrib non-free-firmware
-   deb-src http://security.debian.org/debian-security bookworm-security main contrib non-free-firmware
-
-   # bookworm-updates, to get updates before a point release is made;
-   # see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports
-   deb http://deb.debian.org/debian/ bookworm-updates main contrib non-free-firmware
-   deb-src http://deb.debian.org/debian/ bookworm-updates main contrib non-free-firmware
-   ```
-
-   1. If **~/.local/bin** is not on **echo \$PATH**, you can add it with the command:
-
-   ```sh
-   sudo echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc && source ~/.bashrc
-   ```
+1. Install latest stable, recommended Minimal ISO image from [NixOS download ISO page](https://nixos.org/download/#nixos-iso).
+1. [Ansible] installed. Make sure you have it in you `local.nix` either in `systemWidePkgs` or `mainUser.pkgs`.
 
 ## Installation
 
-1. [Download] and extract this playbook or clone this repository to your local drive.
+1. Create a `local.nix` file from [eg folder](eg/local.nix) and change:
+  - git variables.
+  - main Linux username.
+  - timezone.
+  - browser configurations.
+1. Create at /etc/nixos a `flake.nix` file [eg folder](eg/flake.nix).
 
    ```sh
-   git clone git@github.com:staticdev/linux-workstation-playbook.git
+   curl -s "https://raw.githubusercontent.com/staticdev/linux-workstation-playbook/main/eg/flake.nix?token=$(date +%s)" -o /etc/nixos/flake.nix
+   nixos-generate-config
+   nixos-rebuild boot --upgrade-all
    ```
 
-1. Install dependencies by entering the terminal in the playbook folder and run the command:
-
-   ```sh
-   ansible-galaxy install -fr requirements.yml
-   ```
+1. Rebuild hardware config with `sudo nixos-generate-config`.
+1. Rebuild your system with `sudo nixos-rebuild boot --upgrade-all`.
 
 ## Usage
 
@@ -129,15 +102,9 @@ installed_packages:
   - go
 ```
 
-For [Nix] packages, it is necessary to specify a command that will verify if it is already installed, most binaries support `--version` or just `version`, eg:
+To have you own dotfiles, just fork the [dotfiles eg. repo] and change the url of `dotfiles_repo` or just change `configure_dotfiles` to false if you do not want it.
 
-```yaml
-nix_packages:
-  - name: git
-    check_cmd: git --version
-  - name: kubectl
-    check_cmd: kubectl version --client
-```
+For [Nix] packages, update your [Home Manager] config on your dotfiles repo.
 
 Other package managers:
 
@@ -151,8 +118,6 @@ snap_packages:
 npm_packages:
   - name: webpack
 ```
-
-To have you own dotfiles, just fork the [dotfiles eg. repo] and change the url of `dotfiles_repo` or just change `configure_dotfiles` to false if you do not want it.
 
 Any variable can be overridden in **config.yml**; see the supporting roles' documentation for a complete list of available variables.
 
@@ -188,11 +153,11 @@ please [file an issue] along with a detailed description.
 This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook].
 
 [@geerlingguy]: https://github.com/geerlingguy
-[ansible]: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 [brave]: https://brave.com/
 [contributor guide]: https://github.com/staticdev/linux-workstation-playbook/blob/main/CONTRIBUTING.md
 [cryptomator]: https://cryptomator.org/
 [debian]: https://www.debian.org/
+[docker]: https://www.docker.com/
 [dotfiles eg. repo]: https://github.com/staticdev/dotfiles-eg
 [download]: https://github.com/staticdev/linux-workstation-playbook/archive/refs/heads/main.zip
 [file an issue]: https://github.com/staticdev/linux-workstation-playbook/issues
@@ -201,17 +166,19 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [gnome]: https://www.gnome.org/
 [golang]: https://go.dev/
 [home manager]: https://github.com/nix-community/home-manager
-[libreoffice]: https://www.libreoffice.org/
+[libvirtd]: https://libvirt.org/manpages/libvirtd.html
 [nodejs]: https://nodejs.org/
 [keypass]: https://keepass.info/
 [mac development ansible playbook]: https://github.com/geerlingguy/mac-dev-playbook
 [mit]: https://opensource.org/licenses/MIT
+[mullvad browser]: https://mullvad.net/en/browser
 [nix]: https://nixos.org/
+[nixos download iso page]: https://nixos.org/download/#nixos-iso
 [obs]: https://obsproject.com/
 [onlyoffice]: https://github.com/ONLYOFFICE/
 [openrgb]: https://gitlab.com/CalcProgrammer1/OpenRGB
 [pep-668]: https://peps.python.org/pep-0668/
-[pycharm]: https://www.jetbrains.com/pycharm/
+[podman]: https://podman.io/
 [python tools]: https://github.com/staticdev/ansible-role-python-developer
 [rclone]: https://rclone.org/
 [signal]: https://signal.org

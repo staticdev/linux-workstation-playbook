@@ -14,7 +14,6 @@ installed_packages:
   - podman  # see https://github.com/NixOS/nixpkgs/issues/138423
   - poedit
 
-install_home_manager: true
 nix_packages:
   - name: kubectl
     check_cmd: kubectl version --client
@@ -54,10 +53,6 @@ npm_packages: []
 #   state: present # present/absent/latest, default: present
 #   version: "^2.6" # default: N/A
 
-# Docker
-# Default is false in favor to podman installation in installed_packages
-install_docker: false
-
 # Dotfiles (requires git on installed_packages or extra_packages)
 configure_dotfiles: true
 dotfiles_repo: "https://github.com/staticdev/dotfiles-eg.git"
@@ -85,27 +80,6 @@ pyenv_global:
   - 3.12.1
   - 3.11.7
 pyenv_virtualenvs: []
-
-# IDEs
-## Pycharm
-install_pycharm: false
-pycharm_flavor: community  # you can also choose: professional
-## VSCodium (community-driven, freely-licensed binary distribution of Microsoft’s editor VSCode)
-install_vscodium: true
-
-# Browser configs
-## Firefox config (note: default profile for Debian is default-esr)
-configure_firefox: false
-firefox_profiles:
-  default:
-    extensions:
-      - ublock-origin
-    preferences:
-      network.cookie.cookieBehavior: 1
-      privacy.donottrackheader.enabled: true
-      signon.rememberSignons: false
-## Brave install
-install_brave: true
 
 # keyboard config
 configure_keyboard: false
@@ -137,10 +111,6 @@ sudoers_custom_config: ""
 configure_terminal: true
 guake_keybinding: "F12"
 
-## ZSH config
-install_zsh: true
-zsh_default_shell: true
-
 # Git config
 setup_git: true
 git_init_default_branch: main
@@ -157,11 +127,6 @@ git_workspaces:
 ## used only if git_create_workspaces is false
 git_email: name@mail.com
 git_username: gitusername
-
-# Office setup
-install_onlyoffice: true
-## remove libreoffice in favor to onlyoffice
-remove_libreoffice: false
 
 # Gnome config
 gnome_setup: false
@@ -182,9 +147,7 @@ install_cryptomator: false
 cryptomator_version: 1.11.1
 
 install_keypass_xc: false
-install_obs: false
 install_rclone: false
-install_signal: false
 
 ## openrgb
 install_openrgb: false

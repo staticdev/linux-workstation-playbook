@@ -7,8 +7,10 @@ config*.yml
 .python-version
 *.txt
 
-# Pycharm
+# Jetbrains IDEs
 .idea/
 
 # Visual Studio Code
 .vscode/
+
+**/flake.lock

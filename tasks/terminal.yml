@@ -1,12 +1,4 @@
 ---
-- name: Add guake terminal to autostart.
-  ansible.builtin.copy:
-    src: /usr/share/applications/guake.desktop
-    dest: /etc/xdg/autostart/
-    mode: 0644
-  become: true
-  when: "'guake' in installed_packages"
-
 - name: Add keybinding for Guake in Wayland
   community.general.dconf:
     key: "{{ item.key }}"

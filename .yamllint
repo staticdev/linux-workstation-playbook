@@ -13,4 +13,5 @@ rules:
 ignore: |
   .github/stale.yml
   .cache
+  .venv
   roles

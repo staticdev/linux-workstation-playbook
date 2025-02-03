@@ -20,54 +20,62 @@ jobs:
       - name: Set up Python 3.
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.13"
 
-      - name: Upgrade pip
-        run: |
-          pip install --constraint=.github/workflows/constraints.txt pip
-          pip --version
+      - name: Install UV
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: ">=0.5.24"
 
-      - name: Upgrade ansible-lint
+      - name: Create venv
         run: |
-          pip install --constraint=.github/workflows/constraints.txt ansible-lint ansible
+          uv venv
 
-      - name: Upgrade yamllint
+      - name: Install ansible-lint
         run: |
-          pip install --constraint=.github/workflows/constraints.txt yamllint
+          uv pip install --constraint=.github/workflows/constraints.txt ansible-lint ansible
+
+      - name: Install yamllint
+        run: |
+          uv pip install --constraint=.github/workflows/constraints.txt yamllint
 
       - name: Lint code.
         run: |
-          yamllint .
-          ansible-lint
+          uv run yamllint .
+          uv run ansible-lint
 
-  molecule:
-    name: Molecule
-    runs-on: ubuntu-latest
+  # molecule:
+  #   name: Molecule
+  #   runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        distro:
-          - debian12
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
+  #   strategy:
+  #     matrix:
+  #       distro:
+  #         - debian12
+  #   steps:
+  #     - name: Check out the repository
+  #       uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+  #     - name: Set up Python
+  #       uses: actions/setup-python@v5
+  #       with:
+  #         python-version: "3.13"
 
-      - name: Upgrade pip
-        run: |
-          python3 -m pip install --constraint=.github/workflows/constraints.txt pip
-          python3 -m pip --version
+  #     - name: Install UV
+  #       uses: astral-sh/setup-uv@v5
+  #       with:
+  #         version: ">=0.5.24"
 
-      - name: Install test dependencies
-        run: pip3 install --constraint=.github/workflows/constraints.txt ansible 'molecule-plugins[podman]' podman
+  #     - name: Create venv
+  #       run: |
+  #         uv venv
 
-      - name: Run Molecule tests
-        run: molecule -v test
-        env:
-          PY_COLORS: "1"
-          ANSIBLE_FORCE_COLOR: "1"
-          MOLECULE_DISTRO: ${{ matrix.distro }}
+  #     - name: Install test dependencies
+  #       run: uv pip install --constraint=.github/workflows/constraints.txt ansible 'molecule-plugins[podman]' podman
+
+  #     - name: Run Molecule tests
+  #       run: uv run molecule -v test
+  #       env:
+  #         PY_COLORS: "1"
+  #         ANSIBLE_FORCE_COLOR: "1"
+  #         MOLECULE_DISTRO: ${{ matrix.distro }}
