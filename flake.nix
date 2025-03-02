@@ -30,6 +30,7 @@
           ./configuration.nix
           ./modules/sysconf.nix
           inputs.home-manager.nixosModules.default
+          (import "${self}/pkgs/overlays.nix" { inherit inputs; })
         ]
         ++ prop.modules;
       };
