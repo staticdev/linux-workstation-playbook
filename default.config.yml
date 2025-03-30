@@ -62,26 +62,7 @@ dotfiles_files:
   - .vimrc
   - .zshrc
 
-# Development
-## Go settings
-golang_developer: true
-golang_version: "1.21.5"
-
-## NodeJs settings
-nodejs_developer: true
-nodejs_version: "20.x"
-
-## Python settings
-python_developer: true
-pyenv_python_versions:
-  - 3.12.1
-  - 3.11.7
-pyenv_global:
-  - 3.12.1
-  - 3.11.7
-pyenv_virtualenvs: []
-
-# keyboard config
+# Keyboard config
 configure_keyboard: false
 keyboard_layout: us
 keyboard_variant: intl

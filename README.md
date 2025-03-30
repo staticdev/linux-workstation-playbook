@@ -9,8 +9,7 @@
 ## Features
 
 - Support processor architectures: x86_64 (only one for now, may be extended in the future).
-- Development: [Golang], [NodeJs] and [Python tools].
-  - IDEs: [VSCodium] installation (via Nixpkgs).
+- IDEs: [VSCodium] installation (via Nixpkgs).
 - Browsers: [Brave], [Firefox] and [Mullvad Browser] (via Nix).
 - Containers and virtualization: [Docker], [Podman] and [libvirtd].
 - Office: installs [OnlyOffice] (via Nixpkgs).
@@ -164,10 +163,8 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [firefox]: https://www.mozilla.org/firefox/
 [git]: https://git-scm.com/
 [gnome]: https://www.gnome.org/
-[golang]: https://go.dev/
 [home manager]: https://github.com/nix-community/home-manager
 [libvirtd]: https://libvirt.org/manpages/libvirtd.html
-[nodejs]: https://nodejs.org/
 [keypass]: https://keepass.info/
 [mac development ansible playbook]: https://github.com/geerlingguy/mac-dev-playbook
 [mit]: https://opensource.org/licenses/MIT
@@ -179,7 +176,6 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [openrgb]: https://gitlab.com/CalcProgrammer1/OpenRGB
 [pep-668]: https://peps.python.org/pep-0668/
 [podman]: https://podman.io/
-[python tools]: https://github.com/staticdev/ansible-role-python-developer
 [rclone]: https://rclone.org/
 [signal]: https://signal.org
 [vscodium]: https://vscodium.com/
