@@ -74,6 +74,12 @@ vagrant up
 
 The default password for `root` in the VM is `vagrant`.
 
+## How to upgrade the flake
+
+```sh
+sudo nix flake update --flake .
+```
+
 ## How to submit changes
 
 Open a [pull request] to submit changes to this project.
