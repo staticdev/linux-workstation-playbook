@@ -13,6 +13,7 @@ in
       name = "username";
       pkgs = with pkgs; [
         brave
+        pkgs-unstable.devenv
         git
         htop
         obs-studio
