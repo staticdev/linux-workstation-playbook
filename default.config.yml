@@ -31,35 +31,17 @@ nix_packages:
     check_cmd: tmux -V
   - name: vagrant
     check_cmd: vagrant --version
-  - name: vim
-    check_cmd: vim --version
   - name: wget
     check_cmd: wget --version
   - name: xclip
     check_cmd: xclip -version
 
-# Install packages from other package managers
-install_extra_packages: true
-# Note: You are responsible for adding the required package managers
-# installation, eg. through nix
-snap_packages: []
-# - name: postman
-gem_packages: []
-# - name: bundler
-#   state: present # present/absent/latest, default: present
-#   version: "~> 1.15.1" # default: N/A
-npm_packages: []
-# - name: webpack
-#   state: present # present/absent/latest, default: present
-#   version: "^2.6" # default: N/A
-
-# Dotfiles (requires git on installed_packages or extra_packages)
+# Dotfiles (requires git on installed_packages)
 configure_dotfiles: true
 dotfiles_repo: "https://github.com/staticdev/dotfiles-eg.git"
 dotfiles_repo_version: main
 dotfiles_files:
   - .tmux.conf
-  - .vimrc
   - .zshrc
 
 # Keyboard config
@@ -113,7 +95,6 @@ git_username: gitusername
 gnome_setup: false
 gnome_favorite_apps:
   [
-    "firefox.desktop",
     "brave-browser.desktop",
     "org.gnome.Nautilus.desktop",
     "codium.desktop",
