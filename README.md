@@ -9,8 +9,8 @@
 ## Features
 
 - Support processor architectures: x86_64 (only one for now, may be extended in the future).
-- IDEs: [VSCodium] installation (via Nixpkgs).
-- Browsers: [Brave], [Firefox] and [Mullvad Browser] (via Nix).
+- IDEs: [VSCodium] installation (via Nixpkgs), [Neovim] (via [NixVim]).
+- Browsers: [Brave] and [Mullvad Browser] (via Nix).
 - Containers and virtualization: [Docker], [Podman] and [libvirtd].
 - Office: installs [OnlyOffice] (via Nixpkgs).
 - Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS] (via Nixpkgs), [OpenRGB], [RClone], and [Signal] (via Nixpkgs) messenger installation.
@@ -81,7 +81,6 @@ It also installs with [Nix] package manager:
 - thefuck
 - tmux
 - vagrant
-- vim
 - wget
 - xclip
 ```
@@ -104,19 +103,6 @@ installed_packages:
 To have you own dotfiles, just fork the [dotfiles eg. repo] and change the url of `dotfiles_repo` or just change `configure_dotfiles` to false if you do not want it.
 
 For [Nix] packages, update your [Home Manager] config on your dotfiles repo.
-
-Other package managers:
-
-```yaml
-# requires snapd
-snap_packages:
-  - name: code
-    classic: true
-  - name: postman
-
-npm_packages:
-  - name: webpack
-```
 
 Any variable can be overridden in **config.yml**; see the supporting roles' documentation for a complete list of available variables.
 
@@ -160,7 +146,6 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [dotfiles eg. repo]: https://github.com/staticdev/dotfiles-eg
 [download]: https://github.com/staticdev/linux-workstation-playbook/archive/refs/heads/main.zip
 [file an issue]: https://github.com/staticdev/linux-workstation-playbook/issues
-[firefox]: https://www.mozilla.org/firefox/
 [git]: https://git-scm.com/
 [gnome]: https://www.gnome.org/
 [home manager]: https://github.com/nix-community/home-manager
@@ -169,8 +154,10 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [mac development ansible playbook]: https://github.com/geerlingguy/mac-dev-playbook
 [mit]: https://opensource.org/licenses/MIT
 [mullvad browser]: https://mullvad.net/en/browser
+[neovim]: https://github.com/neovim/neovim
 [nix]: https://nixos.org/
 [nixos download iso page]: https://nixos.org/download/#nixos-iso
+[nixvim]: https://github.com/nix-community/nixvim
 [obs]: https://obsproject.com/
 [onlyoffice]: https://github.com/ONLYOFFICE/
 [openrgb]: https://gitlab.com/CalcProgrammer1/OpenRGB

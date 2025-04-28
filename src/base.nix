@@ -2,9 +2,11 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ stateVersion, config, pkgs, ... }:
 
 {
+  imports = [ (import ./users.nix) ];
+
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
@@ -73,6 +75,13 @@
   # $ nix search wget
   environment.systemPackages = config.environment.sysConf.systemWidePkgs;
 
+  home-manager = {
+    sharedModules = [ (import ./home.nix) ];
+    extraSpecialArgs = {
+      inherit stateVersion;
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -134,5 +143,5 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = stateVersion; # Did you read the comment?
 }

@@ -26,7 +26,7 @@
     systemWidePkgs = lib.mkOption {
         type = lib.types.listOf lib.types.package;
         default = with pkgs; [
-            vim
+            openssl
         ];
         description = "The system packages";
     };

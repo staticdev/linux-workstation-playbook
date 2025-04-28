@@ -42,10 +42,6 @@
       when: install_rclone
 
   tasks:
-    - name: Extra packages
-      ansible.builtin.include_tasks: tasks/extra-packages.yml
-      when: install_extra_packages
-
     - name: Create SSH key
       ansible.builtin.include_tasks: tasks/ssh.yml
       when: configure_ssh

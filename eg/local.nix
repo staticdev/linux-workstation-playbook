@@ -1,8 +1,5 @@
-{pkgs, config, options, ...}:
+{pkgs, options, ...}:
 
-let
-  mainUser = config.environment.sysConf.mainUser;
-in
 {
   environment.sysConf = {
     git = {
@@ -25,7 +22,6 @@ in
     systemWidePkgs = with pkgs; [
       ansible
       openssl
-      vim
       wget
     ];
     timeZone = "Europe/Amsterdam";
@@ -37,62 +33,78 @@ in
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
     ];
   };
-  programs.firefox = {
+  # fix issues with running ruff being dynamically linked
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = options.programs.nix-ld.libraries.default;
+  # Neovim configs
+  programs.nixvim = {
     enable = true;
-    policies = {
-      OfferToSaveLogins = false;
-      PasswordManagerEnabled = false;
-      DisableTelemetry = true;
-      DisableFirefoxStudies = true;
-      EnableTrackingProtection = {
-        Value = true;
-        Locked = true;
-        Cryptomining = true;
-        Fingerprinting = true;
-      };
-      DisablePocket = true;
-      DisableFirefoxAccounts = true;
-      DisableAccounts = true;
-      DisableFirefoxScreenshots = true;
-      OverrideFirstRunPage = "";
-      OverridePostUpdatePage = "";
-      DontCheckDefaultBrowser = true;
-      DisplayBookmarksToolbar = "newtab";
-      DisplayMenuBar = "default-off";
-      SearchBar = "unified";
-      ExtensionSettings = {
-        # Blocks installing new extensions
-        "*".installation_mode = "blocked";
-        # uBlock Origin
-        # https://addons.mozilla.org/api/v5/addons/addon/ublock-origin/
-        "uBlock0@raymondhill.net" = {
-        install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-        installation_mode = "force_installed";
-        };
-        # Startpage
-        # https://addons.mozilla.org/en-US/firefox/addon/startpage-private-search/
-        "{20fc2e06-e3e4-4b2b-812b-ab431220cada}" = {
-        install_url = "https://addons.mozilla.org/firefox/downloads/file/4362482/startpage_private_search-2.0.2.xpi";
-        installation_mode = "force_installed";
+    viAlias = true;
+    vimAlias = true;
+    defaultEditor = true;
+    colorschemes.vscode.enable = true;
+    opts = {
+      number = true;
+      relativenumber = false;
+      guicursor = "";
+      undofile = true;
+      encoding = "utf-8";
+      signcolumn = "yes";
+      belloff = "all";
+      wrap = false;
+      wildmenu = true;
+      modeline = true;
+      modelines = 1;
+      tabstop = 2;
+      softtabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+      smarttab = true;
+      autoindent = true;
+    };
+    clipboard = {
+      register = "unnamedplus";
+      providers.wl-copy.enable = true;
+    };
+    plugins = {
+      web-devicons.enable = true;
+      lualine.enable = true;
+      barbar.enable = true;
+      lazygit.enable = true;
+      gitblame.enable = true;
+      gitsigns.enable = true;
+      indent-blankline.enable = true;
+      lastplace.enable = true;
+      treesitter.enable = true;
+      neo-tree.enable = true;
+      nvim-autopairs.enable = true;
+      helm.enable = true;
+      cmp.enable = true;
+      lsp = {
+        enable = true;
+        servers = {
+          nixd.enable = true;
+          clangd.enable = true;
         };
       };
     };
   };
-  # fix issues with running ruff being dynamically linked
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = options.programs.nix-ld.libraries.default;
   # Enable zsh in case you want to use it
-  programs.zsh.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."${mainUser.name}" = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [
-      "docker" # Run docker without ‘sudo’
-      "wheel" # Enable ‘sudo’ for the user.
-    ];
-    packages = config.environment.sysConf.mainUser.pkgs;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      gc = "nix store gc";
+      localedit = "sudo vim /etc/nixos/local.nix";
+      nixup = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch";
+    };
+    shellInit = ''
+      if [ ! -f ~/.zshrc ]; then
+        echo 'eval "$(direnv hook zsh)"' > ~/.zshrc
+      fi
+    '';
   };
 
   virtualisation = {
