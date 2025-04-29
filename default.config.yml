@@ -1,42 +1,5 @@
 ---
-# Install packages
-install_packages: true
-installed_packages:
-  - apache2-utils
-  - cmake
-  - dconf-editor  # visual gnome configs
-  - gir1.2-clutter-1.0  # dep gnome extension system monitor
-  - gir1.2-clutter-gst-3.0  # dep gnome extension system monitor
-  - gir1.2-gtkclutter-1.0  # dep gnome extension system monitor
-  - git
-  - locales-all
-  - openssl
-  - podman  # see https://github.com/NixOS/nixpkgs/issues/138423
-  - poedit
-
-nix_packages:
-  - name: kubectl
-    check_cmd: kubectl version --client
-  - name: helm
-    check_cmd: helm --version
-  - name: k9s
-    check_cmd: k9s version
-  - name: htop
-    check_cmd: htop --version
-  - name: nmap
-    check_cmd: nmap --version
-  - name: thefuck
-    check_cmd: thefuck --version
-  - name: tmux
-    check_cmd: tmux -V
-  - name: vagrant
-    check_cmd: vagrant --version
-  - name: wget
-    check_cmd: wget --version
-  - name: xclip
-    check_cmd: xclip -version
-
-# Dotfiles (requires git on installed_packages)
+# Dotfiles (requires git enabled on nixpkgs)
 configure_dotfiles: true
 dotfiles_repo: "https://github.com/staticdev/dotfiles-eg.git"
 dotfiles_repo_version: main
@@ -46,8 +9,6 @@ dotfiles_files:
 
 # Keyboard config
 configure_keyboard: false
-keyboard_layout: us
-keyboard_variant: intl
 keyboard_c_cedilla: false
 
 # SSH config

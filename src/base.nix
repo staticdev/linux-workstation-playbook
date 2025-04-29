@@ -4,6 +4,9 @@
 
 { stateVersion, config, pkgs, ... }:
 
+let
+  sysConf = config.environment.sysConf;
+in
 {
   imports = [ (import ./users.nix) ];
 
@@ -81,12 +84,13 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = config.environment.sysConf.systemWidePkgs;
+  environment.systemPackages = sysConf.systemWidePkgs;
 
   home-manager = {
     sharedModules = [ (import ./home.nix) ];
     extraSpecialArgs = {
       inherit stateVersion;
+      inherit sysConf;
     };
   };
 

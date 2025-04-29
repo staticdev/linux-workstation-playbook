@@ -96,8 +96,9 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
+      editflake = "sudo nvim /etc/nixos/flake.nix";
+      editlocal = "sudo nvim /etc/nixos/local.nix";
       gc = "nix store gc";
-      localedit = "sudo vim /etc/nixos/local.nix";
       nixup = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch";
     };
     shellInit = ''
