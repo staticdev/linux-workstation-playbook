@@ -10,7 +10,12 @@
       description = "The git configs for commits: userName and email";
     };
 
-    xkbKeyboardLayout = lib.mkOption {
+    keyboardCCedilla = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Whether to enable cedilla support via GTK/QT IM modules.";
+    };
+    keyboardLayout = lib.mkOption {
       type = with lib.types; listOf (submodule {
         options = {
           layout = lib.mkOption {

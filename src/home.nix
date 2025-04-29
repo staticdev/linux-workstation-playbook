@@ -7,7 +7,7 @@
      lib.hm.gvariant.mkTuple [
       "xkb" (k.layout + (if k.variant != null then "+" + k.variant else "")) 
       ]
-    ) sysConf.xkbKeyboardLayout;
+    ) sysConf.keyboardLayout;
 
   home = {
     stateVersion = stateVersion;

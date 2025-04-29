@@ -78,10 +78,6 @@
       ansible.builtin.import_tasks: tasks/gnome-setup.yml
       when: gnome_setup
 
-    - name: Configure keyboard
-      ansible.builtin.import_tasks: tasks/keyboard.yml
-      when: configure_keyboard
-
     - name: Configure terminal
       ansible.builtin.include_tasks: tasks/terminal.yml
       when: configure_terminal

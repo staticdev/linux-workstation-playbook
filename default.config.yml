@@ -7,10 +7,6 @@ dotfiles_files:
   - .tmux.conf
   - .zshrc
 
-# Keyboard config
-configure_keyboard: false
-keyboard_c_cedilla: false
-
 # SSH config
 configure_ssh: true
 ssh_key_type: ed25519  # you can also choose between: dsa, ecdsa and ed25519
