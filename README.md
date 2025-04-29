@@ -52,23 +52,7 @@ Note: this is an opinionated setup I personally use for software development on 
 
 ### Included Applications / Configuration (Default)
 
-Packages (installed with apt):
-
-```yaml
-- apache2-utils
-- cmake
-- dconf-editor # visual gnome configs
-- gir1.2-clutter-1.0 # dep gnome extension system monitor
-- gir1.2-clutter-gst-3.0 # dep gnome extension system monitor
-- gir1.2-gtkclutter-1.0 # dep gnome extension system monitor
-- git
-- locales-all
-- openssl
-- podman
-- poedit
-```
-
-It also installs with [Nix] package manager:
+It installs packages with [Nix] package manager:
 
 ```yaml
 - kubectl
@@ -92,13 +76,6 @@ Finally, there are a few other preferences and settings added on for various app
 Not everyone's workstation and preferred software configuration is the same.
 
 You can override any of the defaults configured in **default.config.yml** by creating a **config.yml** file and setting the overrides in that file.
-
-The first thing one can customize is the list of installed packages with apt (Debian's package manager):
-
-```yaml
-installed_packages:
-  - go
-```
 
 To have you own dotfiles, just fork the [dotfiles eg. repo] and change the url of `dotfiles_repo` or just change `configure_dotfiles` to false if you do not want it.
 

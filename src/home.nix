@@ -1,7 +1,14 @@
-{ stateVersion, ... }:
+{ lib, sysConf, stateVersion, ... }:
 
 # here we have system-wide configuration - for user configurations see: src/users.nix
 {
+  dconf.settings."org/gnome/desktop/input-sources".sources =
+    map (k:
+     lib.hm.gvariant.mkTuple [
+      "xkb" (k.layout + (if k.variant != null then "+" + k.variant else "")) 
+      ]
+    ) sysConf.keyboardLayout;
+
   home = {
     stateVersion = stateVersion;
   };
