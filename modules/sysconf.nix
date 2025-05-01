@@ -6,8 +6,9 @@
       default = {
         userName = "Rick Sanchez";
         email = "Rick.Sanchez@Wabalaba.dubdub";
+        defaultBranch = "main";
       };
-      description = "The git configs for commits: userName and email";
+      description = "The git configs for commits: userName, email and default branch";
     };
 
     keyboardCCedilla = lib.mkOption {
