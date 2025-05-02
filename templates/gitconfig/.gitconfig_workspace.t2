@@ -1,3 +1,0 @@
-[user]
-  email = {{ item.email }}
-  name = {{ item.username }}

@@ -60,20 +60,5 @@ gnome_favorite_apps:
 # enable entire screen sharing
 enable_screen_sharing: false
 
-# extra installs
-## cryptomator
-install_cryptomator: false
-cryptomator_version: 1.11.1
-
-install_keypass_xc: false
-install_rclone: false
-
-## openrgb
-install_openrgb: false
-# get from https://gitlab.com/CalcProgrammer1/OpenRGB/-/tags
-openrgb_git_release: release_0.9
-openrgb_deb_version: 0.9.0
-openrgb_deb_architecture: amd64
-
 # glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []

@@ -13,7 +13,7 @@
 - Browsers: [Brave] and [Mullvad Browser] (via Nix).
 - Containers and virtualization: [Docker], [Podman] and [libvirtd].
 - Office: installs [OnlyOffice] (via Nixpkgs).
-- Assorted FOSS programs: [Cryptomator], [KeyPass], [OBS] (via Nixpkgs), [OpenRGB], [RClone], and [Signal] (via Nixpkgs) messenger installation.
+- Your favorite programs via Nixpkgss.
 - Configurations: dotfiles, zsh (via Nix), terminals, [Gnome], [Git], ssh, keyboard...
 
 Note: this is an opinionated setup I personally use for software development on [NixOS](https://nixos.org). You can customize all the changes following instructions in [Overriding Defaults](#overriding-defaults).
@@ -117,7 +117,6 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [@geerlingguy]: https://github.com/geerlingguy
 [brave]: https://brave.com/
 [contributor guide]: https://github.com/staticdev/linux-workstation-playbook/blob/main/CONTRIBUTING.md
-[cryptomator]: https://cryptomator.org/
 [debian]: https://www.debian.org/
 [docker]: https://www.docker.com/
 [dotfiles eg. repo]: https://github.com/staticdev/dotfiles-eg
@@ -127,7 +126,6 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [gnome]: https://www.gnome.org/
 [home manager]: https://github.com/nix-community/home-manager
 [libvirtd]: https://libvirt.org/manpages/libvirtd.html
-[keypass]: https://keepass.info/
 [mac development ansible playbook]: https://github.com/geerlingguy/mac-dev-playbook
 [mit]: https://opensource.org/licenses/MIT
 [mullvad browser]: https://mullvad.net/en/browser
@@ -135,11 +133,7 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [nix]: https://nixos.org/
 [nixos download iso page]: https://nixos.org/download/#nixos-iso
 [nixvim]: https://github.com/nix-community/nixvim
-[obs]: https://obsproject.com/
 [onlyoffice]: https://github.com/ONLYOFFICE/
-[openrgb]: https://gitlab.com/CalcProgrammer1/OpenRGB
 [pep-668]: https://peps.python.org/pep-0668/
 [podman]: https://podman.io/
-[rclone]: https://rclone.org/
-[signal]: https://signal.org
 [vscodium]: https://vscodium.com/

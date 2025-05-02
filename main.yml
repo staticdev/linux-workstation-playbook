@@ -19,27 +19,9 @@
       ansible.builtin.command: killall -SIGQUIT gnome-shell
       changed_when: true
 
-    - name: Delete openrgb repo
-      ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/OpenRGB"
-        state: absent
-
-    - name: Delete openrgb generated files
-      ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/{{ item }}"
-        state: absent
-      with_items:
-        - "openrgb_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.buildinfo"
-        - "openrgb_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.changes"
-        - "openrgb_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.deb"
-        - "openrgb-dbgsym_{{ openrgb_deb_version }}_{{ openrgb_deb_architecture }}.deb"
-        - "OpenRGB/debian/changelog"
-
   roles:
     - role: geerlingguy.dotfiles
       when: configure_dotfiles
-    - role: stefangweichinger.ansible_rclone
-      when: install_rclone
 
   tasks:
     - name: Create SSH key
@@ -49,22 +31,6 @@
     - name: Configure sudoers
       ansible.builtin.include_tasks: tasks/sudoers.yml
       when: configure_sudoers
-
-    - name: Setup Git
-      ansible.builtin.include_tasks: tasks/git-setup.yml
-      when: setup_git
-
-    - name: Cryptomator
-      ansible.builtin.include_tasks: tasks/cryptomator.yml
-      when: install_cryptomator
-
-    - name: Install Keypass XC
-      ansible.builtin.import_tasks: tasks/keypass-xc.yml
-      when: install_keypass_xc
-
-    - name: OpenRGB
-      ansible.builtin.include_tasks: tasks/openrgb.yml
-      when: install_openrgb
 
     - name: Enable entire screen sharing
       ansible.builtin.lineinfile:

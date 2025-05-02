@@ -1,24 +1,11 @@
 { config, lib, pkgs, ... }:
 
 let
-  mainUser = config.environment.sysConf.mainUser;
-  git_create_workspaces = true;
-  git_workspaces = [
-    {
-      folder_name = "workspace1";
-      email = "dev1@example.com";
-      username = "Dev One";
-    }
-    {
-      folder_name = "workspace2";
-      email = "dev2@example.com";
-      username = "Dev Two";
-    }
-  ];
+  sysConf = config.environment.sysConf;
 in
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."${mainUser.name}" = {
+  users.users."${sysConf.mainUser.name}" = {
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [
@@ -29,11 +16,11 @@ in
   };
 
   home-manager.users = {
-    "${mainUser.name}" = { ... }:
+    "${sysConf.mainUser.name}" = { ... }:
     {
       home = {
-        username = mainUser.name;
-        homeDirectory = "/home/${mainUser.name}";
+        username = sysConf.mainUser.name;
+        homeDirectory = "/home/${sysConf.mainUser.name}";
       };
 
       programs.git = {
@@ -64,26 +51,26 @@ in
           pull.rebase = true;
           
         };
-        includes = lib.optionals git_create_workspaces (
+        includes = lib.optionals sysConf.git.createWorkspaces (
           map (ws: {
-            condition = "gitdir:~/${ws.folder_name}/";
-            path = "~/${ws.folder_name}/.gitconfig";
-          }) git_workspaces
+            condition = "gitdir:~/${ws.folderName}/";
+            path = "~/${ws.folderName}/.gitconfig";
+          }) sysConf.git.workspaces
         );
       };
 
-      home.file = lib.mkIf git_create_workspaces (
+      home.file = lib.mkIf sysConf.git.createWorkspaces (
         lib.listToAttrs (map (ws:
           {
-            name = "${ws.folder_name}/.gitconfig";
+            name = "${ws.folderName}/.gitconfig";
             value = {
               text = ''
                 [user]
                   email = ${ws.email}
-                  name = ${ws.username}
+                  name = ${ws.userName}
               '';
             };
-          }) git_workspaces)
+          }) sysConf.git.workspaces)
       );
     };
   };

@@ -5,6 +5,20 @@
     git = {
       userName = "Rick Sanchez";
       email = "Rick.Sanchez@Wabalaba.dubdub";
+      defaultBranch = "main";
+      createWorkspaces = true;
+      workspaces = [
+        {
+          folderName = "workspace_personal";
+          email = "personal@example.com";
+          userName = "Rick Personal";
+        }
+        {
+          folderName = "workspace_work";
+          email = "rick@rick.com";
+          userName = "Rick Professional";
+        }
+      ];
     };
     mainUser = {
       name = "username";
