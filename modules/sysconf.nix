@@ -4,6 +4,87 @@ let
   inherit (lib) mkOption types;
 in {
   options.environment.sysConf = {
+    dconf = mkOption {
+      type = with types; submodule {
+        options = {
+          favoriteApps = mkOption {
+            type = with types; listOf str;
+            default = [ ];
+            description = "List of favorite applications shown in GNOME Dash.";
+            example = [ "brave-browser.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Terminal.desktop" ];
+          };
+          gnomeExtensions = mkOption {
+            type = listOf package;
+            default = [];
+            description = "List of Gnome extensions.";
+          };
+          guakeHotkey = mkOption {
+            type = types.nullOr str;
+            default = null;
+            example = "F12";
+            description = "Optional hotkey for toggling Guake.";
+          };
+          hotCorners = mkOption {
+            type = bool;
+            default = false;
+            description = "Whether to enable hot corners on Gnome.";
+          };
+          keyboardLayout = mkOption {
+            type = with types; listOf (submodule {
+              options = {
+                layout = mkOption {
+                  type = str;
+                  description = "Keyboard layout, e.g. 'us'";
+                  example = "us";
+                };
+
+                variant = mkOption {
+                  type = nullOr str;
+                  default = null;
+                  description = "Optional keyboard variant, e.g. 'intl'";
+                  example = "intl";
+                };
+              };
+            });
+            default = [];
+            description = "List of keyboard layout and optional variant tuples.";
+            example = [
+              { layout = "us"; variant = "intl"; }
+              { layout = "de"; variant = null; }
+            ];
+          };
+          lockScreenNotifications = mkOption {
+            type = bool;
+            default = false;
+            description = "Whether to enable notifications in lock screen Gnome.";
+          };
+          nightLight = mkOption {
+            type = bool;
+            default = false;
+            description = "Whether to enable night light on Gnome.";
+          };
+        };
+      };
+      default = {};
+      example = {
+        favoriteApps = [ "brave-browser.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Terminal.desktop" ];
+        gnomeExtensions = with pkgs.gnomeExtensions; [
+          appindicator
+          tiling-assistant
+          vitals
+        ];
+        guakeHotkey = "F12";
+        hotCorners = false;
+        keyboardLayout = [
+          { layout = "us"; variant = "intl"; }
+          { layout = "de"; variant = null; }
+        ];
+        lockScreenNotifications = false;
+        nightLight = true;
+      };
+      description = "DConf configuration for Gnome.";
+    };
+
     git = mkOption {
       type = with types; submodule {
         options = {
@@ -79,30 +160,6 @@ in {
       type = types.bool;
       default = false;
       description = "Whether to enable cedilla support via GTK/QT IM modules.";
-    };
-    keyboardLayout = mkOption {
-      type = with types; listOf (submodule {
-        options = {
-          layout = mkOption {
-            type = str;
-            description = "Keyboard layout, e.g. 'us'";
-            example = "us";
-          };
-
-          variant = mkOption {
-            type = nullOr str;
-            default = null;
-            description = "Optional keyboard variant, e.g. 'intl'";
-            example = "intl";
-          };
-        };
-      });
-      default = [];
-      description = "List of keyboard layout and optional variant tuples.";
-      example = [
-        { layout = "us"; variant = "intl"; }
-        { layout = "de"; variant = null; }
-      ];
     };
 
     mainUser = mkOption {

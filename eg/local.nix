@@ -2,6 +2,23 @@
 
 {
   environment.sysConf = {
+    dconf = {
+      favoriteApps = [ "brave-browser.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Terminal.desktop" ];
+      # gnome extesions require wayland restart
+      gnomeExtensions = with pkgs.gnomeExtensions; [
+        appindicator
+        tiling-assistant
+        vitals
+      ];
+      guakeHotkey = "F12";
+      hotCorners = false;
+      keyboardLayout = [
+          { layout = "us"; variant = "intl"; }
+          { layout = "de"; variant = null; }
+        ];
+      lockScreenNotifications = false;
+      nightLight = false;
+    };
     git = {
       userName = "Rick Sanchez";
       email = "Rick.Sanchez@Wabalaba.dubdub";
@@ -112,7 +129,10 @@
     shellAliases = {
       editflake = "sudo nvim /etc/nixos/flake.nix";
       editlocal = "sudo nvim /etc/nixos/local.nix";
-      gc = "nix store gc";
+      ngc = "nix store gc";
+      gc = "git cm";
+      gac = "git acommit";
+      gfp = "git fpush";
       nixup = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch";
     };
     shellInit = ''
