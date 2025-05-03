@@ -40,14 +40,6 @@
       become: true
       when: enable_screen_sharing
 
-    - name: Gnome Setup
-      ansible.builtin.import_tasks: tasks/gnome-setup.yml
-      when: gnome_setup
-
-    - name: Configure terminal
-      ansible.builtin.include_tasks: tasks/terminal.yml
-      when: configure_terminal
-
     - name: Run configured post-provision ansible task files.
       ansible.builtin.include_tasks: "{{ outer_item }}"
       loop_control:

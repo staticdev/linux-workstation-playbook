@@ -35,8 +35,6 @@ in
           color.ui = "always";
           init.defaultBranch = config.environment.sysConf.git.defaultBranch;
           alias = {
-            ac = "commit --amend --no-edit --all";
-            fp = "push --force-with-lease";
             c = "commit";
             ca = "commit -a";
             cm = "commit -m";
