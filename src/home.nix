@@ -1,4 +1,4 @@
-{ lib, stateVersion, sysConf, ... }:
+{ lib, pkgs, stateVersion, sysConf, ... }:
 
 # here we have system-wide configuration - for user configurations see: src/users.nix
 {
@@ -27,5 +27,19 @@
       font = "NotoMono Nerd Font Mono 15";
       customCommand = "tmux";
     };
+  };
+
+  programs.tmux = {
+    enable = true;
+    keyMode = "vi";
+    terminal = "screen-256color";
+    historyLimit = 100000;
+    extraConfig = ''
+      set -g mouse on
+      set -g monitor-activity on
+      setw -g mode-keys vi
+      set -s set-clipboard external
+      set -g copy-command "${pkgs.wl-clipboard}/bin/wl-copy"
+    '';
   };
 }

@@ -168,8 +168,10 @@ in {
         name = "rick";
         pkgs = with pkgs; [
           git
+          thefuck
           tmux
           vscodium
+          wl-clipboard
         ];
       };
       description = "The main user of the system: name and pkgs";
