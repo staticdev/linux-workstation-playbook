@@ -48,6 +48,7 @@
         onlyoffice-desktopeditors
         tmux
         vscodium
+        xclip
       ];
     };
     systemWidePkgs = with pkgs; [
@@ -127,12 +128,34 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
+      clip = "xclip -sel clip";
+      df = "df -h";
       editflake = "sudo nvim /etc/nixos/flake.nix";
       editlocal = "sudo nvim /etc/nixos/local.nix";
+      viewflake = "cat /etc/nixos/flake.nix";
+      viewlocal = "cat /etc/nixos/local.nix";
+      mkdir = "mkdir -p";
       ngc = "nix store gc";
-      gc = "git cm";
+      # git aliases inspired on https://kapeli.com/cheat_sheets/Oh-My-Zsh_Git.docset/Contents/Resources/Documents/index
+      ga = "git add";
       gac = "git acommit";
+      gc = "git cm";
+      gcf = "git config --list";
+      gco = "git checkout";
+      gf = "git fetch";
       gfp = "git fpush";
+      gl = "git l";
+      gp = "git pull";
+      gr = "git reset";
+      grb = "git rebase";
+      grba = "git rebase --abort";
+      grbc = "git rebase --continue";
+      gs = "git status";
+      gsta = "git stash";
+      gstaa = "git stash apply";
+      gstl = "git stash list";
+      la = "ls --color -lha";
+      ls = "ls --color=auto";
       nixup = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch";
     };
     shellInit = ''
