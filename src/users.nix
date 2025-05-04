@@ -46,6 +46,7 @@ in
             acommit = "commit --amend --no-edit --all";
             fpush = "push --force-with-lease";
           };
+          push.autoSetupRemote = true;
           pull.rebase = true;
           
         };
