@@ -36,9 +36,11 @@
         modules = [
           inputs.home-manager.nixosModules.home-manager
           inputs.nixvim.nixosModules.nixvim
-          (import "${self}/modules/sysconf.nix")
           (import "${self}/pkgs/overlays.nix" { inherit inputs; })
+          (import "${self}/modules")
+          (import "${self}/src")
           (import "${self}/src/base.nix")
+          (import "${self}/modules/gui")
         ]
         ++ prop.modules;
       };

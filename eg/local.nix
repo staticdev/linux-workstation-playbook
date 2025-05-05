@@ -1,4 +1,4 @@
-{pkgs, options, ...}:
+{ pkgs, options, ... }:
 
 {
   environment.sysConf = {
