@@ -7,7 +7,7 @@
       "org/gnome/shell" = lib.mkMerge [
         # Gnome extensions
         {
-          
+
           disable-user-extensions = false;
           enabled-extensions = lib.lists.forEach sysConf.dconf.gnomeExtensions (e: e.extensionUuid);
         }
@@ -38,7 +38,7 @@
       "org/gnome/desktop/input-sources".sources =
         map (k:
         lib.hm.gvariant.mkTuple [
-          "xkb" (k.layout + (if k.variant != null then "+" + k.variant else "")) 
+          "xkb" (k.layout + (if k.variant != null then "+" + k.variant else ""))
           ]
         ) sysConf.dconf.keyboardLayout;
     }

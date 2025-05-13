@@ -1,4 +1,4 @@
-{pkgs, options, ...}:
+{ pkgs, options, ... }:
 
 {
   environment.sysConf = {
@@ -46,9 +46,10 @@
         htop
         obs-studio
         onlyoffice-desktopeditors
+        thefuck
         tmux
         vscodium
-        xclip
+        wl-clipboard
       ];
     };
     systemWidePkgs = with pkgs; [
@@ -128,7 +129,8 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      clip = "xclip -sel clip";
+      clip = "wl-copy";
+      cplocal = "viewlocal|clip";
       df = "df -h";
       editflake = "sudo nvim /etc/nixos/flake.nix";
       editlocal = "sudo nvim /etc/nixos/local.nix";
