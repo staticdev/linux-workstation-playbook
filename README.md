@@ -54,18 +54,11 @@ Note: this is an opinionated setup I personally use for software development on 
 It installs packages with [Nix] package manager:
 
 ```yaml
-- kubectl
-- helm
-- k9s
-- htop
-- libvirt
-- nmap
-- qemu
+- git
 - thefuck
 - tmux
-- vagrant
 - wget
-- xclip
+- wl-clipboard
 ```
 
 Finally, there are a few other preferences and settings added on for various apps and services.

@@ -48,7 +48,7 @@ in
           };
           push.autoSetupRemote = true;
           pull.rebase = true;
-          
+
         };
         includes = lib.optionals sysConf.git.createWorkspaces (
           map (ws: {
