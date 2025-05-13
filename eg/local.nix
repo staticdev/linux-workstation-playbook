@@ -145,6 +145,8 @@
       gcf = "git config --list";
       gco = "git checkout";
       gf = "git fetch";
+      gfa = "git fetch --all --prune";
+      gfo = "git fetch origin";
       gfp = "git fpush";
       gl = "git l";
       gp = "git pull";
