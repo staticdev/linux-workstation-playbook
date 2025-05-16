@@ -53,6 +53,7 @@
       ];
     };
     services = {
+      enable = true;
       jellyfin.enable = true;
     };
     systemWidePkgs = with pkgs; [
