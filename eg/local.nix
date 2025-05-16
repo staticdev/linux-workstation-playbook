@@ -52,6 +52,9 @@
         wl-clipboard
       ];
     };
+    services = {
+      jellyfin.enable = true;
+    };
     systemWidePkgs = with pkgs; [
       ansible
       openssl
