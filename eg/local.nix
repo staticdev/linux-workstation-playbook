@@ -1,7 +1,7 @@
 { pkgs, options, ... }:
 
 {
-  environment.sysConf = {
+  homelab = {
     dconf = {
       favoriteApps = [ "brave-browser.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Terminal.desktop" ];
       # gnome extesions require wayland restart
@@ -39,6 +39,7 @@
     };
     mainUser = {
       name = "username";
+      group = "groupname";
       pkgs = with pkgs; [
         brave
         pkgs-unstable.devenv

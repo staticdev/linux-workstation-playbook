@@ -1,7 +1,7 @@
 { config, stateVersion, ... }:
 
 let
-  sysConf = config.environment.sysConf;
+  homelab = config.homelab;
 in
 {
   system = {
@@ -12,7 +12,7 @@ in
     sharedModules = [ (import ./home.nix) ];
     extraSpecialArgs = {
       inherit stateVersion;
-      inherit sysConf;
+      inherit homelab;
     };
   };
 }

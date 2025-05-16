@@ -3,7 +3,7 @@
 let
   inherit (lib) mkOption types;
 in {
-  options.environment.sysConf = {
+  options.homelab = {
     dconf = mkOption {
       type = with types; submodule {
         options = {
@@ -166,6 +166,7 @@ in {
       type = with types; attrsOf (oneOf [str (listOf package)]);
       default = {
         name = "rick";
+        group = "rick";
         pkgs = with pkgs; [
           git
           thefuck

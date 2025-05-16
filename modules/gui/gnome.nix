@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 
 let
-  sysConf = config.environment.sysConf;
+  homelab = config.homelab;
 in
 {
   # Configure graphical interfaces
@@ -36,8 +36,8 @@ in
     enableDefaultPackages = true;
   };
 
-  # Add variables for C-Cedilha if on sysConf
-  environment.variables = lib.mkIf sysConf.keyboardCCedilla {
+  # Add variables for C-Cedilha if on homelab
+  environment.variables = lib.mkIf homelab.keyboardCCedilla {
     GTK_IM_MODULE = "cedilla";
     QT_IM_MODULE = "cedilla";
   };

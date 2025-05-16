@@ -1,31 +1,31 @@
 { config, lib, pkgs, ... }:
 
 let
-  sysConf = config.environment.sysConf;
+  homelab = config.homelab;
 in
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."${sysConf.mainUser.name}" = {
+  users.users."${homelab.mainUser.name}" = {
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [
       "docker" # Run docker without ‘sudo’
       "wheel" # Enable ‘sudo’ for the user.
     ];
-    packages = config.environment.sysConf.mainUser.pkgs;
+    packages = config.homelab.mainUser.pkgs;
   };
 
   home-manager.users = {
-    "${sysConf.mainUser.name}" = { ... }:
+    "${homelab.mainUser.name}" = { ... }:
     {
       home = {
-        username = sysConf.mainUser.name;
-        homeDirectory = "/home/${sysConf.mainUser.name}";
+        username = homelab.mainUser.name;
+        homeDirectory = "/home/${homelab.mainUser.name}";
       };
 
       programs.git = {
-        userName = config.environment.sysConf.git.userName;
-        userEmail = config.environment.sysConf.git.email;
+        userName = config.homelab.git.userName;
+        userEmail = config.homelab.git.email;
         extraConfig = {
           credential.helper = "cache --timeout=36000";
           core = {
@@ -33,7 +33,7 @@ in
             autocrlf = "input";
           };
           color.ui = "always";
-          init.defaultBranch = config.environment.sysConf.git.defaultBranch;
+          init.defaultBranch = config.homelab.git.defaultBranch;
           alias = {
             c = "commit";
             ca = "commit -a";
@@ -50,15 +50,15 @@ in
           pull.rebase = true;
 
         };
-        includes = lib.optionals sysConf.git.createWorkspaces (
+        includes = lib.optionals homelab.git.createWorkspaces (
           map (ws: {
             condition = "gitdir:~/${ws.folderName}/";
             path = "~/${ws.folderName}/.gitconfig";
-          }) sysConf.git.workspaces
+          }) homelab.git.workspaces
         );
       };
 
-      home.file = lib.mkIf sysConf.git.createWorkspaces (
+      home.file = lib.mkIf homelab.git.createWorkspaces (
         lib.listToAttrs (map (ws:
           {
             name = "${ws.folderName}/.gitconfig";
@@ -69,7 +69,7 @@ in
                   name = ${ws.userName}
               '';
             };
-          }) sysConf.git.workspaces)
+          }) homelab.git.workspaces)
       );
     };
   };

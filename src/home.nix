@@ -1,8 +1,8 @@
-{ lib, pkgs, stateVersion, sysConf, ... }:
+{ lib, pkgs, stateVersion, homelab, ... }:
 
 # here we have system-wide configuration - for user configurations see: src/users.nix
 {
-  imports = [ (import ./dconf.nix { inherit lib sysConf; }) ];
+  imports = [ (import ./dconf.nix { inherit lib homelab; }) ];
 
   home = {
     stateVersion = stateVersion;
