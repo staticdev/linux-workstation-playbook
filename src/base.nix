@@ -5,7 +5,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  sysConf = config.environment.sysConf;
+  homelab = config.homelab;
 in
 {
   imports = [
@@ -27,7 +27,7 @@ in
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = config.environment.sysConf.timeZone;
+  time.timeZone = config.homelab.timeZone;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -46,7 +46,7 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = sysConf.systemWidePkgs;
+  environment.systemPackages = homelab.systemWidePkgs;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

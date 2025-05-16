@@ -61,8 +61,8 @@ in
     ];
     services.${service} = {
       enable = true;
-      user = homelab.user;
-      group = homelab.group;
+      user = homelab.mainUser.name;
+      group = homelab.mainUser.group;
     };
     services.caddy.virtualHosts."${cfg.url}" = {
       useACMEHost = homelab.baseDomain;

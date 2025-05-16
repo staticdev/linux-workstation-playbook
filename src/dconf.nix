@@ -1,7 +1,7 @@
-{ lib, sysConf, ... }:
+{ lib, homelab, ... }:
 
 {
-  home.packages = sysConf.dconf.gnomeExtensions;
+  home.packages = homelab.dconf.gnomeExtensions;
   dconf.settings = lib.mkMerge [
     {
       "org/gnome/shell" = lib.mkMerge [
@@ -9,16 +9,16 @@
         {
 
           disable-user-extensions = false;
-          enabled-extensions = lib.lists.forEach sysConf.dconf.gnomeExtensions (e: e.extensionUuid);
+          enabled-extensions = lib.lists.forEach homelab.dconf.gnomeExtensions (e: e.extensionUuid);
         }
         # Favorite apps for Dash
-        (lib.mkIf (sysConf.dconf.favoriteApps != [ ]) {
-          favorite-apps = sysConf.dconf.favoriteApps;
+        (lib.mkIf (homelab.dconf.favoriteApps != [ ]) {
+          favorite-apps = homelab.dconf.favoriteApps;
         })
       ];
     }
     # Guake keybinding
-    (lib.mkIf (sysConf.dconf.guakeHotkey != null) {
+    (lib.mkIf (homelab.dconf.guakeHotkey != null) {
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/" ];
       };
@@ -26,12 +26,12 @@
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake" = {
         name = "Guake";
         command = "/usr/bin/guake-toggle";
-        binding = sysConf.dconf.guakeHotkey;
+        binding = homelab.dconf.guakeHotkey;
       };
     })
     # Hot corners
     {
-      "org/gnome/desktop/interface".enable-hot-corners = sysConf.dconf.hotCorners;
+      "org/gnome/desktop/interface".enable-hot-corners = homelab.dconf.hotCorners;
     }
     # Keyboard layout
     {
@@ -40,14 +40,14 @@
         lib.hm.gvariant.mkTuple [
           "xkb" (k.layout + (if k.variant != null then "+" + k.variant else ""))
           ]
-        ) sysConf.dconf.keyboardLayout;
+        ) homelab.dconf.keyboardLayout;
     }
     # Show lock-screen notifications
     {
-      "org/gnome/desktop/notifications".show-in-lock-screen = sysConf.dconf.lockScreenNotifications;
+      "org/gnome/desktop/notifications".show-in-lock-screen = homelab.dconf.lockScreenNotifications;
     }
     # Night light
-    (lib.mkIf sysConf.dconf.nightLight {
+    (lib.mkIf homelab.dconf.nightLight {
       "org/gnome/settings-daemon/plugins/color" = {
         night-light-enabled = true;
         night-light-temperature = 2700;
