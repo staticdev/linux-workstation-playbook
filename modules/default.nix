@@ -195,6 +195,6 @@ in {
   config = { };
 
   imports = [
-    ./services.nix
+    ./services
   ];
 }
