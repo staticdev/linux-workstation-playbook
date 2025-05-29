@@ -30,8 +30,7 @@ in
 
   fonts = {
     packages = with pkgs; [
-      nerdfonts
-      (nerdfonts.override { fonts = [ "Noto" ]; })
+      nerd-fonts.noto
     ];
     enableDefaultPackages = true;
   };

@@ -145,15 +145,15 @@
       ngc = "nix store gc";
       # git aliases inspired on https://kapeli.com/cheat_sheets/Oh-My-Zsh_Git.docset/Contents/Resources/Documents/index
       ga = "git add";
-      gac = "git acommit";
-      gc = "git cm";
+      gac = "git commit --amend --no-edit --all";
+      gc = "git commit -m";
       gcf = "git config --list";
       gco = "git checkout";
       gf = "git fetch";
       gfa = "git fetch --all --prune";
       gfo = "git fetch origin";
-      gfp = "git fpush";
-      gl = "git l";
+      gfp = "git push --force-with-lease";
+      gl = ''git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'';
       gp = "git pull";
       gr = "git reset";
       grb = "git rebase";
