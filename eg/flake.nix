@@ -7,18 +7,20 @@
 
   outputs =
     { cfg, ... }:
+    let
+      mkHost =
+        host: systemType:
+        systemType {
+          hostName = host;
+          modules = [
+            ./hardware-configuration.nix
+            ./local.nix
+          ];
+        };
+    in
     {
-      nixosConfigurations = {
-        nixos = cfg.inputs.nixpkgs.lib.nixosSystem (
-          cfg.systemTypes.x86_64 {
-            # replace the hostname here
-            hostName = "nixos";
-            modules = cfg.optionalLocalModules [
-              ./hardware-configuration.nix
-              ./local.nix
-            ];
-          }
-        );
+      nixosConfigurations = builtins.mapAttrs mkHost {
+        nixos = cfg.systemTypes.x86_64;
       };
     };
 }

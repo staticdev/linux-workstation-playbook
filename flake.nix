@@ -13,37 +13,48 @@
   };
 
   outputs =
-  { self, ... }@inputs:
-  let
-    stateVersion = "25.05";
-  in
-  {
-    optionalLocalModules =
-      nix_paths:
-      builtins.concatLists (
-        inputs.nixpkgs.lib.lists.forEach nix_paths (
-          path: inputs.nixpkgs.lib.optional (builtins.pathExists path) (import path)
-        )
-      );
-    systemTypes = {
-      x86_64 = prop: {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-          stateVersion = stateVersion;
-          hostName = prop.hostName;
-        };
-        modules = [
-          inputs.home-manager.nixosModules.home-manager
-          inputs.nixvim.nixosModules.nixvim
-          (import "${self}/pkgs/overlays.nix" { inherit inputs; })
-          (import "${self}/modules")
-          (import "${self}/src")
-          (import "${self}/src/base.nix")
-          (import "${self}/modules/gui")
-        ]
-        ++ prop.modules;
+    { self, ... }@inputs:
+    with inputs;
+    let
+      stateVersion = "25.05";
+
+      # Modules
+      defaultModules = [
+        home-manager.nixosModules.home-manager
+        nixvim.nixosModules.nixvim
+        (import "${self}/pkgs/overlays.nix" inputs)
+        (import "${self}/modules")
+        (import "${self}/src")
+        (import "${self}/src/base.nix")
+        (import "${self}/modules/gui")
+      ];
+      optionalLocalModules =
+        nix_paths:
+        builtins.concatLists (
+          inputs.nixpkgs.lib.lists.forEach nix_paths (
+            path: inputs.nixpkgs.lib.optional (builtins.pathExists path) (import path)
+          )
+        );
+    in
+    {
+      systemArch = {
+        amd = "x86_64-linux";
+      };
+      systemTypes = {
+        x86_64 =
+          attrs:
+          nixpkgs.lib.nixosSystem {
+            system = self.systemArch.amd;
+            specialArgs = {
+              inherit stateVersion;
+              inherit (attrs) hostName;
+            };
+            modules = [
+              (import "${self}/machines/nixos.nix")
+            ]
+            ++ defaultModules
+            ++ optionalLocalModules attrs.modules;
+          };
       };
     };
-  };
 }
