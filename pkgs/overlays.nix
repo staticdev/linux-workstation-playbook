@@ -1,13 +1,13 @@
-{ inputs, ... }:
+{ nixpkgs, nixpkgs-unstable, ... }:
 let
   pkgs-unstable = _: prev: {
-    pkgs-unstable = import (inputs.nixpkgs-unstable) {
+    pkgs-unstable = import nixpkgs-unstable {
       inherit (prev.stdenv) system;
     };
   };
 in
 {
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
   nixpkgs = {
     overlays = [
       pkgs-unstable

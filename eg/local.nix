@@ -1,6 +1,10 @@
-{ pkgs, options, ... }:
+{ lib, pkgs, options, ... }:
 
 {
+  fileSystems."/" = lib.mkForce {
+    device = "none";
+  };
+
   homelab = {
     dconf = {
       favoriteApps = [ "brave-browser.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Terminal.desktop" ];
