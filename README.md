@@ -13,7 +13,7 @@
 - Browsers: [Brave] and [Mullvad Browser] (via Nix).
 - Containers and virtualization: [Docker], [Podman] and [libvirtd].
 - Your favorite programs via [Nixpkgs].
-- Configurations: dotfiles, zsh (via Nix), Guake terminal, [Gnome] (and extensions), [Git], ssh, keyboard...
+- Configurations: dotfiles, [tmux] and zsh (via Nix), Guake terminal, [Gnome] (and extensions), [Git], ssh, keyboard...
 
 Note: this is an opinionated setup I personally use for software development on [NixOS](https://nixos.org). You can customize all the changes following instructions in [Overriding Defaults](#overriding-defaults).
 
@@ -63,13 +63,13 @@ It installs packages with [Nix] package manager:
 
 Finally, there are a few other preferences and settings added on for various apps and services.
 
+Dotfiles for [tmux] and [zsh] are already configured in specific modules.
+
 ### Overriding Defaults
 
 Not everyone's workstation and preferred software configuration is the same.
 
 You can override any of the defaults configured in **default.config.yml** by creating a **config.yml** file and setting the overrides in that file.
-
-To have you own dotfiles, just fork the [dotfiles eg. repo] and change the url of `dotfiles_repo` or just change `configure_dotfiles` to false if you do not want it.
 
 For [Nix] packages, update your [Home Manager] config on your dotfiles repo.
 
@@ -111,7 +111,6 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [contributor guide]: https://github.com/staticdev/linux-workstation-playbook/blob/main/CONTRIBUTING.md
 [debian]: https://www.debian.org/
 [docker]: https://www.docker.com/
-[dotfiles eg. repo]: https://github.com/staticdev/dotfiles-eg
 [download]: https://github.com/staticdev/linux-workstation-playbook/archive/refs/heads/main.zip
 [file an issue]: https://github.com/staticdev/linux-workstation-playbook/issues
 [git]: https://git-scm.com/
@@ -128,4 +127,6 @@ This project was inspired by [@geerlingguy]'s [Mac Development Ansible Playbook]
 [nixvim]: https://github.com/nix-community/nixvim
 [pep-668]: https://peps.python.org/pep-0668/
 [podman]: https://podman.io/
+[tmux]: https://github.com/tmux/tmux
 [vscodium]: https://vscodium.com/
+[zsh]: https://www.zsh.org/
