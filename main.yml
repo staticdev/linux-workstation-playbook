@@ -19,10 +19,6 @@
       ansible.builtin.command: killall -SIGQUIT gnome-shell
       changed_when: true
 
-  roles:
-    - role: geerlingguy.dotfiles
-      when: configure_dotfiles
-
   tasks:
     - name: Create SSH key
       ansible.builtin.include_tasks: tasks/ssh.yml

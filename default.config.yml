@@ -1,12 +1,4 @@
 ---
-# Dotfiles (requires git enabled on nixpkgs)
-configure_dotfiles: true
-dotfiles_repo: "https://github.com/staticdev/dotfiles-eg.git"
-dotfiles_repo_version: main
-dotfiles_files:
-  - .tmux.conf
-  - .zshrc
-
 # SSH config
 configure_ssh: true
 ssh_key_type: ed25519  # you can also choose between: dsa, ecdsa and ed25519

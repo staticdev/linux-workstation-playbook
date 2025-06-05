@@ -197,5 +197,6 @@ in {
 
   imports = [
     ./services
+    ./tmux.nix
   ];
 }
