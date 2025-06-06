@@ -45,9 +45,29 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
+
       - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Dynamically update flake input URL
+        run: |
+          # For pull requests, GITHUB_HEAD_REF is the source branch name.
+          # For direct pushes, we fall back to GITHUB_REF_NAME.
+          BRANCH_NAME=${{ github.head_ref || github.ref_name }}
+          echo "CI is running on branch: $BRANCH_NAME"
+
+          FLAKE_FILE="eg/flake.nix"
+          BASE_URL="github:staticdev/linux-workstation-playbook"
+
+          # Use sed to find the base URL and append the branch name.
+          # Using `|` as the delimiter avoids issues with slashes in the URL.
+          sed -i "s|url = \"${BASE_URL}\";|url = \"${BASE_URL}/${BRANCH_NAME}\";|" "$FLAKE_FILE"
+
+          echo "--- Modified flake.nix for CI ---"
+          cat "$FLAKE_FILE"
+          echo "---------------------------------"
+
       - name: Check Eg. Flake
         run: |
           cd eg
