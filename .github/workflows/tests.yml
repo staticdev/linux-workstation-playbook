@@ -52,21 +52,36 @@ jobs:
 
       - name: Dynamically update flake input URL
         run: |
-          # For pull requests, GITHUB_HEAD_REF is the source branch name.
-          # For direct pushes, we fall back to GITHUB_REF_NAME.
-          BRANCH_NAME=${{ github.head_ref || github.ref_name }}
-          echo "CI is running on branch: $BRANCH_NAME"
+          # Replace with your repository details
+          DEFAULT_URL="github:staticdev/linux-workstation-playbook"
+          FLAKE_FOLDER="eg"
 
-          FLAKE_FILE="eg/flake.nix"
-          BASE_URL="github:staticdev/linux-workstation-playbook"
+          FLAKE_FILE="${FLAKE_FOLDER}/flake.nix"
 
-          # Use sed to find the base URL and append the branch name.
-          # Using `|` as the delimiter avoids issues with slashes in the URL.
-          sed -i "s|url = \"${BASE_URL}\";|url = \"${BASE_URL}/${BRANCH_NAME}\";|" "$FLAKE_FILE"
+          # Default to the current repo and branch (for pushes)
+          REPO_SLUG="${{ github.repository }}"
+          BRANCH_NAME="${{ github.ref_name }}"
 
-          echo "--- Modified flake.nix for CI ---"
+          # If the trigger is a pull request, use its specific context
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "Pull request event detected. Using PR head context."
+            REPO_SLUG="${{ github.event.pull_request.head.repo.full_name }}"
+            BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          fi
+
+          # The final URL points to the correct repository and branch
+          FINAL_URL="github:${REPO_SLUG}/${BRANCH_NAME}"
+
+          echo "Source Repository: ${REPO_SLUG}"
+          echo "Source Branch:     ${BRANCH_NAME}"
+          echo "Final Flake URL:   ${FINAL_URL}"
+
+          # Replace the default URL with the dynamically constructed one
+          sed -i "s|${DEFAULT_URL}|${FINAL_URL}|" "$FLAKE_FILE"
+
+          echo "--- Verifying ${FLAKE_FILE} modification --"
           cat "$FLAKE_FILE"
-          echo "---------------------------------"
+          echo "-------------------------------------------"
 
       - name: Check Eg. Flake
         run: |
