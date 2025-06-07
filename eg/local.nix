@@ -1,9 +1,11 @@
 { lib, pkgs, options, ... }:
 
 {
+  # DO NOT ADD THIS PART - ONLY FOR TESTING
   fileSystems."/" = lib.mkForce {
     device = "none";
   };
+  # END - DO NOT ADD THIS PART - ONLY FOR TESTING
 
   homelab = {
     dconf = {

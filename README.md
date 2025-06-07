@@ -25,6 +25,7 @@ Note: this is an opinionated setup I personally use for software development on 
 ## Installation
 
 1. Create a `local.nix` file from [eg folder](eg/local.nix) and change:
+  - remove the first part that has some comments to "do not add".
   - git variables.
   - main Linux username.
   - timezone.
