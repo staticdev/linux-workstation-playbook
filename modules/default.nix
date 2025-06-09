@@ -196,6 +196,7 @@ in {
   config = { };
 
   imports = [
+    ./nfs
     ./services
     ./tmux.nix
   ];
