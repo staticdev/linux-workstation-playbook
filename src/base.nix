@@ -85,6 +85,7 @@ in
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 8096 ]; # Jellyfin
+    checkReversePath = "loose"; # Fix VPN issue
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
