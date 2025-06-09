@@ -59,6 +59,18 @@
         wl-clipboard
       ];
     };
+    nfs = {
+      enable = true;
+      mounts = {
+        media = {
+          remoteHost = "nas.internal";
+          remotePath = "/srv/media";
+          localPath = "/mnt/media";
+          options = "rsize=8192,wsize=8192,hard,intr";
+          fsType = "nfs";
+        };
+      };
+    };
     services = {
       enable = true;
       jellyfin.enable = true;

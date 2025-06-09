@@ -64,6 +64,7 @@ in
       user = homelab.mainUser.name;
       group = homelab.mainUser.group;
     };
+
     services.caddy.virtualHosts."${cfg.url}" = {
       useACMEHost = homelab.baseDomain;
       extraConfig = ''
