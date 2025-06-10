@@ -3,6 +3,7 @@
   options.homelab.services = {
     enable = lib.mkEnableOption "Settings and services for the homelab";
   };
+
   imports = [
     ./arr/prowlarr
     ./arr/bazarr
