@@ -5,9 +5,9 @@
   ...
 }:
 let
-  hl = config.homelab;
-  cfg = hl.services.deluge;
-  ns = hl.services.wireguard-netns.namespace;
+  homelab = config.homelab;
+  cfg = homelab.services.deluge;
+  ns = homelab.services.wireguard-netns.namespace;
 in
 {
   options.homelab.services.deluge = {
@@ -18,7 +18,7 @@ in
     };
     url = lib.mkOption {
       type = lib.types.str;
-      default = "deluge.${hl.baseDomain}";
+      default = "deluge.${homelab.baseDomain}";
     };
     homepage.name = lib.mkOption {
       type = lib.types.str;
@@ -40,21 +40,21 @@ in
   config = lib.mkIf cfg.enable {
     services.deluge = {
       enable = true;
-      user = hl.user;
-      group = hl.group;
+      user = homelab.mainUser.name;
+      group = homelab.mainUser.group;
       web = {
         enable = true;
       };
     };
 
     services.caddy.virtualHosts."${cfg.url}" = {
-      useACMEHost = hl.baseDomain;
+      useACMEHost = homelab.baseDomain;
       extraConfig = ''
         reverse_proxy http://127.0.0.1:8112
       '';
     };
 
-    systemd = lib.mkIf hl.services.wireguard-netns.enable {
+    systemd = lib.mkIf homelab.services.wireguard-netns.enable {
       services.deluged.bindsTo = [ "netns@${ns}.service" ];
       services.deluged.requires = [
         "network-online.target"
